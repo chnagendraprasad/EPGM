@@ -1,0 +1,1117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+    <FunctionImportMapping FunctionImportName="SpGetBenes" FunctionName="DBModel.Store.SpGetBenes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetBenes_Result">
+          <ScalarProperty Name="BeneID" ColumnName="BeneID" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="BeneCategory" ColumnName="BeneCategory" />
+          <ScalarProperty Name="BeneType" ColumnName="BeneType" />
+          <ScalarProperty Name="LatestWeight" ColumnName="LatestWeight" />
+          <ScalarProperty Name="LatestHeight" ColumnName="LatestHeight" />
+          <ScalarProperty Name="WeightToAdd" ColumnName="WeightToAdd" />
+          <ScalarProperty Name="LatestBMI" ColumnName="LatestBMI" />
+          <ScalarProperty Name="LatestGrade" ColumnName="LatestGrade" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetDistDetails" FunctionName="DBModel.Store.SpGetDistDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetDistDetails_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectsCount" ColumnName="ProjectsCount" />
+          <ScalarProperty Name="SectorsCount" ColumnName="SectorsCount" />
+          <ScalarProperty Name="AWCCount" ColumnName="AWCCount" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetSectorDetails" FunctionName="DBModel.Store.SpGetSectorDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetSectorDetails_Result">
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="AWCCount" ColumnName="AWCCount" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetAWW" FunctionName="DBModel.Store.SpGetAWW" />
+    <FunctionImportMapping FunctionImportName="SpGetDistrict" FunctionName="DBModel.Store.SpGetDistrict">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetDistrict_Result">
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="PDName" ColumnName="PDName" />
+          <ScalarProperty Name="PDMobile" ColumnName="PDMobile" />
+          <ScalarProperty Name="PDAddress" ColumnName="PDAddress" />
+          <ScalarProperty Name="PDEmail" ColumnName="PDEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMDistDetails" FunctionName="DBModel.Store.SpGetEPGMDistDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMDistDetails_Result">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="LatestGrade" ColumnName="LatestGrade" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CheckValidUser" FunctionName="DBModel.Store.CheckValidUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.CheckValidUser_Result">
+          <ScalarProperty Name="PortalUserID" ColumnName="PortalUserID" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetUserRoles" FunctionName="DBModel.Store.SpGetUserRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetUserRoles_Result">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpRegisterUser" FunctionName="DBModel.Store.SpRegisterUser" />
+    <FunctionImportMapping FunctionImportName="SpGetCounts" FunctionName="DBModel.Store.SpGetCounts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetCounts_Result">
+          <ScalarProperty Name="Dists" ColumnName="Dists" />
+          <ScalarProperty Name="Projs" ColumnName="Projs" />
+          <ScalarProperty Name="Sectors" ColumnName="Sectors" />
+          <ScalarProperty Name="AWCs" ColumnName="AWCs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetUpdatedBeneInfo" FunctionName="DBModel.Store.SpGetUpdatedBeneInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetUpdatedBeneInfo_Result">
+          <ScalarProperty Name="BeneID" ColumnName="BeneID" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+          <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+          <ScalarProperty Name="BeneClass" ColumnName="BeneClass" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="BeneType" ColumnName="BeneType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LatestWeight" ColumnName="LatestWeight" />
+          <ScalarProperty Name="LatestHeight" ColumnName="LatestHeight" />
+          <ScalarProperty Name="LatestBMI" ColumnName="LatestBMI" />
+          <ScalarProperty Name="WeightToAdd" ColumnName="WeightToAdd" />
+          <ScalarProperty Name="LatestGrade" ColumnName="LatestGrade" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_S_CATEGORY" FunctionName="DBModel.Store.USP_S_CATEGORY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.USP_S_CATEGORY_Result">
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdateEPGMStatus" FunctionName="DBModel.Store.SpUpdateEPGMStatus" />
+    <FunctionImportMapping FunctionImportName="SpUpdateSmartAttendanceStatus" FunctionName="DBModel.Store.SpUpdateSmartAttendanceStatus" />
+    <EntitySetMapping Name="VWGetProjects">
+      <EntityTypeMapping TypeName="DBModel.VWGetProject">
+        <MappingFragment StoreEntitySet="VWGetProject">
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VWGetSectors">
+      <EntityTypeMapping TypeName="DBModel.VWGetSector">
+        <MappingFragment StoreEntitySet="VWGetSector">
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblDistricts">
+      <EntityTypeMapping TypeName="DBModel.TblDistrict">
+        <MappingFragment StoreEntitySet="TblDistrict">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PDEmail" ColumnName="PDEmail" />
+          <ScalarProperty Name="PDAddress" ColumnName="PDAddress" />
+          <ScalarProperty Name="PDMobile" ColumnName="PDMobile" />
+          <ScalarProperty Name="PDName" ColumnName="PDName" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProjects">
+      <EntityTypeMapping TypeName="DBModel.TblProject">
+        <MappingFragment StoreEntitySet="TblProject">
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CDPOEmail" ColumnName="CDPOEmail" />
+          <ScalarProperty Name="CDPOAddress" ColumnName="CDPOAddress" />
+          <ScalarProperty Name="CDPOMobile" ColumnName="CDPOMobile" />
+          <ScalarProperty Name="CDPOName" ColumnName="CDPOName" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSectors">
+      <EntityTypeMapping TypeName="DBModel.TblSector">
+        <MappingFragment StoreEntitySet="TblSector">
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SupEmail" ColumnName="SupEmail" />
+          <ScalarProperty Name="SupAddress" ColumnName="SupAddress" />
+          <ScalarProperty Name="SupMobile" ColumnName="SupMobile" />
+          <ScalarProperty Name="SupName" ColumnName="SupName" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SpGetStates" FunctionName="DBModel.Store.SpGetStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetStates_Result">
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpCheckUser" FunctionName="DBModel.Store.SpCheckUser" />
+    <FunctionImportMapping FunctionImportName="SpGetRoles" FunctionName="DBModel.Store.SpGetRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetRoles_Result">
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPChangePassword" FunctionName="DBModel.Store.SPChangePassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPChangePassword_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_I_BENEFICIARY" FunctionName="DBModel.Store.USP_I_BENEFICIARY" />
+    <FunctionImportMapping FunctionImportName="SPGetUserMail" FunctionName="DBModel.Store.SPGetUserMail" />
+    <FunctionImportMapping FunctionImportName="SPUpdatePassword" FunctionName="DBModel.Store.SPUpdatePassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdatePassword_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPCreateAWC" FunctionName="DBModel.Store.SPCreateAWC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPCreateAWC_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateDistrict" FunctionName="DBModel.Store.SPUpdateDistrict">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateDistrict_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMDashboardCount" FunctionName="DBModel.Store.SpGetEPGMDashboardCount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMDashboardCount_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectsCount" ColumnName="ProjectsCount" />
+          <ScalarProperty Name="SectorsCount" ColumnName="SectorsCount" />
+          <ScalarProperty Name="AWCCount" ColumnName="AWCCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="MenuMasters">
+      <EntityTypeMapping TypeName="DBModel.MenuMaster">
+        <MappingFragment StoreEntitySet="MenuMaster">
+          <ScalarProperty Name="ParentIcon" ColumnName="ParentIcon" />
+          <ScalarProperty Name="ColGlyphicon" ColumnName="ColGlyphicon" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SPBindMenuByUserType" FunctionName="DBModel.Store.SPBindMenuByUserType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPBindMenuByUserType_Result">
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ParentIcon" ColumnName="ParentIcon" />
+          <ScalarProperty Name="ColGlyphicon" ColumnName="ColGlyphicon" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPGETUserRights" FunctionName="DBModel.Store.SPGETUserRights">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGETUserRights_Result">
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPStateSpecificData" FunctionName="DBModel.Store.SPStateSpecificData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPStateSpecificData_Result">
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateLogo" ColumnName="StateLogo" />
+          <ScalarProperty Name="MainLogo" ColumnName="MainLogo" />
+          <ScalarProperty Name="CMImageURL" ColumnName="CMImageURL" />
+          <ScalarProperty Name="MinisterImageURL" ColumnName="MinisterImageURL" />
+          <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
+          <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TblAWCs">
+      <EntityTypeMapping TypeName="DBModel.TblAWC">
+        <MappingFragment StoreEntitySet="TblAWC">
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+          <ScalarProperty Name="FieldForceStaffCreatedDate" ColumnName="FieldForceStaffCreatedDate" />
+          <ScalarProperty Name="FieldForceStaffID" ColumnName="FieldForceStaffID" />
+          <ScalarProperty Name="AttendanceEnable" ColumnName="AttendanceEnable" />
+          <ScalarProperty Name="HierarchyActivatedDate" ColumnName="HierarchyActivatedDate" />
+          <ScalarProperty Name="IsHierarchyActived" ColumnName="IsHierarchyActived" />
+          <ScalarProperty Name="HierarchyCreatedDate" ColumnName="HierarchyCreatedDate" />
+          <ScalarProperty Name="IsHierarchyCreated" ColumnName="IsHierarchyCreated" />
+          <ScalarProperty Name="AWCImageCreatedTime" ColumnName="AWCImageCreatedTime" />
+          <ScalarProperty Name="AWCImageCreatedDate" ColumnName="AWCImageCreatedDate" />
+          <ScalarProperty Name="AWCImagePath" ColumnName="AWCImagePath" />
+          <ScalarProperty Name="AWCImageInBytes" ColumnName="AWCImageInBytes" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Langitude" ColumnName="Langitude" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="GPCode" ColumnName="GPCode" />
+          <ScalarProperty Name="MandalCode" ColumnName="MandalCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="InchargeAWWCode" ColumnName="InchargeAWWCode" />
+          <ScalarProperty Name="AWWType" ColumnName="AWWType" />
+          <ScalarProperty Name="AWWMobile" ColumnName="AWWMobile" />
+          <ScalarProperty Name="AWWName" ColumnName="AWWName" />
+          <ScalarProperty Name="AWWCode" ColumnName="AWWCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="AWCType" ColumnName="AWCType" />
+          <ScalarProperty Name="AWCName" ColumnName="AWCName" />
+          <ScalarProperty Name="AWCDeptCode" ColumnName="AWCDeptCode" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="AWCID" ColumnName="AWCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdatePersonFaceCreated" FunctionName="DBModel.Store.SpUpdatePersonFaceCreated" />
+    <FunctionImportMapping FunctionImportName="SpUpdateHierarchyTrainStatus" FunctionName="DBModel.Store.SpUpdateHierarchyTrainStatus" />
+    <FunctionImportMapping FunctionImportName="SpUpdatePersonDeleted" FunctionName="DBModel.Store.SpUpdatePersonDeleted" />
+    <FunctionImportMapping FunctionImportName="SpUpdatePersonFaceDeleted" FunctionName="DBModel.Store.SpUpdatePersonFaceDeleted" />
+    <FunctionImportMapping FunctionImportName="SPCreateBeneWeightHeightDetails" FunctionName="DBModel.Store.SPCreateBeneWeightHeightDetails" />
+    <FunctionImportMapping FunctionImportName="SPGetBeneType" FunctionName="DBModel.Store.SPGetBeneType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetBeneType_Result">
+          <ScalarProperty Name="BeneTypeID" ColumnName="BeneTypeID" />
+          <ScalarProperty Name="BeneTypeCode" ColumnName="BeneTypeCode" />
+          <ScalarProperty Name="BeneType" ColumnName="BeneType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ChildGrowthCalculator" FunctionName="DBModel.Store.ChildGrowthCalculator">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.ChildGrowthCalculator_Result">
+          <ScalarProperty Name="AgeInMonths" ColumnName="AgeInMonths" />
+          <ScalarProperty Name="HeightAgeGradeName" ColumnName="HeightAgeGradeName" />
+          <ScalarProperty Name="HeightWeightGradeName" ColumnName="HeightWeightGradeName" />
+          <ScalarProperty Name="WeightAgeGradeName" ColumnName="WeightAgeGradeName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetWeightAgeMasterDatabyGender" FunctionName="DBModel.Store.SpGetWeightAgeMasterDatabyGender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetWeightAgeMasterDatabyGender_Result">
+          <ScalarProperty Name="AgeInMonths" ColumnName="AgeInMonths" />
+          <ScalarProperty Name="NormalFrom" ColumnName="NormalFrom" />
+          <ScalarProperty Name="NormalTo" ColumnName="NormalTo" />
+          <ScalarProperty Name="ModerateFrom" ColumnName="ModerateFrom" />
+          <ScalarProperty Name="ModerateTo" ColumnName="ModerateTo" />
+          <ScalarProperty Name="SevereFrom" ColumnName="SevereFrom" />
+          <ScalarProperty Name="SevereTo" ColumnName="SevereTo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetHeightAgeMasterDatabyGender" FunctionName="DBModel.Store.SpGetHeightAgeMasterDatabyGender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetHeightAgeMasterDatabyGender_Result">
+          <ScalarProperty Name="AgeinMonths" ColumnName="AgeinMonths" />
+          <ScalarProperty Name="NormalFrom" ColumnName="NormalFrom" />
+          <ScalarProperty Name="NormalTo" ColumnName="NormalTo" />
+          <ScalarProperty Name="MAMFrom" ColumnName="MAMFrom" />
+          <ScalarProperty Name="MAMTo" ColumnName="MAMTo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetHeightWeightMasterDatabyGender" FunctionName="DBModel.Store.SpGetHeightWeightMasterDatabyGender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetHeightWeightMasterDatabyGender_Result">
+          <ScalarProperty Name="HeightInCm" ColumnName="HeightInCm" />
+          <ScalarProperty Name="NormalFrom" ColumnName="NormalFrom" />
+          <ScalarProperty Name="NormalTo" ColumnName="NormalTo" />
+          <ScalarProperty Name="MAMFrom" ColumnName="MAMFrom" />
+          <ScalarProperty Name="MAMTo" ColumnName="MAMTo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetDashboardStat" FunctionName="DBModel.Store.SpGetDashboardStat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetDashboardStat_Result">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalCenters" ColumnName="TotalCenters" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+          <ScalarProperty Name="Normal" ColumnName="Normal" />
+          <ScalarProperty Name="Moderate" ColumnName="Moderate" />
+          <ScalarProperty Name="Severe" ColumnName="Severe" />
+          <ScalarProperty Name="HWNormal" ColumnName="HWNormal" />
+          <ScalarProperty Name="HWModerate" ColumnName="HWModerate" />
+          <ScalarProperty Name="HWSevere" ColumnName="HWSevere" />
+          <ScalarProperty Name="HANormal" ColumnName="HANormal" />
+          <ScalarProperty Name="HAModerate" ColumnName="HAModerate" />
+          <ScalarProperty Name="HASevere" ColumnName="HASevere" />
+          <ScalarProperty Name="TotalAttendance" ColumnName="TotalAttendance" />
+          <ScalarProperty Name="PregnantWomen" ColumnName="PregnantWomen" />
+          <ScalarProperty Name="LactatingWomen" ColumnName="LactatingWomen" />
+          <ScalarProperty Name="Child0to3" ColumnName="Child0to3" />
+          <ScalarProperty Name="Child3to6" ColumnName="Child3to6" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMBeneficiaries_Portal" FunctionName="DBModel.Store.SpGetEPGMBeneficiaries_Portal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMBeneficiaries_Portal_Result">
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GradeCode" ColumnName="GradeCode" />
+          <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+          <ScalarProperty Name="AgeIntYears" ColumnName="AgeIntYears" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="EnrolledStatus" ColumnName="EnrolledStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetParentMenu" FunctionName="DBModel.Store.GetParentMenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.GetParentMenu_Result">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateUserrightMaster" FunctionName="DBModel.Store.SPUpdateUserrightMaster">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateUserrightMaster_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPADDMENU" FunctionName="DBModel.Store.SPADDMENU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPADDMENU_Result">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPGetMessages" FunctionName="DBModel.Store.SPGetMessages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetMessages_Result">
+          <ScalarProperty Name="msgId" ColumnName="msgId" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="Usertype" ColumnName="Usertype" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ipadd" ColumnName="ipadd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPMessagesData" FunctionName="DBModel.Store.SPMessagesData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPMessagesData_Result">
+          <ScalarProperty Name="msgId" ColumnName="msgId" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="Usertype" ColumnName="Usertype" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteMessage" FunctionName="DBModel.Store.DeleteMessage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.DeleteMessage_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPInsertInstructionMsg" FunctionName="DBModel.Store.SPInsertInstructionMsg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPInsertInstructionMsg_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateInstructionMsg" FunctionName="DBModel.Store.SPUpdateInstructionMsg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateInstructionMsg_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdatePWType" FunctionName="DBModel.Store.SPUpdatePWType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdatePWType_Result">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdateHierarchyDeleted" FunctionName="DBModel.Store.SpUpdateHierarchyDeleted" />
+    <FunctionImportMapping FunctionImportName="SpUpdateHierarchyCreated" FunctionName="DBModel.Store.SpUpdateHierarchyCreated" />
+    <FunctionImportMapping FunctionImportName="SpUpdateBeneHierarchyDeleted" FunctionName="DBModel.Store.SpUpdateBeneHierarchyDeleted" />
+    <FunctionImportMapping FunctionImportName="GetMenus" FunctionName="DBModel.Store.GetMenus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.GetMenus_Result">
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateMenurole" FunctionName="DBModel.Store.UpdateMenurole">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.UpdateMenurole_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAppMenuData" FunctionName="DBModel.Store.GetAppMenuData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.GetAppMenuData_Result">
+          <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+          <ScalarProperty Name="AppMenuID" ColumnName="AppMenuID" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateMenurole_MobileApp" FunctionName="DBModel.Store.UpdateMenurole_MobileApp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.UpdateMenurole_MobileApp_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpCheckUserFieldForce" FunctionName="DBModel.Store.SpCheckUserFieldForce" />
+    <FunctionImportMapping FunctionImportName="SPGetStaffDetailsFF" FunctionName="DBModel.Store.SPGetStaffDetailsFF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetStaffDetailsFF_Result">
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="C_DOB_" ColumnName="[DOB]" />
+          <ScalarProperty Name="C_DOJ_" ColumnName="[DOJ]" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhotoImagePath" ColumnName="PhotoImagePath" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ActivatedOrInActivatedDateTime" ColumnName="ActivatedOrInActivatedDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdateFieldForceStaffForAWC" FunctionName="DBModel.Store.SpUpdateFieldForceStaffForAWC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpUpdateFieldForceStaffForAWC_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpCreateFieldStaff" FunctionName="DBModel.Store.SpCreateFieldStaff" />
+    <FunctionImportMapping FunctionImportName="SPGetStaffFF" FunctionName="DBModel.Store.SPGetStaffFF">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetStaffFF_Result">
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdateStatusOfFieldForce" FunctionName="DBModel.Store.SpUpdateStatusOfFieldForce">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpUpdateStatusOfFieldForce_Result">
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpFieldForceStaffDetails" FunctionName="DBModel.Store.SpFieldForceStaffDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpFieldForceStaffDetails_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="C_DOB_" ColumnName="[DOB]" />
+          <ScalarProperty Name="C_DOJ_" ColumnName="[DOJ]" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhotoImagePath" ColumnName="PhotoImagePath" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ActivatedOrInActivatedDateTime" ColumnName="ActivatedOrInActivatedDateTime" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="RegisteredDateTime" ColumnName="RegisteredDateTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetDashboardStat_Portal" FunctionName="DBModel.Store.SpGetDashboardStat_Portal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetDashboardStat_Portal_Result">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalCenters" ColumnName="TotalCenters" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+          <ScalarProperty Name="Normal" ColumnName="Normal" />
+          <ScalarProperty Name="Moderate" ColumnName="Moderate" />
+          <ScalarProperty Name="Severe" ColumnName="Severe" />
+          <ScalarProperty Name="HWNormal" ColumnName="HWNormal" />
+          <ScalarProperty Name="HWModerate" ColumnName="HWModerate" />
+          <ScalarProperty Name="HWSevere" ColumnName="HWSevere" />
+          <ScalarProperty Name="HANormal" ColumnName="HANormal" />
+          <ScalarProperty Name="HAModerate" ColumnName="HAModerate" />
+          <ScalarProperty Name="HASevere" ColumnName="HASevere" />
+          <ScalarProperty Name="TotalAttendance" ColumnName="TotalAttendance" />
+          <ScalarProperty Name="Children" ColumnName="Children" />
+          <ScalarProperty Name="PregnantWomen" ColumnName="PregnantWomen" />
+          <ScalarProperty Name="LactatingWomen" ColumnName="LactatingWomen" />
+          <ScalarProperty Name="Child0to3" ColumnName="Child0to3" />
+          <ScalarProperty Name="Child3to6" ColumnName="Child3to6" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMBenes" FunctionName="DBModel.Store.SpGetEPGMBenes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMBenes_Result">
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="LatestWeight" ColumnName="LatestWeight" />
+          <ScalarProperty Name="GradeCode" ColumnName="GradeCode" />
+          <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+          <ScalarProperty Name="WeightToAdd" ColumnName="WeightToAdd" />
+          <ScalarProperty Name="LatestHeight" ColumnName="LatestHeight" />
+          <ScalarProperty Name="AgeIntYears" ColumnName="AgeIntYears" />
+          <ScalarProperty Name="LatestBMI" ColumnName="LatestBMI" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="LastWeighedDate" ColumnName="LastWeighedDate" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="EnrolledStatus" ColumnName="EnrolledStatus" />
+          <ScalarProperty Name="AttendanceStatus" ColumnName="AttendanceStatus" />
+          <ScalarProperty Name="AttendanceTimeStamp" ColumnName="AttendanceTimeStamp" />
+          <ScalarProperty Name="AttendanceImageURL" ColumnName="AttendanceImageURL" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="WHTimeStamp" ColumnName="WHTimeStamp" />
+          <ScalarProperty Name="WHImageURL" ColumnName="WHImageURL" />
+          <ScalarProperty Name="WHAddress" ColumnName="WHAddress" />
+          <ScalarProperty Name="IsRegisteredAtAttendance" ColumnName="IsRegisteredAtAttendance" />
+          <ScalarProperty Name="RegisteredAtAttendanceDate" ColumnName="RegisteredAtAttendanceDate" />
+          <ScalarProperty Name="IsEnrolledAtAttendance" ColumnName="IsEnrolledAtAttendance" />
+          <ScalarProperty Name="EnrolledAtAttendanceDate" ColumnName="EnrolledAtAttendanceDate" />
+          <ScalarProperty Name="EnrolledImageURL" ColumnName="EnrolledImageURL" />
+          <ScalarProperty Name="Langitude" ColumnName="Langitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="BenAddress" ColumnName="BenAddress" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersistedFaceID" ColumnName="PersistedFaceID" />
+          <ScalarProperty Name="AadhaarNumber" ColumnName="AadhaarNumber" />
+          <ScalarProperty Name="Father_Husband_Name" ColumnName="Father/Husband Name" />
+          <ScalarProperty Name="HBReading" ColumnName="HBReading" />
+          <ScalarProperty Name="HBGrade" ColumnName="HBGrade" />
+          <ScalarProperty Name="MUReading" ColumnName="MUReading" />
+          <ScalarProperty Name="MUGrade" ColumnName="MUGrade" />
+          <ScalarProperty Name="OXPulseReading" ColumnName="OXPulseReading" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetDistLevelDetails" FunctionName="DBModel.Store.SpGetDistLevelDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetDistLevelDetails_Result">
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="AWCName" ColumnName="AWCName" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Absent" ColumnName="Absent" />
+          <ScalarProperty Name="Normal" ColumnName="Normal" />
+          <ScalarProperty Name="Moderate" ColumnName="Moderate" />
+          <ScalarProperty Name="Severe" ColumnName="Severe" />
+          <ScalarProperty Name="HWNormal" ColumnName="HWNormal" />
+          <ScalarProperty Name="HWModerate" ColumnName="HWModerate" />
+          <ScalarProperty Name="HWSevere" ColumnName="HWSevere" />
+          <ScalarProperty Name="HANormal" ColumnName="HANormal" />
+          <ScalarProperty Name="HAModerate" ColumnName="HAModerate" />
+          <ScalarProperty Name="HASevere" ColumnName="HASevere" />
+          <ScalarProperty Name="TotalAttendance" ColumnName="TotalAttendance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetAWC" FunctionName="DBModel.Store.SpGetAWC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetAWC_Result">
+          <ScalarProperty Name="AWCID" ColumnName="AWCID" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="AWCName" ColumnName="AWCName" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="AWWCode" ColumnName="AWWCode" />
+          <ScalarProperty Name="AWWName" ColumnName="AWWName" />
+          <ScalarProperty Name="AWWMobile" ColumnName="AWWMobile" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetSector" FunctionName="DBModel.Store.SpGetSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetSector_Result">
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SupName" ColumnName="SupName" />
+          <ScalarProperty Name="SupMobile" ColumnName="SupMobile" />
+          <ScalarProperty Name="SupAddress" ColumnName="SupAddress" />
+          <ScalarProperty Name="SupEmail" ColumnName="SupEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateSector" FunctionName="DBModel.Store.SPUpdateSector">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateSector_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMSectorDetails" FunctionName="DBModel.Store.SpGetEPGMSectorDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMSectorDetails_Result">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SectorID" ColumnName="SectorID" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateProject" FunctionName="DBModel.Store.SPUpdateProject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateProject_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMProjectDetails" FunctionName="DBModel.Store.SpGetEPGMProjectDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMProjectDetails_Result">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpInsertLoginUser" FunctionName="DBModel.Store.SpInsertLoginUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpInsertLoginUser_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="TblPortalUsers">
+      <EntityTypeMapping TypeName="DBModel.TblPortalUser">
+        <MappingFragment StoreEntitySet="TblPortalUser">
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="PortalUserID" ColumnName="PortalUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SPGetCentersType" FunctionName="DBModel.Store.SPGetCentersType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetCentersType_Result">
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+          <ScalarProperty Name="CenterTypeCode" ColumnName="CenterTypeCode" />
+          <ScalarProperty Name="CenterType" ColumnName="CenterType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetProjectDetails" FunctionName="DBModel.Store.SpGetProjectDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetProjectDetails_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetProject" FunctionName="DBModel.Store.SpGetProject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetProject_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="CDPOName" ColumnName="CDPOName" />
+          <ScalarProperty Name="CDPOMobile" ColumnName="CDPOMobile" />
+          <ScalarProperty Name="CDPOAddress" ColumnName="CDPOAddress" />
+          <ScalarProperty Name="CDPOEmail" ColumnName="CDPOEmail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPUpdateAWC" FunctionName="DBModel.Store.SPUpdateAWC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPUpdateAWC_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetAWCDetails" FunctionName="DBModel.Store.SpGetAWCDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetAWCDetails_Result">
+          <ScalarProperty Name="Sno" ColumnName="Sno" />
+          <ScalarProperty Name="AWCID" ColumnName="AWCID" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="AWCName" ColumnName="AWCName" />
+          <ScalarProperty Name="AWCType" ColumnName="AWCType" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AWWCode" ColumnName="AWWCode" />
+          <ScalarProperty Name="AWWName" ColumnName="AWWName" />
+          <ScalarProperty Name="AWWMobile" ColumnName="AWWMobile" />
+          <ScalarProperty Name="AWWType" ColumnName="AWWType" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsHierarchyCreated" ColumnName="IsHierarchyCreated" />
+          <ScalarProperty Name="IsHierarchyActived" ColumnName="IsHierarchyActived" />
+          <ScalarProperty Name="AWCImagePath" ColumnName="AWCImagePath" />
+          <ScalarProperty Name="HierarchyCreatedDate" ColumnName="HierarchyCreatedDate" />
+          <ScalarProperty Name="HierarchyActivatedDate" ColumnName="HierarchyActivatedDate" />
+          <ScalarProperty Name="AWCImageCreatedDateTime" ColumnName="AWCImageCreatedDateTime" />
+          <ScalarProperty Name="FieldForceName" ColumnName="FieldForceName" />
+          <ScalarProperty Name="FiledForceStaffCreatedDateTime" ColumnName="FiledForceStaffCreatedDateTime" />
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="FiledForceStaffMobileNo" ColumnName="FiledForceStaffMobileNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="FiledForceStaffEmail" ColumnName="FiledForceStaffEmail" />
+          <ScalarProperty Name="FiledForceStaffAddress" ColumnName="FiledForceStaffAddress" />
+          <ScalarProperty Name="PhotoImagePath" ColumnName="PhotoImagePath" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPGetPWWomenData" FunctionName="DBModel.Store.SPGetPWWomenData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SPGetPWWomenData_Result">
+          <ScalarProperty Name="BeneID" ColumnName="BeneID" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="HusbandName" ColumnName="HusbandName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="BeneType" ColumnName="BeneType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpNewBene" FunctionName="DBModel.Store.SpNewBene" />
+    <FunctionImportMapping FunctionImportName="SpUpdatePersonCreated" FunctionName="DBModel.Store.SpUpdatePersonCreated" />
+    <FunctionImportMapping FunctionImportName="SpGetAllBenesofCenter" FunctionName="DBModel.Store.SpGetAllBenesofCenter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetAllBenesofCenter_Result">
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="AadhaarNumber" ColumnName="AadhaarNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="RegisteredDateTime" ColumnName="RegisteredDateTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpUpdateStatusOfBene" FunctionName="DBModel.Store.SpUpdateStatusOfBene">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpUpdateStatusOfBene_Result">
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMBeneficiaries" FunctionName="DBModel.Store.SpGetEPGMBeneficiaries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMBeneficiaries_Result">
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GradeCode" ColumnName="GradeCode" />
+          <ScalarProperty Name="GradeName" ColumnName="GradeName" />
+          <ScalarProperty Name="AgeIntYears" ColumnName="AgeIntYears" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="EnrolledStatus" ColumnName="EnrolledStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMDistrictDetails" FunctionName="DBModel.Store.SpGetEPGMDistrictDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMDistrictDetails_Result">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictID" ColumnName="DistrictID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetEPGMAWCDetails" FunctionName="DBModel.Store.SpGetEPGMAWCDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetEPGMAWCDetails_Result">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+          <ScalarProperty Name="SectorCode" ColumnName="SectorCode" />
+          <ScalarProperty Name="AWCID" ColumnName="AWCID" />
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="AWCName" ColumnName="AWCName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SpGetAllBeneficiaryDetails" FunctionName="DBModel.Store.SpGetAllBeneficiaryDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.SpGetAllBeneficiaryDetails_Result">
+          <ScalarProperty Name="AWCCode" ColumnName="AWCCode" />
+          <ScalarProperty Name="BeneCode" ColumnName="BeneCode" />
+          <ScalarProperty Name="BeneName" ColumnName="BeneName" />
+          <ScalarProperty Name="BeneSurname" ColumnName="BeneSurname" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="AadhaarType" ColumnName="AadhaarType" />
+          <ScalarProperty Name="AadhaarNumber" ColumnName="AadhaarNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="FatherRationCardNumber" ColumnName="FatherRationCardNumber" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="BeneCategory" ColumnName="BeneCategory" />
+          <ScalarProperty Name="RegisteredDateTime" ColumnName="RegisteredDateTime" />
+          <ScalarProperty Name="ResidentType" ColumnName="ResidentType" />
+          <ScalarProperty Name="IsRegisteredAtAttendance" ColumnName="IsRegisteredAtAttendance" />
+          <ScalarProperty Name="RegisteredAtAttendanceDate" ColumnName="RegisteredAtAttendanceDate" />
+          <ScalarProperty Name="IsEnrolledAtAttendance" ColumnName="IsEnrolledAtAttendance" />
+          <ScalarProperty Name="EnrolledAtAttendanceDate" ColumnName="EnrolledAtAttendanceDate" />
+          <ScalarProperty Name="EnrolledImageURL" ColumnName="EnrolledImageURL" />
+          <ScalarProperty Name="Langitude" ColumnName="Langitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersistedFaceID" ColumnName="PersistedFaceID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_Update_BENEFICIARY" FunctionName="DBModel.Store.USP_Update_BENEFICIARY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DBModel.USP_Update_BENEFICIARY_Result">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

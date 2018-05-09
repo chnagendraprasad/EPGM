@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Header";
+    Layout = null;
+}
+
+<header>
+    @{
+        var Data = EPGM.Templates.Menu.StateSpecificData(Session["StateCode"].ToString());
+        var CMDetails = Data.MainTitle.Split('$');
+        var MinisterDetails = Data.SubTitle.Split('$');
+        
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <img src="~/Content/images/officials/@Data.CMImageURL" class="height marginauto img-responsive circle">
+            <div class="text-center">
+                <b>@CMDetails[0].ToString()</b>
+                <br>
+                @CMDetails[1].ToString()
+                <br>
+                @CMDetails[2].ToString()
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 margin-top">
+            <center><img src="~/Content/images/officials/@Data.MainLogo" class="img-responsive" /></center>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <img src="~/Content/images/officials/@Data.MinisterImageURL" class="height marginauto img-responsive circle">
+            <div class="text-center">
+                <b>@MinisterDetails[0].ToString()</b>
+                <br>
+                @MinisterDetails[1].ToString()
+                <br>
+                @MinisterDetails[2].ToString()
+            </div>
+        </div>
+    }
+</header>

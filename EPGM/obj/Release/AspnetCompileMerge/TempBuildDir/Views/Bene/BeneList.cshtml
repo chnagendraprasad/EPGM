@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Beneficiary Details";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/BeneList/Index.js"></script>
+
+<br />
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="breadcrumb pull-right">
+            <span style="font-size: 14px">
+                <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i>Dashboard</a>
+                <a href="@Url.Content("~/")District/Index">&nbsp;&nbsp;>&nbsp;&nbsp;@ViewBag.BeneDistName</a>
+            </span>
+        </div>
+        <span style="font-size: 22px">
+            <b>@ViewBag.BeneDistName Beneficiary Details</b><span style="font-size: 18px">@ViewBag.BeneWHOType</span>
+        </span>
+        <br />
+    </section>
+    <br />
+    <section class="content">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="col-md-12">
+                    <table id="Grid"></table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

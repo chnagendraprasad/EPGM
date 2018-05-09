@@ -1,0 +1,389 @@
+﻿@{
+    ViewBag.Title = "Comparison Audit Report";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<style type="text/css">
+    /*.input-group .input-group-addon {
+        background-color: #d2d6de !important;
+    }*/
+
+    #ReportViewer1_ctl05 {
+        background-image: none !important;
+        background-color: #ecf0f5 !important;
+        border-bottom: 0px !important;
+    }
+
+    .gap {
+        margin: 25px auto !important;
+    }
+
+    .input-label {
+        min-width: 90px !important;
+        text-align: left !important;
+    }
+
+    .content-wrapper {
+        min-height: 562px !important;
+    }
+
+    .input-label {
+        min-width: 95px !important;
+        text-align: left !important;
+    }
+
+    .content {
+        margin-top: 0px !important;
+        bottom: 0px !important;
+        position: relative !important;
+    }
+</style>
+<div class="content-wrapper">
+    <section class="panel-heading panel-brown">
+        <div class="bodycontent">
+            <ol class="breadcrumb">
+                <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Comparison Audit Report</span></li>
+                <li class="pull-right active">
+                    @if (Session["UserTypeID"].ToString() == "1")
+                    { 
+                        <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> </a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                    { 
+                        <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "5")
+                    { 
+                        <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "6")
+                    { 
+                        <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "7")
+                    { 
+                        <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">State</span>
+                    @Html.DropDownList("StateID", (IEnumerable<SelectListItem>)ViewBag.States, new { @class = "form-control valid", @onchange = "BindDropDownDistrict()" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">District</span>
+                    @Html.DropDownList("DistrictID", new List<SelectListItem>(), new { @class = "form-control valid", req = "Req", message = "District", @onchange = "BindDropDownProject()" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">Project</span>
+                    @Html.DropDownList("ProjectID", new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindDropDownSector()" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">Sector</span>
+                    @Html.DropDownList("SectorID", new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindDropDownCenter()" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">AWC Name</span>
+                    @Html.DropDownList("CenterID", new List<SelectListItem>(), new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">Month</span>
+                    @Html.DropDownList("ddlMonth", (IEnumerable<SelectListItem>)ViewBag.Months, new { @class = "form-control valid", req = "Req", message = "Month" })
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">Year</span>
+                    @Html.TextBox("txtYear", DateTime.Now.Year, new { @class = "form-control valid txtinput", req = "Req", message = "Year", @maxlength = "4", @onkeypress = "return IsNumeric(event);" })
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="input-group extra-space">
+                    <button type="submit" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-xs-12">
+                    <iframe name="ifr" id="ifr" style="WIDTH: 100%; position: relative; border: none; align-content: center; margin-top: 25px !important; max-height: none; height: 58vh; border-radius: 0px;" scrolling="yes"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var today = new Date();
+        var curmon = today.getMonth() + 1;
+        $('#ddlMonth').prop('selectedIndex', curmon);
+
+        @*$("#DistrictID").val('@Session["UserDistrict"]');
+        $("#DistrictID").prop("disabled", true);*@
+
+        if ('@Session["UserTypeID"]' != "0") {
+            debugger;
+            $("#StateID").val('@Session["UserState"]');
+            $("#StateID").prop("disabled", true);
+            BindDropDownDistrict();
+        }
+
+        $("#btnSubmit").click(function () {
+
+            var date = new Date();
+            if ($('#StateID').val() == "0" || $('#StateID').val() == "" || $('#StateID').val() == null) {
+                alert("Please Select State");
+                $('#StateID').focus();
+                return false;
+            }
+            else if ($("#DistrictID").val() == "0" || $("#DistrictID").val() == " " || $("#DistrictID").val() == null) {
+                alert("Please Select District");
+                $("#DistrictID").focus();
+                return false;
+            }
+            else if ($("#ProjectID").val() == "0" || $("#ProjectID").val() == " " || $("#ProjectID").val() == null) {
+                alert("Please Select Project");
+                $("#ProjectID").focus();
+                return false;
+            }
+            else if ($("#SectorID").val() == "0" || $("#SectorID").val() == " " || $("#SectorID").val() == null) {
+                alert("Please Select Sector");
+                $("#SectorID").focus();
+                return false;
+            }
+            else if ($("#CenterID").val() == "0" || $("#CenterID").val() == " " || $("#CenterID").val() == null) {
+                alert("Please Select AWC Name");
+                $("#CenterID").focus();
+                return false;
+            }
+            else if ($('#ddlMonth').val() == "0" || $('#ddlMonth').val() == "" || $('#ddlMonth').val() == null) {
+                alert("Please Select Month");
+                $('#ddlMonth').focus();
+                return false;
+            }
+            else if (($('#ddlMonth').val() > date.getMonth() + 1) && ($("#txtYear").val() >= date.getFullYear())) {
+                alert("Month Should not be greater than the Current Month");
+                $('#ddlMonth').focus();
+                return false;
+            }
+            else if ($("#txtYear").val() == "" || $("#txtYear").val() == null) {
+                alert("Please Enter Year");
+                $('#txtYear').focus();
+                return false;
+            }
+            else if ($("#txtYear").val().length != "4") {
+                alert("Please Enter Correct Year");
+                $("#txtYear").focus();
+                return false;
+            }
+            else if ($("#txtYear").val() > date.getFullYear()) {
+                alert("Year Should not be greater than the Current Year");
+                $("#txtYear").focus();
+                return false;
+            }
+            else {
+                var Query = "statecode=" + $("#StateID").val() + "&distcode=" + $("#DistrictID").val() + "&distname=" + $('#DistrictID option:selected').text() +
+                                                                                      "&projectcode=" + $("#ProjectID").val() + "&projectname=" + $('#ProjectID option:selected').text() +
+                                                                                      "&sectorcode=" + $("#SectorID").val() + "&sectorname=" + $('#SectorID option:selected').text() +
+                                                                                      "&centercode=" + $("#CenterID").val() + "&centername=" + $('#CenterID option:selected').text() +
+                                                                                      "&month=" + $('#ddlMonth').val() + "&year=" + $("#txtYear").val();
+                var url = "/Report/ComparisonAuditReport.aspx?" + Query;
+                $('iframe#ifr').attr('src', url);
+            }
+        });
+
+        $("#btnClear").click(function () {
+            ClearFields();
+        });
+    });
+
+    function ClearFields() {
+        var today = new Date();
+        var curmon = today.getMonth() + 1;
+        $('#ddlMonth').prop('selectedIndex', curmon);
+        $("#txtYear").val(today.getFullYear());
+
+        @*if ('@Session["UserTypeID"]' == "4" || '@Session["UserTypeID"]' == "5") {
+        $("#DistrictID").val('@Session["UserDistrict"]');
+        $("#DistrictID").prop("disabled", true);
+        $("#SectorID").prop('selectedIndex', " ");
+        $("#CenterID").prop('selectedIndex', " ");
+        BindDropDownProject();
+    }*@
+        if ('@Session["UserTypeID"]' != "0") {
+            $("#StateID").val('@Session["UserState"]');
+            $("#StateID").prop("disabled", true);
+            BindDropDownDistrict();
+        }
+        else {
+            BindDropDownDistrict();
+        }
+        $("iframe#ifr").contents().find("body").html('');
+    }
+
+
+
+    if ('@Session["UserTypeID"]' != "0") {
+        debugger;
+        $("#StateID").val('@Session["UserState"]');
+        $("#StateID").prop("disabled", true);
+        BindDropDownDistrict();
+    }
+
+    function BindDropDownDistrict() {
+        debugger;
+
+        url = '@Url.Action("GetDistricts", "Login")?StateID=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#DistrictID").empty()
+                var opt = new Option("--Select District--", " ");
+                $("#DistrictID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value);
+                    $("#DistrictID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "2" || '@Session["UserTypeID"]' == "3" || '@Session["UserTypeID"]' == "4" || '@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                $("#DistrictID").val('@Session["UserDistrict"]');
+                $("#DistrictID").prop("disabled", true);
+                BindDropDownProject();
+            }
+            else {
+                BindDropDownProject();
+            }
+
+        },
+        error: function (Result) {
+
+            alert("Error:Districts");
+
+        }
+
+    });
+
+}
+
+//Project Binding
+function BindDropDownProject() {
+    debugger;
+    url = '@Url.Action("GetProjects", "Login")?DistCd=' + $("#DistrictID").val() + '&StateCode=' + $("#StateID").val()
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: url,
+        data: "{}",
+        dataType: "json",
+        success: function (Result) {
+            $("#ProjectID").empty()
+            debugger;
+            var opt = new Option("--Select Project--", " ");
+            $("#ProjectID").append(opt)
+            for (var i = 0; i < Result.length; i++) {
+                opt = new Option(Result[i].Text, Result[i].Value); $("#ProjectID").append(opt);
+            }
+            if ('@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    $("#ProjectID").val('@Session["UserProject"]');
+                    $("#ProjectID").prop("disabled", true);
+                    BindDropDownSector();
+                }
+                else {
+                    BindDropDownSector();
+                }
+            },
+            error: function (Result) {
+                alert("Error");
+            }
+        });
+    }
+    //Sector Binding
+    function BindDropDownSector() {
+        debugger;
+        url = '@Url.Action("GetSector", "Login")?Distcode= ' + $('#DistrictID').val() + '&Project=' + $("#ProjectID").val() + '&StateCode=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#SectorID").empty()
+                debugger;
+                var opt = new Option("--Select Sector--", " ");
+                $("#SectorID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#SectorID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                $("#SectorID").val('@Session["UserSector"]');
+                BindDropDownCenter();
+                $("#SectorID").prop("disabled", true);
+            }
+            else {
+                BindDropDownCenter();
+            }
+        },
+        error: function (Result) {
+            alert("Error");
+        }
+    });
+}
+//Center Binding
+function BindDropDownCenter() {
+    debugger;
+    debugger;
+    url = '@Url.Action("GetCenters", "Login")?Seccode= ' + $('#SectorID').val() + '&Project=' + $('#ProjectID').val() + '&StateCode=' + $("#StateID").val()
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        url: url,
+        data: "{}",
+        dataType: "json",
+        success: function (Result) {
+            $("#CenterID").empty()
+            debugger;
+            var opt = new Option("--Select AWC Name--", " ");
+            $("#CenterID").append(opt)
+            for (var i = 0; i < Result.length; i++) {
+                opt = new Option(Result[i].Text, Result[i].Value); $("#CenterID").append(opt);
+            }
+            if ('@Session["UserTypeID"]' == "7") {
+                    $("#CenterID").val('@Session["UserCenter"]');
+                    $("#CenterID").prop("disabled", true);
+                    var grid = jQuery('#Grid');
+                    grid.trigger('reloadGrid');
+                }
+            },
+            error: function (Result) {
+                alert("Error");
+            }
+        });
+    }
+
+</script>

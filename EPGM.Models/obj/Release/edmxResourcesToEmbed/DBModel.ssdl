@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MenuMaster">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="MenuName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="MenuUrl" Type="varchar(max)" Nullable="false" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="10" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="10" />
+    <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="OrderBy" Type="int" />
+    <Property Name="ColGlyphicon" Type="varchar" MaxLength="50" />
+    <Property Name="ParentIcon" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblPortalUser">
+    <Key>
+      <PropertyRef Name="PortalUserID" />
+    </Key>
+    <Property Name="PortalUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+    <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+    <Property Name="Name" Type="varchar" MaxLength="150" />
+    <Property Name="RoleCode" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="StateCode" Type="varchar" MaxLength="10" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="50" />
+    <Property Name="SectorCode" Type="varchar" MaxLength="50" />
+    <Property Name="AWCCode" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="CenterTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblAWC">
+    <Key>
+      <PropertyRef Name="AWCID" />
+    </Key>
+    <Property Name="AWCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AWCCode" Type="varchar" MaxLength="50" />
+    <Property Name="AWCDeptCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AWCName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="AWCType" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" />
+    <Property Name="AWWCode" Type="varchar" MaxLength="50" />
+    <Property Name="AWWName" Type="varchar" MaxLength="100" />
+    <Property Name="AWWMobile" Type="varchar" MaxLength="20" />
+    <Property Name="AWWType" Type="varchar" MaxLength="50" />
+    <Property Name="InchargeAWWCode" Type="varchar" MaxLength="50" />
+    <Property Name="SectorCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StateCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MandalCode" Type="varchar" MaxLength="50" />
+    <Property Name="GPCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="10" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Langitude" Type="varchar" MaxLength="50" />
+    <Property Name="Latitude" Type="varchar" MaxLength="50" />
+    <Property Name="AWCImageInBytes" Type="nvarchar(max)" />
+    <Property Name="AWCImagePath" Type="varchar" MaxLength="150" />
+    <Property Name="AWCImageCreatedDate" Type="date" />
+    <Property Name="AWCImageCreatedTime" Type="time" Precision="7" />
+    <Property Name="IsHierarchyCreated" Type="char" MaxLength="1" />
+    <Property Name="HierarchyCreatedDate" Type="datetime" />
+    <Property Name="IsHierarchyActived" Type="char" MaxLength="10" />
+    <Property Name="HierarchyActivatedDate" Type="datetime" />
+    <Property Name="AttendanceEnable" Type="varchar" MaxLength="5" />
+    <Property Name="FieldForceStaffID" Type="int" />
+    <Property Name="FieldForceStaffCreatedDate" Type="datetime" />
+    <Property Name="CenterTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblDistrict">
+    <Key>
+      <PropertyRef Name="DistrictID" />
+    </Key>
+    <Property Name="DistrictID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StateCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="PDName" Type="varchar" MaxLength="100" />
+    <Property Name="PDMobile" Type="varchar" MaxLength="20" />
+    <Property Name="PDAddress" Type="varchar" MaxLength="500" />
+    <Property Name="PDEmail" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TblProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StateCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CDPOName" Type="varchar" MaxLength="100" />
+    <Property Name="CDPOMobile" Type="varchar" MaxLength="20" />
+    <Property Name="CDPOAddress" Type="varchar" MaxLength="500" />
+    <Property Name="CDPOEmail" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="CenterTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+    </Key>
+    <Property Name="SectorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectorCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SectorName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="StateCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SupName" Type="varchar" MaxLength="100" />
+    <Property Name="SupMobile" Type="varchar" MaxLength="20" />
+    <Property Name="SupAddress" Type="varchar" MaxLength="500" />
+    <Property Name="SupEmail" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="CenterTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WDCW.MST.VWGetProject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VWGetProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="ProjectCode" />
+      <PropertyRef Name="ProjectName" />
+      <PropertyRef Name="DistrictName" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WDCW.MST.VWGetSector' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VWGetSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+      <PropertyRef Name="SectorCode" />
+      <PropertyRef Name="SectorName" />
+      <PropertyRef Name="DistrictName" />
+    </Key>
+    <Property Name="SectorID" Type="int" Nullable="false" />
+    <Property Name="SectorCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SectorName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="500" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_TblAWC_TblSector' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_TblAWC_TblSector" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_TblProject_TblDistrict' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_TblProject_TblDistrict" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_TblSector_TblProject' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_TblSector_TblProject" />-->
+  <Function Name="CheckValidUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ChildGrowthCalculator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Weight" Type="float" Mode="In" />
+    <Parameter Name="Height" Type="float" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="msgid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetAppMenuData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="AWCcode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetMenus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetParentMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPADDMENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuName" Type="varchar" Mode="In" />
+    <Parameter Name="MenuURL" Type="varchar" Mode="In" />
+    <Parameter Name="ParentID" Type="int" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="IPAddress" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPBindMenuByUserType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpCheckUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpCheckUserFieldForce" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPCreateAWC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCName" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="AWCType" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPCreateBeneWeightHeightDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpCreateFieldStaff" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StaffCode" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Surname" Type="varchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="DOJ" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="PhotoImagePath" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="Qualification" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpFieldForceStaffDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetAllBeneficiaryDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPGetBeneType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPGetCentersType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetHeightAgeMasterDatabyGender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetHeightWeightMasterDatabyGender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPGetMessages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPGetPWWomenData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPGetStaffDetailsFF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPGetStaffFF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPGetUserMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPGETUserRights" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Url" Type="varchar" Mode="In" />
+    <Parameter Name="UerType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetUserRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SpGetWeightAgeMasterDatabyGender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPInsertInstructionMsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserType" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="ipadd" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpInsertLoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNo" Type="varchar" Mode="In" />
+    <Parameter Name="UserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="RoleCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPMessagesData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SpNewBene" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneName" Type="varchar" Mode="In" />
+    <Parameter Name="BeneSurname" Type="varchar" Mode="In" />
+    <Parameter Name="BeneMiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="MotherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherRationCardNumber" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Contact1" Type="varchar" Mode="In" />
+    <Parameter Name="Contact2" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCategory" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="int" Mode="In" />
+    <Parameter Name="AadhaarNumber" Type="varchar" Mode="In" />
+    <Parameter Name="AadhaarType" Type="char" Mode="In" />
+    <Parameter Name="ResidentType" Type="char" Mode="In" />
+    <Parameter Name="RegisteredDate" Type="datetime" Mode="In" />
+    <Parameter Name="Income" Type="decimal" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="Langitude" Type="varchar" Mode="In" />
+    <Parameter Name="Latitude" Type="varchar" Mode="In" />
+    <Parameter Name="ImagePath" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="IsRegisterd" Type="varchar" Mode="In" />
+    <Parameter Name="IsEnrolled" Type="varchar" Mode="In" />
+    <Parameter Name="DeptUID" Type="varchar" Mode="In" />
+    <Parameter Name="BirthWeight" Type="varchar" Mode="In" />
+    <Parameter Name="EDD" Type="datetime" Mode="In" />
+    <Parameter Name="RegType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpRegisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNo" Type="varchar" Mode="In" />
+    <Parameter Name="UserEmail" Type="varchar" Mode="In" />
+    <Parameter Name="RoleID" Type="int" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+    <Parameter Name="UpdatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SPStateSpecificData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateAWC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCName" Type="varchar" Mode="In" />
+    <Parameter Name="AWWName" Type="varchar" Mode="In" />
+    <Parameter Name="AWWMobile" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateBeneHierarchyDeleted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateDistrict" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictName" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateEPGMStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateFieldForceStaffForAWC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="StaffID" Type="int" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateHierarchyCreated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateHierarchyDeleted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateHierarchyTrainStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="TrainStatus" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateInstructionMsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MsgID" Type="varchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserType" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="ipadd" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPUpdatePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Username" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdatePersonCreated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="PersonID" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdatePersonDeleted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdatePersonFaceCreated" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="PersistedFaceID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdatePersonFaceDeleted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectName" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPUpdatePWType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BeneID" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorName" Type="varchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateSmartAttendanceStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateStatusOfFieldForce" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="StaffID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SPUpdateUserrightMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuID" Type="int" Mode="In" />
+    <Parameter Name="UserType" Type="int" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="IPAddress" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateMenurole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Enabled" Type="varchar" Mode="In" />
+    <Parameter Name="MenuID" Type="varchar" Mode="In" />
+    <Parameter Name="UserType" Type="varchar" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateMenurole_MobileApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Enabled" Type="varchar" Mode="In" />
+    <Parameter Name="MenuID" Type="varchar" Mode="In" />
+    <Parameter Name="AwcCode" Type="varchar" Mode="In" />
+    <Parameter Name="UserCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="USP_I_BENEFICIARY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneName" Type="varchar" Mode="In" />
+    <Parameter Name="BeneSurname" Type="varchar" Mode="In" />
+    <Parameter Name="BeneMiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="MotherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherRationCardNumber" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Contact1" Type="varchar" Mode="In" />
+    <Parameter Name="Contact2" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCategory" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="int" Mode="In" />
+    <Parameter Name="AadhaarNumber" Type="varchar" Mode="In" />
+    <Parameter Name="AadhaarType" Type="char" Mode="In" />
+    <Parameter Name="ResidentType" Type="char" Mode="In" />
+    <Parameter Name="RegisteredDate" Type="datetime" Mode="In" />
+    <Parameter Name="Income" Type="decimal" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="USP_S_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_Update_BENEFICIARY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneName" Type="varchar" Mode="In" />
+    <Parameter Name="BeneSurname" Type="varchar" Mode="In" />
+    <Parameter Name="MotherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherName" Type="varchar" Mode="In" />
+    <Parameter Name="FatherRationCardNumber" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="datetime" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCategory" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="int" Mode="In" />
+    <Parameter Name="AadhaarNumber" Type="varchar" Mode="In" />
+    <Parameter Name="AadhaarType" Type="char" Mode="In" />
+    <Parameter Name="ResidentType" Type="char" Mode="In" />
+    <Parameter Name="RegisteredDate" Type="datetime" Mode="In" />
+    <Parameter Name="Income" Type="decimal" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistrictCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="Updatedby" Type="int" Mode="In" />
+    <Parameter Name="DeptUID" Type="varchar" Mode="In" />
+    <Parameter Name="BirthWeight" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetAllBenesofCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetDashboardStat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetDashboardStat_Portal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMAWCDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="WHOCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="SecCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMBeneficiaries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="WhoType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMBeneficiaries_Portal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="WhoType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMBenes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="WhoType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMDistDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="WHOCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMDistrictDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="WHOCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMProjectDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="WHOCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMSectorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="WHOCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpUpdateStatusOfBene" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGM">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="char" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetAWCDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="SecCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetBenes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST" />
+  <Function Name="SpGetCounts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetDistDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetDistLevelDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectCode" Type="varchar" Mode="In" />
+    <Parameter Name="SectorCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterCode" Type="varchar" Mode="In" />
+    <Parameter Name="BeneType" Type="varchar" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetEPGMDashboardCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetProjectDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetSectorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetUpdatedBeneInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="EPGMMST">
+    <Parameter Name="BeneCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetAWC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="MST">
+    <Parameter Name="SecCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetAWW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="MST">
+    <Parameter Name="ProjCode" Type="varchar" Mode="In" />
+    <Parameter Name="AWCCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetDistrict" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="MST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SpGetProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="MST">
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SpGetSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="MST">
+    <Parameter Name="StateCode" Type="varchar" Mode="In" />
+    <Parameter Name="DistCode" Type="varchar" Mode="In" />
+    <Parameter Name="ProjCode" Type="varchar" Mode="In" />
+    <Parameter Name="CenterTypeID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DBModelStoreContainer">
+    <EntitySet Name="MenuMaster" EntityType="Self.MenuMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblPortalUser" EntityType="Self.TblPortalUser" Schema="EPGMMST" store:Type="Tables" />
+    <EntitySet Name="TblAWC" EntityType="Self.TblAWC" Schema="MST" store:Type="Tables" />
+    <EntitySet Name="TblDistrict" EntityType="Self.TblDistrict" Schema="MST" store:Type="Tables" />
+    <EntitySet Name="TblProject" EntityType="Self.TblProject" Schema="MST" store:Type="Tables" />
+    <EntitySet Name="TblSector" EntityType="Self.TblSector" Schema="MST" store:Type="Tables" />
+    <EntitySet Name="VWGetProject" EntityType="Self.VWGetProject" store:Type="Views" store:Schema="MST">
+      <DefiningQuery>SELECT 
+[VWGetProject].[ProjectID] AS [ProjectID], 
+[VWGetProject].[ProjectCode] AS [ProjectCode], 
+[VWGetProject].[ProjectName] AS [ProjectName], 
+[VWGetProject].[DistrictName] AS [DistrictName]
+FROM [MST].[VWGetProject] AS [VWGetProject]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VWGetSector" EntityType="Self.VWGetSector" store:Type="Views" store:Schema="MST">
+      <DefiningQuery>SELECT 
+[VWGetSector].[SectorID] AS [SectorID], 
+[VWGetSector].[SectorCode] AS [SectorCode], 
+[VWGetSector].[SectorName] AS [SectorName], 
+[VWGetSector].[ProjectName] AS [ProjectName], 
+[VWGetSector].[DistrictName] AS [DistrictName]
+FROM [MST].[VWGetSector] AS [VWGetSector]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<h2>Logout</h2>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 10);
+        window.onunload = function () { null };
+    });
+</script>

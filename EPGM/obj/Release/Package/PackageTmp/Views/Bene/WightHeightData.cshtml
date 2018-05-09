@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "WightHeightData";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div>
+    <table id="">
+
+        @if (ViewBag.Data != null)
+        {
+            <thead>
+
+                @foreach (DataColumn column in (ViewBag.Data as System.Data.DataTable).Columns)
+                {
+                <th>@column.ColumnName.ToUpper()</th>
+
+
+                }
+                </thead>
+            if ((ViewBag.Data as System.Data.DataTable).Rows.Count > 0)
+            {
+                foreach (DataRow dr in (ViewBag.Data as System.Data.DataTable).Rows)
+                {
+
+                    <tr>
+
+                        @foreach (DataColumn column in (ViewBag.Data as System.Data.DataTable).Columns)
+                        {
+                            <td data-title='@column.ColumnName'>
+
+                                @dr[column].ToString()&nbsp;
+                            </td>
+                        }
+
+
+
+
+                    </tr>
+
+                }
+
+            }
+            else
+            {
+                int count = (ViewBag.Data as System.Data.DataTable).Columns.Count;
+                <tr>
+
+                    <td colspan='@count' style="color:red;">
+
+                        No Data Found.
+                    </td>
+
+
+
+                </tr>
+
+            }
+
+        }
+        else
+        {
+            if (ViewBag.Error != null)
+            {
+                <tr>
+                    <td style="color:red;">
+
+                        @(ViewBag.Error != null ? ViewBag.Error.ToString() : "")
+                    </td>
+
+
+
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $.post("/Bene/GetWeightHeightYears", function (result) {
+            var table11 = $("<table  class='tabsub' id=" + result + " border='1' style=' border-collapse: collapse;'></table>").appendTo("#newTablesDiv");
+            //Create table header row
+            var rowHeader = $("<tr></tr>").appendTo(table11);
+            var h = 1;
+            for (i = h; i < 6 + h; i++) {
+                $("<td></td>").text(i + "Year").appendTo(rowHeader);
+            }
+            h = i;
+            rowHeader.css({ "background-color": "#134479", "color": "#ffffff", "text-align": "center" });
+
+
+            $.post("/Home/GetDetailedSubGroups?Year=" + goupN, function (result) {
+                //$.each(result, function (i, value) {
+                var row = $("<tr></tr>").appendTo(table11);
+                for (j = 0; j < 12; i++) {
+                    if (result[i].Month != "") {
+                        debugger;
+                        //Create new row for each record
+                        $("<td></td>").text(result[i].SNo).appendTo(row);
+                        $("<td></td>").text(result[i].Source).appendTo(row);
+                    }
+                    else {
+                        $("<td></td>").text(result[i].SNo).appendTo(row);
+                        $("<td></td>").text(result[i].Source).appendTo(row);
+                    }
+                }
+            });
+        })
+
+        function BindData(goupN) {
+           
+            //})
+        }
+    });
+</script>

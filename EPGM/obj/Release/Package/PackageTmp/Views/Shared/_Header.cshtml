@@ -1,0 +1,93 @@
+﻿@using System.Web.Mvc
+
+<style type="text/css">
+    .badge {
+        position: relative;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #dropdownMessageMenu hover {
+        text-decoration: underline !important;
+    }
+</style>
+@if (Session["UserTypeID"] != null)
+{
+    <a href="#" class="logo">
+        <span class="logo-mini"><b></b></span>
+        <span class="logo-lg"><b>GROWTH MONITORING SYSTEM</b></span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="pull-left sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu navbar-left" style="padding-top: 10px; padding-bottom: 5px;">
+            <img src="~/Content/images/home-logo.png" style="height: 50px" />
+            <span style="color: white; font-size: 18px; font-weight: 600">Department of Women Development & Child Welfare</span>
+        </div>
+
+        <div class="navbar-custom-menu" style="padding-top: 10px; padding-bottom: 5px;">
+            @if (Session["Username"].ToString() != "marsadmin")
+            {
+                <div style="margin-right: 50px; display: inline-block">
+                    <img src="~/Content/images/officials/@Session["StateLogo"]" height="60" style="margin-right: 20px" />
+                    <img src="~/Content/images/officials/@Session["CMImage"]" height="50" style="height: 56px;border-radius: 50%; -webkit-border-radius: 50%;" />
+                </div>
+            }
+
+            <ul class="nav navbar-nav pull-right">
+                @{
+                    EPGM.Data.UserRoleData data = new EPGM.Data.UserRoleData();
+                    var myMenu = data.GetMessagesMenu(Session["UserTypeID"].ToString()).ToList();
+                    var plist = myMenu.Where(m => m.msgId != 0).ToList();
+
+                    <li class="dropdown">
+                        @{
+                            if (plist != null && plist.Count > 0)
+                            {
+                                var pCount = plist.Count();
+                                <a href="/Users/Notifications" id="dropdownMessageMenu" title="Notifications"><span class="fa fa-envelope"></span><span class="badge">@plist.Count</span></a>
+                            }
+                        }
+
+                    </li>
+
+                    <li class="dropdown user user-menu">
+                        <a href="#" id="menuID" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                            <span class="hidden-xs">@Session["Username"].ToString()</span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+                            <li class="user-header">
+                                <p>@Session["Name"].ToString()</p>
+                            </li>
+
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="/Login/ChangePassword" class="btn btn-default btn-flat">Change Password</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="/Login/Logout" class="btn btn-default btn-flat">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+                            }
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+
+        if (pCount != null || pCount != "" || pCount != "0") {
+            $("#dropdownMessageMenu").attr("href", "")
+        }
+        else {
+            $("#dropdownMessageMenu").attr("href", "/Users/Notifications")
+        }
+    });
+</script>

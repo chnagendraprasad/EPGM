@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    @*<link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />*@
+
+    <style type="text/css">
+        .more a, .more a:hover {
+            color: #961d21 !important;
+            text-decoration: none !important;
+        }
+
+        .morecontent span {
+            display: none;
+        }
+
+        .morelink {
+            display: block;
+        }
+
+
+        .footer a {
+            color: #ea3e2a;
+        }
+
+        .font17 {
+            font-size: 14px !important;
+        }
+
+        .validation-summary-errors {
+            color: #a94442 !important;
+            font-size: 85% !important;
+            margin-top: 5px !important;
+        }
+
+        .form-control {
+            padding: 7px 7px !important;
+        }
+    </style>
+
+    <link href="~/Content/css/Login/sty.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/login.css" rel="stylesheet" />
+    @* <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css" />
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>*@
+
+    <script src="~/Scripts/Common/jquery-1.10.2.js"></script>
+    <link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Common/bootstrap.min.js"></script>
+    <link href="~/Content/css/Dashboard/bootstrapValidator.min.css" rel="stylesheet" />
+    <script src="~/Content/css/Dashboard/bootstrapValidator.min.js"></script>
+</head>
+<body>
+    <div class="left-icons">
+        <div class="icons-box">
+            <li class="ideate"><a href=""><span class="glyphicon glyphicon-phone"></span></a>
+                <div class="icon-tip ideate">+91- 99999 99999 </div>
+            </li>
+
+            <li class="collaborate"><a href=""><span class="glyphicon glyphicon-envelope"></span></a>
+                <div class="icon-tip collaborate">info@raminfo.com </div>
+            </li>
+            <li class="deliver"><a href=""><span class="glyphicon glyphicon-list"></span></a>
+                <div class="icon-tip deliver">More </div>
+            </li>
+        </div>
+    </div>
+    <div class="container">
+        <div class="top"></div>
+        <div id="mainwrap">
+            @*<header>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="~/Content/images/officials/chandrababu-naidu.png" class="height marginauto img-responsive circle">
+                    <div class="text-center">
+                        <b>Sri N. Chandrababu Naidu</b>
+                        <br>
+                        Hon'ble Chief Minister
+						<br>
+                        Government of Andhra Pradesh
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 margin-top">
+                    <center><img src="~/Content/images/logo-420x96.png" class="img-responsive" /></center>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <img src="~/Content/images/officials/ParitalaSunitha.png" class="height marginauto img-responsive ">
+                    <div class="text-center">
+                        <b>Mrs. Paritala Sunitha</b>
+                        <br>
+                        Hon'ble Minister
+						<br>
+                        Government of Andhra Pradesh
+                    </div>
+                </div>
+            </header>*@
+            @Html.Partial("Header")
+            <nav>
+                <ul class="">
+                    <li><a href="@Url.Content("~/")Login/MainIndex">Home</a></li>
+                    <li class="active"><a href="@Url.Content("~/")Login/Index">Login</a></li>
+                    <li><a href="">
+                        <!--<span class="glyphicon glyphicon-th-list"></span>-->
+                        Category</a>
+                        <ul class="submneu">
+                            <div class="box1">
+                                <li><a href="@Url.Content("~/")Login/AboutEPGM"><span class="glyphicon glyphicon-search"></span>About Growth Monitoring System</a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-home"></span>Govt.Guidelines on Nutrition</a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-folder-open"></span>Country / State Level Summary</a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-file"></span>Case Studies / Success Stories</a></li>
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Content("~")Login/OurMission">Our Mission</a></li>
+                    <li><a href="@Url.Content("~")Login/Gallery">Gallery</a></li>
+                    <li><a href="@Url.Content("~")Login/ContactUs">Contact</a></li>
+
+                    <li class="pull-right nohover" style="margin-top: -8px; letter-spacing: 1px;">
+                        <h4>
+                            <!--ELECTRONIC PHYSIO -->
+                            GROWTH MONITORING SYSTEM</h4>
+                    </li>
+                </ul>
+
+            </nav>
+            <!--------------------------------->
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!---->
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="~/Content/images/banner02.jpg" alt="...">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/images/banner03.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/images/banner04.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/images/banner02.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!----------------------------------->
+            @RenderBody()
+        </div>
+        <footer class="footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                <a href="http://www2.raminfo.com/">
+                    <img src="~/Content/images/raminfo-logo.png" style="height: 40px; margin-top: -10px !important" /></a>
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2016 <a href="http://www2.raminfo.com/">Raminfo Ltd</a>.</strong> All rights reserved.
+ 
+        </footer>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>*@
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    @* <script src="~/Scripts/Login/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/Login/range.js"></script>
+</body>
+</html>
+

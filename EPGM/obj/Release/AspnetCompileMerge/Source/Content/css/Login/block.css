@@ -1,0 +1,64 @@
+blockquote{
+    border-left:none;
+	float: left;
+	margin-right: 10px;
+	
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box1{
+    
+    overflow: hidden;
+    border-radius: 17px;
+    background-color: #33485d;
+    margin-top: 25px;
+    color:white;
+    width: 200px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+.quote-box2{
+    
+    overflow: hidden;
+    border-radius: 17px;
+    background-color: #f9583c;
+    margin-top: 25px;
+    color:white;
+    width: 200px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quote-box3{
+    
+    overflow: hidden;
+    border-radius: 17px;
+    background-color: #8d4aa7;
+    margin-top: 25px;
+    color:white;
+    width: 200px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+p{
+	position: relative;
+}
+.quotation-mark{
+    text-align: center;
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:30px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0px;
+	position: relative;
+}

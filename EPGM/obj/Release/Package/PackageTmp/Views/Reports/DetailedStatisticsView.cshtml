@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "Detailed Statistics";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<style type="text/css">
+    .Viewbtn {
+        background-color: #525659 !important;
+        color: white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 25%;
+        border: 0px;
+    }
+
+    .min-height {
+        min-height: 0px !important;
+    }
+
+    /*.input-group .input-group-addon {
+        border-radius: 0;
+        border-color: #d2d6de;
+        background-color: #d2d6de !important;
+    }*/
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: 0px solid #ccc !important;
+        background: none !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-left: solid 1px !important;
+        border-right: solid 1px !important;
+        border-top: solid 1px !important;
+        border-color: #ccc !important;
+        background-color: #7b454b !important;
+        color: black !important;
+    }
+
+    .ui-widget-header .ui-state-default {
+        border: 1px solid #cccccc;
+        background: #fff !important;
+    }
+
+    th.ui-th-column div {
+        height: auto !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        height: auto !important;
+        padding-bottom: 8px !important;
+    }
+
+    .content-header {
+        position: relative;
+        padding: 15px 15px 0 15px !important;
+    }
+</style>
+
+<style>
+    /*Sure*/
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid .ui-th-div-ie {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-htable {
+        /*letter-spacing: 1px !important;*/
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        line-height: 15px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+    }
+
+    .input-label {
+        min-width: 90px !important;
+        text-align: left;
+    }
+
+    .content-wrapper {
+        min-height: 601px !important;
+        overflow-y: visible !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        color: white !important;
+    }
+
+    #Grid_IsEnrolledAtAttendance, #Grid_AttendanceStatus, #Grid_WHTimeStamp, #Grid_IsRegisteredAtAttendance {
+        background-color: #961d21 !important;
+    }
+</style>
+
+<style type="text/css">
+    .nav-tabs {
+        border-bottom: 2px solid #DDD;
+    }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            border-width: 0;
+        }
+
+        .nav-tabs > li > a {
+            border: none;
+            color: #666;
+        }
+
+            .nav-tabs > li.active > a, .nav-tabs > li > a:hover {
+                border: none;
+                color: #4285F4 !important;
+                background: transparent;
+            }
+
+            .nav-tabs > li > a::after {
+                content: "";
+                background: #4285F4;
+                height: 2px;
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                bottom: -1px;
+                transition: all 250ms ease 0s;
+                transform: scale(0);
+            }
+
+        .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after {
+            transform: scale(1);
+        }
+
+    .tab-nav > li > a::after {
+        background: #21527d none repeat scroll 0% 0%;
+        color: #fff;
+    }
+
+    .tab-pane {
+        padding: 15px 0;
+    }
+
+    .card {
+        background: #FFF none repeat scroll 0% 0%;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30px;
+    }
+</style>
+
+<script src="~/Scripts/Reports/ChildGrowthCalculator.js"></script>
+
+<div class="content-wrapper">
+    <section class="panel-heading panel-brown">
+        <div class="bodycontent">
+            <ol class="breadcrumb">
+                <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Child Growth Calculator</span></li>
+                <li class="pull-right active">
+                    @if (Session["UserTypeID"].ToString() == "1")
+                    {
+                        <a href="@Url.Content(" ~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> </a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                    {
+                        <a href="@Url.Content(" ~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "5")
+                    {
+                        <a href="@Url.Content(" ~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "6")
+                    {
+                        <a href="@Url.Content(" ~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                    @if (Session["UserTypeID"].ToString() == "7")
+                    {
+                        <a href="@Url.Content(" ~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                    }
+                </li>
+            </ol>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">Gender</span>
+                    @Html.DropDownList("Gender", new List<SelectListItem>
+                            {
+                            new SelectListItem{ Text="--Select Gender--", Value = "0" },
+                            new SelectListItem{ Text="Male", Value = "M" },
+                            new SelectListItem{ Text="Female", Value = "F" }
+                            }, new { @class = "form-control", @onchange = "ddchange()" })
+                </div>
+            </div>
+            <div class="col-sm-9"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" id="lihome">
+                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="col-sm-12" id="WAblock" onclick="EnableDisableWA()">Weight/Age Criteria</a>
+                        </li>
+                        <li role="presentation" id="liprofile">
+                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="col-sm-12" id="HWblock" onclick="EnableDisableHW()">Height/Weight Wasted</a>
+                        </li>
+                        <li role="presentation" id="limessages">
+                            <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="col-sm-12" id="HAblock" onclick="EnableDisableHA()">Height/Age Stunted</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="home">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="GridWA"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="GridHW"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="GridHA"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript">
+    function ddchange() {
+        debugger;
+        EnableDisableWA();
+        $("#lihome").addClass("active");
+        $("#liprofile").removeClass("active");
+        $("#limessages").removeClass("active");
+        $("#home").addClass("active");
+        $("#profile").removeClass("active");
+        $("#messages").removeClass("active");
+
+        $("#home").css('display', 'block');
+        $("#home").addClass("tab-pane");
+        $("#profile").css('display', 'none');
+        $("#messages").css('display', 'none');
+    }
+</script>

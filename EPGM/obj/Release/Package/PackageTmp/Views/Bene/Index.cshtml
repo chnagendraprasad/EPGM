@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Beneficiary Details";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/Benes/Index.js"></script>
+<link href="~/Content/css/JqgridStyle.css" rel="stylesheet" />
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Beneficiary Details</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        {
+                            <a href="@Url.Content("~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;</a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        { 
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;</a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        { 
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;</a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        { 
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;</a> 
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        { 
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;</a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        { 
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;@*<i class="fa fa-angle-right"></i>*@</a>@*
+                            <a href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>*@
+                        }
+                    </li>
+                </ol>
+            </section>
+            <section class="panel-body panel-brown-body content">
+
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="col-md-12">
+                            <table id="Grid"></table>
+                            <div aria-hidden="true" id="Popup" class="modal fade" role="dialog" aria-labelledby="popuplabel"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        @*popup for No Records Found*@
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p><b>No Data found</b></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

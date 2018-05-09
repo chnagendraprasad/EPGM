@@ -1,0 +1,619 @@
+﻿@model EPGM.Models.UpdateBene
+@{
+    ViewBag.Title = "Edit Beneficiary";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+
+<style type="text/css">
+    .Viewbtn {
+        /*background-color: #525659 !important;*/
+        color: white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 25%;
+        border: 0px;
+    }
+
+    .clears {
+        padding-top: 10px !important;
+    }
+
+    .clears1 {
+        padding-top: 5px !important;
+    }
+
+    .Panel_box {
+        /*background: #ebedf1;
+          box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);*/
+        width: 57%;
+        min-width: 150px;
+        padding: 10px 0;
+        border-radius: 12px;
+        margin: auto;
+        position: relative;
+    }
+
+
+    .ui-jqgrid-bdiv {
+        width: auto !important;
+    }
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: 0px solid #ccc !important;
+        background: none !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-left: solid 1px !important;
+        border-right: solid 1px !important;
+        border-top: solid 1px !important;
+        border-color: #ccc !important;
+        background-color: #7b454b !important;
+        color: black !important;
+    }
+
+    .ui-widget-header .ui-state-default {
+        border: 1px solid #cccccc;
+        background: #fff !important;
+    }
+
+    th.ui-th-column div {
+        height: auto !important;
+    }
+
+
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        overflow: visible !important;
+        height: auto !important;
+        padding-bottom: 8px !important;
+        font-size: 12px !important;
+    }
+
+    .ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid .ui-th-div-ie {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-htable {
+        /*letter-spacing: 1px !important;*/
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        line-height: 15px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        color: white !important;
+    }
+
+    .input-label {
+        min-width: 130px !important;
+        text-align: left;
+    }
+
+    .input-label1 {
+        min-width: 160px !important;
+        text-align: left;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        font-family:'Segoe UI'!important;
+    }
+    /*.ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+        font-size: 11px !important;
+        font-weight: bold !important;
+        font-family:'Segoe UI'!important;
+    }*/
+
+    .modal-dialog {
+        width: 60% !important;
+    }
+</style>
+
+<script src="~/Scripts/Benes/EditBene.js"></script>
+<script src="~/Scripts/Common/Common.js"></script>
+<link href="~/Content/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Update Beneficiary Details</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        { 
+                            <a href="@Url.Content("~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        { 
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        { 
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        { 
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        { 
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        { 
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+
+            <section class="content min-height">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon input-label" id="sizing-addon2">State</span>
+                            @Html.DropDownList("StateID", (IEnumerable<SelectListItem>)ViewBag.States, new { @class = "form-control", @onchange = "BindDropDownDistrict()" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon input-label" id="sizing-addon2">District</span>
+                            @Html.DropDownList("DistrictID", new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindDropDownProject()" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon input-label" id="sizing-addon2">Project</span>
+                            @Html.DropDownList("ProjectID", new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindDropDownSector()" })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-addon input-label" id="sizing-addon2">Sector</span>
+                            @Html.DropDownList("SectorID", new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindDropDownCenter()" })
+                        </div>
+                    </div>
+                </div>
+                <div class="clears"></div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon input-label" id="sizing-addon2">AWC Name</span>
+                            @Html.DropDownList("AWCID", new List<SelectListItem>(), new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                            <button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                            <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="clears"></div>
+                        <table id="Grid"></table>
+                    </div>
+                </div>
+
+                @*Popup to Modify Deatails*@
+                <div class="container-fluid">
+                    <div class="">
+                        <div class="col-md-12">
+                            <div class="modal fade" id="conformMRSId" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" style="font-size: 15px !important;">&times;</button>
+                                            <h4 class="modal-title">Update Beneficiary  Details</h4>
+                                        </div>
+                                        <div class="modal-body input-styles">
+                                            <div class="text-center">
+                                            </div>
+                                            <div style="text-align: justify">
+                                                <div class="text-center">
+                                                    @*Editable Fields*@
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Bene Code</span>
+                                                                @Html.TextBoxFor(m => m.BeneCode, new { @class = "form-control", @Readonly = "Readonly" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Bene Name</span>
+                                                                @Html.TextBoxFor(m => m.BeneName, new { @class = "form-control", @onkeypress = "return IsAlphabet(event)" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">SurName</span>
+                                                                @Html.TextBoxFor(m => m.BeneSurname, new { @class = "form-control", @onkeypress = "return IsAlphabet(event)" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Date of Birth</span>
+                                                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control datepicker", @readonly = "readonly" })
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Father Name</span>
+                                                                @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                                                                 {
+                                                                                    new SelectListItem{ Text="--Select Gender--", Value = "0" },
+                                                                                    new SelectListItem{ Text="Male", Value = "M" },
+                                                                                    new SelectListItem{ Text="Female", Value = "F" }
+                                                                                 }, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Mother Name</span>
+                                                                @Html.TextBoxFor(m => m.MotherName, new { @class = "form-control", style = "text-transform: uppercase;", @onkeypress = "return IsAlphabet(event)" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Father Name</span>
+                                                                @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control", style = "text-transform: uppercase;", @onkeypress = "return IsAlphabet(event)" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Aadhaar Card Holder</span>
+                                                                @Html.DropDownListFor(m => m.AadhaarType, new List<SelectListItem>
+                                                                                 {
+                                                                                    new SelectListItem{ Text="--Select Aadhaar Holder--", Value = "0" },
+                                                                                    new SelectListItem{ Text="Child", Value = "C" },
+                                                                                    new SelectListItem{ Text="Father", Value = "F" },
+                                                                                    new SelectListItem{ Text="Mother", Value = "M" }
+                                                                                 }, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Aadhaar Card No</span>
+                                                                @Html.TextBoxFor(m => m.AadhaarNumber, new { @class = "form-control", @onkeypress = "return IsNumeric(event);", @maxlength = "12" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">RationCard No</span>
+                                                                @Html.TextBoxFor(m => m.FatherRationCardNumber, new { style = "text-transform: uppercase;", @class = "form-control", @onkeypress = "return IsAlphaNumeric(event);", @maxlength = "20" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Income Amount</span>
+                                                                @Html.TextBoxFor(m => m.Income, new { @class = "form-control", @onkeypress = "return IsNumeric(event);", @maxlength = "7", @onfocus = "return OnFocus(this)" })
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Bene/Parent Mobile No</span>
+                                                                @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control", @onkeypress = "return IsNumeric(event);", @maxlength = "10" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1">Category</span>
+                                                                @Html.DropDownListFor(m => m.BeneCategory, (IEnumerable<SelectListItem>)ViewBag.Categorys, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1" id="sizing-addon2">Registration Date</span>
+                                                                @Html.TextBoxFor(m => m.RegisteredDateTime, new { @class = "form-control datepicker", @readonly = "readonly" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="clears1"></div>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon input-label1">Resident Type</span>
+                                                                @Html.DropDownListFor(m => m.ResidentType, new List<SelectListItem>
+                                                                                 {
+                                                                                    new SelectListItem{ Text="--Select Resident Type--", Value = "0" },
+                                                                                    new SelectListItem{ Text="Permanent", Value = "P" },
+                                                                                    new SelectListItem{ Text="Temporary", Value = "T" }
+                                                                                 }, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success btn-sm" id="btnProceeds" data-toggle="modal" onclick="return Submit()">
+                                                @*onclick="return Submit()"*@
+                                                <i class="fa fa-save"></i>
+                                                Update
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">
+                                                <i class="fa fa-times"></i>
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        @*popup for No Records Found*@
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>No Data found</b></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.datepicker').datetimepicker({
+            language: 'es',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'dd/mm/yyyy'
+            //format: 'DD-MM-YYYY HH:mm:ss'
+        });
+
+
+
+        $("#DistrictID").append(new Option("--Select District--", " "));
+        $("#ProjectID").append(new Option("--Select Project--", " "));
+        $("#SectorID").append(new Option("--Select Sector--", " "));
+        $("#CenterID").append(new Option("--Select AWC--", " "));
+
+        $("#btnClear").click(function () {
+            ClearFields1();
+        });
+    });
+
+    if ('@Session["UserTypeID"]' != "0") {
+        debugger;
+        $("#StateID").val('@Session["UserState"]');
+        $("#StateID").prop("disabled", true);
+        BindDropDownDistrict();
+        $('#Grid').trigger('reloadGrid');
+    }
+    else {
+        BindDropDownDistrict();
+    }
+
+
+    function BindDropDownDistrict() {
+        debugger;
+
+        url = '@Url.Action("GetDistricts", "Login")?StateID=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#DistrictID").empty()
+                debugger;
+                var opt = new Option("--Select District--", "0");
+                $("#DistrictID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value);
+                    $("#DistrictID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "2" || '@Session["UserTypeID"]' == "3" || '@Session["UserTypeID"]' == "4" || '@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    $("#DistrictID").val('@Session["UserDistrict"]');
+                    $("#DistrictID").prop("disabled", true);
+                    BindDropDownProject();
+                }
+                else {
+                    BindDropDownProject();
+                }
+            },
+            error: function (Result) {
+
+                alert("Error:Districts");
+
+            }
+
+        });
+
+    }
+
+    function BindDropDownProject() {
+        debugger;
+        url = '@Url.Action("GetProjects", "Login")?DistCd=' + $("#DistrictID").val() + '&StateCode=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#ProjectID").empty()
+
+                var opt = new Option("--Select Project--", "0");
+                $("#ProjectID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#ProjectID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    $("#ProjectID").val('@Session["UserProject"]');
+                    $("#ProjectID").prop("disabled", true);
+                    BindDropDownSector();
+                }
+                else {
+                    BindDropDownSector();
+                }
+            },
+            error: function (Result) {
+                alert("Error:Project");
+            }
+        });
+    }
+
+    function BindDropDownSector() {
+        debugger;
+        url = '@Url.Action("GetSector", "Login")?Distcode= ' + $('#DistrictID').val() + '&Project=' + $("#ProjectID").val() + '&StateCode=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#SectorID").empty()
+                debugger;
+                var opt = new Option("--Select Sector--", "0");
+                $("#SectorID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#SectorID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    $("#SectorID").val('@Session["UserSector"]');
+                    BindDropDownCenter();
+                    $("#SectorID").prop("disabled", true);
+                }
+                else {
+                    BindDropDownCenter();
+                }
+            },
+            error: function (Result) {
+                alert("Error:Sector");
+            }
+        });
+    }
+
+    function BindDropDownCenter() {
+
+        url = '@Url.Action("GetCenters", "Login")?Seccode= ' + $('#SectorID').val() + '&Project=' + $('#ProjectID').val() + '&StateCode='  + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#AWCID").empty()
+
+                var opt = new Option("--Select AWC--", "0");
+                $("#AWCID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value);
+                    $("#AWCID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "7") {
+                    $("#AWCID").val('@Session["UserCenter"]');
+                    $("#AWCID").prop("disabled", true);
+                    BindGrid();
+                }
+                else {
+                    BindGrid();
+                }
+            },
+            error: function (Result) {
+                alert("Error:AWC");
+            }
+        });
+    }
+
+    function ClearFields1() {
+       
+        if ('@Session["UserTypeID"]' != "0") {
+            debugger;
+            $("#StateID").val('@Session["UserState"]');
+            $("#StateID").prop("disabled", true);
+            BindDropDownDistrict();
+        }
+        else {
+            BindDropDownDistrict();
+        }
+        $('#Grid').jqGrid("clearGridData");
+    }
+
+
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57));
+        return ret;
+    }
+</script>
+
+
+@*<script src="~/Content/bootstrap/js/bootstrap.min.js"></script>*@
+<script src="~/Content/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="~/Content/bootstrap/locales/bootstrap-datetimepicker.uk.js"></script>

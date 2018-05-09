@@ -1,0 +1,434 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>... E P G M ...</title>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            background: url('../../images/background.JPG') left top repeat;
+        }
+    </style>
+    <link href="~/Content/css/Login/block.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/sty.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/sam1.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/login.css" rel="stylesheet" />
+    <link href="~/Content/css/Login/universal.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <ul class="pull-right">
+            <li><a href="@Url.Content("~")Login/OurMission">Our Mission</a></li>
+            <!--<li><a href="">Useful Links</a></li>-->
+            <li><a href="@Url.Content("~")Login/Gallery">Gallery</a></li>
+            <li><a href="@Url.Content("~")Login/Feedback">Feedback</a></li>
+            <li><a href="@Url.Content("~")Login/ContactUs">Contact</a></li>
+        </ul>
+    </header>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 pad-tb  color-white">
+                    <img src="~/Content/images/home-logo.png" height="60"/><span style="margin-top: 15px; position: absolute; display: inline;"><b>Department of Women Development & Child Welfare<br>
+                    <small style="padding-left: 10px;">Government of Andhra Pradesh</small></b></span>
+                </div>
+                <div class="col-md-2 color-white font5" style="letter-spacing: 1px;">
+                    <center><img src="~/Content/images/cm-babu.png" alt="cm" height="100" style="display:inline;"/><span style="margin-top:25px;position:absolute; display:inline;"><B> Hon'ble Chief Minister</B></span></center>
+                </div>
+                <div class="col-md-5" style="margin-top: 0px;">
+                    <div class="nav">
+                        <ul class="pull-right">
+                            <li><a href="@Url.Content("~/")Login/Index"><span class="glyphicon glyphicon-home"></span> Home</a> </li>
+                            <li class="nohover">/</li>
+                            <li><a href=""><span class="glyphicon glyphicon-th-list"></span> Category</a>
+                                <ul class="submneu">
+                                    <div class="box1">
+                                        <li><a href="#"><span class="glyphicon glyphicon-search"></span>About Growth Monitoring</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-home"></span>Govt.Guidelines on Nutrition</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span>Country / State Level Summary</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-file"></span>Case Studies / Success Stories</a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                            <!--
+						<li class="nohover">/</li>-->
+                            <li class="nohover"><a href="">
+                                <img src="~/Content/images/Andhra%20Pradesh.png" class="img-responsi" height="60" /></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/Content/images/feedback.jpg" alt="..." />
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <section>
+        <div class="container">
+            <div class="col-md-8">
+                <h2>Feedback</h2>
+                <p class="font17">
+                    Anganwadi is a government sponsored child-care and mother-care center in India. It caters to children in the 0-6 age group. The word means "courtyard shelter" in Hindi. They were started by the Indian government in 1975 as part of the Integrated Child Development Services program to combat child hunger and malnutrition.
+                </p>
+                <p class="font17">
+                    The Anganwadi system is mainly managed by the Anganwadi worker. She is a health worker chosen from the community and given 4 months training in health, nutrition and child-care. She is incharge of an Anganwadi which covers a population of 1000. 20 to 25 Anganwadi workers are supervised by a Supervisor called Mukhyasevika. 4 Mukhyasevikas are headed by a Child Development Projects Officer (CDPO).
+                </p>
+                <a href="">Read More</a>
+            </div>
+            <div class="col-md-4">
+                <!------------------------------------->
+                <!-- All the files that are required -->
+
+                <link href="~/Content/fonts/font-awesome.min.css" rel="stylesheet" />
+                <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+                @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>*@
+                <script src="~/Scripts/Common/jquery.validate.min.js"></script>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+                <!-- REGISTRATION FORM -->
+                <div class="text-center" style="padding: 10px 0">
+                    <div class="logo">register</div>
+                    <div class="login-form-1">
+                        <form id="register-form" class="text-left">
+                            <div class="login-form-main-message"></div>
+                            <div class="main-login-form">
+                                <div class="login-group">
+                                    <div class="form-group">
+                                        <label for="reg_username" class="sr-only">Email address</label>
+                                        <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg_password" class="sr-only">Password</label>
+                                        <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                                        <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="reg_email" class="sr-only">Email</label>
+                                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg_fullname" class="sr-only">Full Name</label>
+                                        <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
+                                    </div>
+
+                                    <div class="form-group login-group-checkbox">
+                                        <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+                                        <label for="male">male</label>
+
+                                        <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+                                        <label for="female">female</label>
+                                    </div>
+
+                                    <div class="form-group login-group-checkbox">
+                                        <input type="checkbox" class="" id="reg_agree" name="reg_agree">
+                                        <label for="reg_agree">i agree with <a href="#">terms</a></label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                            </div>
+                            <div class="etc-login-form">
+                                <p>already have an account? <a href="#">login here</a></p>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="pull-left">&copy; Copyright Reserved By Raminfo</p>
+            <img src="~/Content/images/raminfo-logo-1.png" class="pull-right height-req" />
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/Scripts/Login/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Scripts/Login/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>EPGM | @ViewBag.Title</title>
+    <!-- Bootstrap -->
+    <link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<style>
+    .aside {
+        white-space: normal !important;
+    }
+</style>
+<body>
+    <div class="top"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-md-3 col-sm-5 col-xs-12">
+                    <div class="logo">
+                        <img src="~/Content/images/logo1.png" alt="Growth Monitoring" /></div>
+                </div>
+                <!--<div class="col-md-4 col-md-4 col-sm-7 col-xs-12">
+				<div class="search">
+					<input type="search" placeholder="Search by ID" autofocus>
+					<a href=""><img src="images/search-icon.png" class="search-img"></a>
+					<div id="imaginary_container">
+						<div class="input-group stylish-input-group input-append">
+							<input type="text" class="form-control" placeholder="Search"> <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span> </button>
+							</span>
+						</div>
+					</div></div>
+			</div>-->
+                <div class="col-md-9 col-xs-12">
+                    <nav>
+                        <ul>
+                            <li><a href="@Url.Content("~/")Login/Index">Home</a></li>
+						    <li><a href="@Url.Content("~/")Login/OurMission">Our Mission</a></li>
+						    <li><a href="@Url.Content("~/")Login/UsefulLinks">Useful links</a></li>
+						    <li><a href="@Url.Content("~/")Login/Gallery">Gallery</a></li>
+						    <li class="active"><a href="@Url.Content("~/")Login/Feedback">Feedback</a></li>
+						    <li><a href="@Url.Content("~/")Login/ContactUs">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="banner ">
+                    <img src="~/Content/images/feedback.jpg" alt="Our Mission" class="img-resp" />
+                    <!--<div id="slider">
+					<figure> <img src="images/banner01.jpg" alt="growth monitoring" class="img-resp"> <img src="images/banner02.jpg" alt="growth monitoring" class="img-resp"> <img src="images/banner03.jpg" alt="growth monitoring" class="img-resp"> <img src="images/banner04.jpg" alt="growth monitoring" class="img-resp"> <img src="images/banner05.jpg" alt="growth monitoring" class="img-resp"> </figure>
+				</div>-->
+                </div>
+            </div>
+            <div class="col-md-3 margin-top" id="fullwidth">
+                <a href="">
+                    <div class="block1">About Growth Monitoring</div>
+                </a>
+                <a href="">
+                    <div class="block2">Govt.Guidelines on Nutrition</div>
+                </a>
+                <a href="">
+                    <div class="block3">Country / State Level Summary</div>
+                </a>
+                <a href="">
+                    <div class="block4">Case Studies / Success Stories</div>
+                </a>
+                <a href="">
+                    <div class="block2">Govt.Guidelines on Nutrition</div>
+                </a>
+                <a href="">
+                    <div class="block3">Country / State Level Summary</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 margin-top">
+
+                <p>Anganwadi is a government sponsored child-care and mother-care center in India. It caters to children in the 0-6 age group. The word means "courtyard shelter" in Hindi. They were started by the Indian government in 1975 as part of the Integrated Child Development Services program to combat child hunger and malnutrition. </p>
+                <hr>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="well well-sm">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">
+                                                    Name</label>
+                                                <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">
+                                                    Email Address</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                                    </span>
+                                                    <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="subject">
+                                                    Subject</label>
+                                                <select id="subject" name="subject" class="form-control" required="required">
+                                                    <option value="na" selected="">Choose One:</option>
+                                                    <option value="service">General Customer Service</option>
+                                                    <option value="suggestions">Suggestions</option>
+                                                    <option value="product">Product Support</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">
+                                                    Message</label>
+                                                <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                                    placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                                Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <form>
+                                <legend><span class="glyphicon glyphicon-globe"></span>Our office</legend>
+                                <address>
+                                    <strong>Twitter, Inc.</strong><br>
+                                    795 Folsom Ave, Suite 600<br>
+                                    San Francisco, CA 94107<br>
+                                    <abbr title="Phone">
+                                        P:</abbr>
+                                    (123) 456-7890
+                                </address>
+                                <address>
+                                    <strong>Full Name</strong><br>
+                                    <a href="mailto:#">first.last@example.com</a>
+                                </address>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="aside">
+                    <!--<div class="login-head">Login</div>
+				<input type="text" class="input input-style" autofocus placeholder="Username">
+				<input type="password" class="input input-style" autofocus placeholder="Password">
+				<input type="submit" class="input input-style" autofocus value="Login">-->
+                    <ul>
+                        <marquee direction="up" behavior="scroll" onmouseover="stop();" onmouseout="start();" onemptied="" scrolldelay="0.8s" spellcheck="true">
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+				</marquee>
+                    </ul>
+                    <div class="aside-footer">Latest News</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p style="float: left;">&copy; Copyright Reserved By</p>
+            <img src="~/Content/images/raminfo-logo-1.png" width="100" style="float: right;" />
+        </div>
+    </footer>
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed-->
+    <script src="~/Scripts/Common/bootstrap.min.js"></script>
+</body>
+</html>*@

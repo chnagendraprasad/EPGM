@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = null;
+}
+
+@{
+    var submenuIcon = "fa fa-circle-o";
+    var myMenu = EPGM.Templates.Menu.BindMenu(Session["UserTypeID"].ToString()).ToList();
+    var plist = myMenu.Where(m => m.ParentId == 0).ToList(); // This will list main menu items on which we'll apply loop to display them.
+    if (plist != null && plist.Count > 0)
+    {
+        foreach (var item in plist)
+        {
+    <ul class="sidebar-menu">
+        <li><a href="@item.MenuUrl"><i class="@item.ParentIcon"></i><span>@item.MenuName</span>
+           @* @if (item.MenuName == "Analytics")
+            {
+                submenuIcon = "fa fa-circle-o";
+            }
+            else
+            {
+                submenuIcon = "";
+            }*@
+            <span class="pull-right-container">
+                <i class="@item.ColGlyphicon pull-right"></i>
+            </span></a>
+            @{
+            var clist = myMenu.Where(m => m.ParentId == item.MenuId).ToList();
+            if (clist != null && clist.Count > 0)
+            {
+                <ul class="treeview-menu scroll-height">
+                    @foreach (var Citem in clist)
+                    {
+                        <li><a href="@Citem.MenuUrl"><i class="@submenuIcon"></i>@Citem.MenuName</a></li>
+                    }
+                </ul>
+            }
+            }
+        </li>
+    </ul>
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+@{
+    var myMenu = EPGM.Templates.Menu.BindMenu(Session["UserTypeID"].ToString()).ToList();
+    var plist = myMenu.Where(m => m.ParentId == 0).ToList(); // This will list main menu items on which we'll apply loop to display them.
+    
+    if (plist != null && plist.Count > 0)
+    {
+        foreach (var item in plist)
+        {
+
+    <ul class="sidebar-menu">
+        <li><a href="@item.MenuUrl"><i class="fa fa-th"></i><span>@item.MenuName</span></a>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-down pull-right"></i>
+            </span>
+             @{
+            var clist = myMenu.Where(m => m.ParentId == item.MenuId).ToList();
+            if (clist != null && clist.Count > 0)
+            {
+                foreach (var Citem in plist)
+        {
+                 <ul class="treeview-menu scroll-height">
+                     <li><a href="@Citem.MenuUrl"><i class="fa fa-circle-o"></i>@Citem.MenuName</a></li>
+                     </ul>
+             }
+            }
+            
+        </li>
+                 </ul>
+             }*@

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script>
+    //var dCode = @Html.Raw(Json.Encode(ViewBag.DistrictCode))
+    var dCode = @Session["DistrictCode"].ToString()
+</script>
+
+<script src="~/Scripts/Project/Index.js"></script>
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="col-md-12">
+            <h5><a href="@Url.Content("~/")District/Index" class="active" style="color: black; text-decoration: none">Home</a>&nbsp;&nbsp;>&nbsp;&nbsp;
+                @Session["DistrictName"].ToString()
+            </h5>
+            <hr />
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="col-md-12">
+            <table id="Grid"></table>
+            <div aria-hidden="true" id="Popup" class="modal fade" role="dialog" aria-labelledby="popuplabel"></div>
+        </div>
+    </div>
+</div>

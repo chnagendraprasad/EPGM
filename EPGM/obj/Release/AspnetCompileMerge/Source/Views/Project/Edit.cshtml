@@ -1,0 +1,52 @@
+@model TSWDCW.Models.TblProject
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = null;
+}
+<style>
+    .input-label {
+        min-width: 150px;
+    }
+</style>
+<script src="~/Scripts/Common/json2.js"></script>
+<script src="~/Scripts/Common/knockout-3.2.0.js"></script>
+<script src="~/Scripts/Admin/Project/Edit.js"></script>
+<div class="modal-dialog">
+    @using (Html.BeginForm("Edit", "Project", FormMethod.Post, new { id = "Project", @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button aria-hidden="true" class="close" type="button" data-dismiss="modal">x</button>
+                <b id="myModalLabel" class="modal-title">
+                    Project Details
+                </b>
+            </div>
+            <div class="modal-body row">
+
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="input-group extra-space">
+                        <span class="input-group-addon input-label">Project Name</span>
+                        @Html.TextBoxFor(m => m.ProjectName, null, new { @class = "form-control " })
+                    </div>
+                   <div class="input-group extra-space">
+                        <span class="input-group-addon input-label">Project Code</span>
+                        @Html.TextBoxFor(m => m.ProjectCode, null, new { @class = "form-control " })
+                    </div>
+                    <div class="input-group extra-space">
+                        <span class="input-group-addon input-label">District Code</span>
+                        @Html.TextBoxFor(m => m.DistrictCode, null, new { @class = "form-control " })
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div class="modal-footer">
+                @Html.HiddenFor(m => m.ProjectID)
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>Save</button>
+            </div>
+        </div>
+    }
+</div>

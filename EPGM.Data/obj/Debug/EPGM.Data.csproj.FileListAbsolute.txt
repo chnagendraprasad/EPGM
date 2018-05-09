@@ -1,0 +1,145 @@
+E:\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csprojResolveAssemblyReference.cache
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll.config
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Data.pdb
+E:\EPGM\EPGM.Data\bin\Debug\EntityFramework.dll
+E:\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.dll
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Models.dll
+E:\EPGM\EPGM.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.dll
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.dll
+E:\EPGM\EPGM.Data\bin\Debug\itextsharp.dll
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.pdb
+E:\EPGM\EPGM.Data\bin\Debug\EPGM.Models.pdb
+E:\EPGM\EPGM.Data\bin\Debug\EntityFramework.xml
+E:\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.xml
+E:\EPGM\EPGM.Data\bin\Debug\itextsharp.xml
+E:\EPGM\EPGM.Data\obj\Debug\EPGM.Data.dll
+E:\EPGM\EPGM.Data\obj\Debug\EPGM.Data.pdb
+C:\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csproj.App.config
+C:\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csprojResolveAssemblyReference.cache
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll.config
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.pdb
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Models.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Common.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Face.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\itextsharp.dll
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.pdb
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Models.pdb
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.xml
+C:\EPGM\EPGM\EPGM.Data\bin\Debug\itextsharp.xml
+C:\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.dll
+C:\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.pdb
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csproj.App.config
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csprojResolveAssemblyReference.cache
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll.config
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Data.pdb
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Models.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Common.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Face.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\itextsharp.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.pdb
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EPGM.Models.pdb
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\bin\Debug\itextsharp.xml
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.dll
+C:\Nagendra\Latest\EPGM\EPGM\EPGM.Data\obj\Debug\EPGM.Data.pdb
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll.config
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Data.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Data.pdb
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EntityFramework.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Models.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Common.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\Microsoft.ProjectOxford.Face.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\itextsharp.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Framework.pdb
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EPGM.Models.pdb
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EntityFramework.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\Newtonsoft.Json.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Extensions.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Net.Http.Primitives.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Helpers.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Mvc.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.Razor.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\bin\Debug\itextsharp.xml
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csproj.App.config
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\obj\Debug\EPGM.Data.csprojResolveAssemblyReference.cache
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\obj\Debug\EPGM.Data.dll
+D:\Projects and Code Related\Code By Project\HYD Projects (26-02-2018) Lead by Me\EPGM\EPGM.Data\obj\Debug\EPGM.Data.pdb

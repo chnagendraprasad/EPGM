@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Districts";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/District/MasterIndex.js"></script>
+
+<br />
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="breadcrumb pull-right">
+            <span style="font-size: 16px">
+                <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i>Home</a>
+            </span>
+        </div>
+        <span style="font-size: 22px">
+            <b>Manage Districts</b>
+        </span>
+    </section>
+    <br />
+    <section class="content">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="col-md-12">
+                    <table id="Grid"></table>
+                    <div aria-hidden="true" id="Popup" class="modal fade" role="dialog" aria-labelledby="popuplabel"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

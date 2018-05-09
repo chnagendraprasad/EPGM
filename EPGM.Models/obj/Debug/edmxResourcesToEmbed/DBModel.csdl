@@ -1,0 +1,1440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBEntities" p1:LazyLoadingEnabled="true">
+    <FunctionImport Name="SpGetBenes" ReturnType="Collection(DBModel.SpGetBenes_Result)" />
+    <FunctionImport Name="SpGetDistDetails" ReturnType="Collection(DBModel.SpGetDistDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetSectorDetails" ReturnType="Collection(DBModel.SpGetSectorDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="ProjCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetAWW">
+      <Parameter Name="ProjCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetDistrict" ReturnType="Collection(DBModel.SpGetDistrict_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMDistDetails" ReturnType="Collection(DBModel.SpGetEPGMDistDetails_Result)">
+      <Parameter Name="WHOCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CheckValidUser" ReturnType="Collection(DBModel.CheckValidUser_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetUserRoles" ReturnType="Collection(DBModel.SpGetUserRoles_Result)" />
+    <FunctionImport Name="SpRegisterUser" ReturnType="Collection(Int32)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="MobileNo" Mode="In" Type="String" />
+      <Parameter Name="UserEmail" Mode="In" Type="String" />
+      <Parameter Name="RoleID" Mode="In" Type="Int32" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetCounts" ReturnType="Collection(DBModel.SpGetCounts_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetUpdatedBeneInfo" ReturnType="Collection(DBModel.SpGetUpdatedBeneInfo_Result)">
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_S_CATEGORY" ReturnType="Collection(DBModel.USP_S_CATEGORY_Result)" />
+    <FunctionImport Name="SpUpdateEPGMStatus">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateSmartAttendanceStatus">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="VWGetProjects" EntityType="DBModel.VWGetProject" />
+    <EntitySet Name="VWGetSectors" EntityType="DBModel.VWGetSector" />
+    <EntitySet Name="TblDistricts" EntityType="DBModel.TblDistrict" />
+    <EntitySet Name="TblProjects" EntityType="DBModel.TblProject" />
+    <EntitySet Name="TblSectors" EntityType="DBModel.TblSector" />
+    <FunctionImport Name="SpGetStates" ReturnType="Collection(DBModel.SpGetStates_Result)" />
+    <FunctionImport Name="SpCheckUser" ReturnType="Collection(Int32)">
+      <Parameter Name="LoginUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetRoles" ReturnType="Collection(DBModel.SpGetRoles_Result)">
+      <Parameter Name="RoleCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPChangePassword" ReturnType="Collection(DBModel.SPChangePassword_Result)">
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_I_BENEFICIARY" ReturnType="Collection(String)">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneName" Mode="In" Type="String" />
+      <Parameter Name="BeneSurname" Mode="In" Type="String" />
+      <Parameter Name="BeneMiddleName" Mode="In" Type="String" />
+      <Parameter Name="MotherName" Mode="In" Type="String" />
+      <Parameter Name="FatherName" Mode="In" Type="String" />
+      <Parameter Name="FatherRationCardNumber" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="Contact1" Mode="In" Type="String" />
+      <Parameter Name="Contact2" Mode="In" Type="String" />
+      <Parameter Name="BeneCategory" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="Int32" />
+      <Parameter Name="AadhaarNumber" Mode="In" Type="String" />
+      <Parameter Name="AadhaarType" Mode="In" Type="String" />
+      <Parameter Name="ResidentType" Mode="In" Type="String" />
+      <Parameter Name="RegisteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Income" Mode="In" Type="Decimal" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetUserMail" ReturnType="Collection(String)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdatePassword" ReturnType="Collection(DBModel.SPUpdatePassword_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPCreateAWC" ReturnType="Collection(DBModel.SPCreateAWC_Result)">
+      <Parameter Name="AWCName" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="AWCType" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdateDistrict" ReturnType="Collection(DBModel.SPUpdateDistrict_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictName" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMDashboardCount" ReturnType="Collection(DBModel.SpGetEPGMDashboardCount_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="MenuMasters" EntityType="DBModel.MenuMaster" />
+    <FunctionImport Name="SPBindMenuByUserType" ReturnType="Collection(DBModel.SPBindMenuByUserType_Result)">
+      <Parameter Name="UserTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPGETUserRights" ReturnType="Collection(DBModel.SPGETUserRights_Result)">
+      <Parameter Name="Url" Mode="In" Type="String" />
+      <Parameter Name="UerType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPStateSpecificData" ReturnType="Collection(DBModel.SPStateSpecificData_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TblAWCs" EntityType="DBModel.TblAWC" />
+    <FunctionImport Name="SpUpdatePersonFaceCreated" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="PersistedFaceID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateHierarchyTrainStatus" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="TrainStatus" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdatePersonDeleted" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdatePersonFaceDeleted" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPCreateBeneWeightHeightDetails" ReturnType="Collection(String)">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetBeneType" ReturnType="Collection(DBModel.SPGetBeneType_Result)" />
+    <FunctionImport Name="ChildGrowthCalculator" ReturnType="Collection(DBModel.ChildGrowthCalculator_Result)">
+      <Parameter Name="Weight" Mode="In" Type="Double" />
+      <Parameter Name="Height" Mode="In" Type="Double" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetWeightAgeMasterDatabyGender" ReturnType="Collection(DBModel.SpGetWeightAgeMasterDatabyGender_Result)">
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetHeightAgeMasterDatabyGender" ReturnType="Collection(DBModel.SpGetHeightAgeMasterDatabyGender_Result)">
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetHeightWeightMasterDatabyGender" ReturnType="Collection(DBModel.SpGetHeightWeightMasterDatabyGender_Result)">
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetDashboardStat" ReturnType="Collection(DBModel.SpGetDashboardStat_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMBeneficiaries_Portal" ReturnType="Collection(DBModel.SpGetEPGMBeneficiaries_Portal_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="WhoType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetParentMenu" ReturnType="Collection(DBModel.GetParentMenu_Result)" />
+    <FunctionImport Name="SPUpdateUserrightMaster" ReturnType="Collection(DBModel.SPUpdateUserrightMaster_Result)">
+      <Parameter Name="MenuID" Mode="In" Type="Int32" />
+      <Parameter Name="UserType" Mode="In" Type="Int32" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="IPAddress" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPADDMENU" ReturnType="Collection(DBModel.SPADDMENU_Result)">
+      <Parameter Name="MenuName" Mode="In" Type="String" />
+      <Parameter Name="MenuURL" Mode="In" Type="String" />
+      <Parameter Name="ParentID" Mode="In" Type="Int32" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="IPAddress" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetMessages" ReturnType="Collection(DBModel.SPGetMessages_Result)">
+      <Parameter Name="UserType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPMessagesData" ReturnType="Collection(DBModel.SPMessagesData_Result)" />
+    <FunctionImport Name="DeleteMessage" ReturnType="Collection(DBModel.DeleteMessage_Result)">
+      <Parameter Name="msgid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPInsertInstructionMsg" ReturnType="Collection(DBModel.SPInsertInstructionMsg_Result)">
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="UserType" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="ipadd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdateInstructionMsg" ReturnType="Collection(DBModel.SPUpdateInstructionMsg_Result)">
+      <Parameter Name="MsgID" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="UserType" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="ipadd" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdatePWType" ReturnType="Collection(DBModel.SPUpdatePWType_Result)">
+      <Parameter Name="BeneID" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateHierarchyDeleted" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateHierarchyCreated" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateBeneHierarchyDeleted" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetMenus" ReturnType="Collection(DBModel.GetMenus_Result)">
+      <Parameter Name="UserType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMenurole" ReturnType="Collection(DBModel.UpdateMenurole_Result)">
+      <Parameter Name="Enabled" Mode="In" Type="String" />
+      <Parameter Name="MenuID" Mode="In" Type="String" />
+      <Parameter Name="UserType" Mode="In" Type="String" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAppMenuData" ReturnType="Collection(DBModel.GetAppMenuData_Result)">
+      <Parameter Name="LanguageId" Mode="In" Type="Int32" />
+      <Parameter Name="AWCcode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMenurole_MobileApp" ReturnType="Collection(DBModel.UpdateMenurole_MobileApp_Result)">
+      <Parameter Name="Enabled" Mode="In" Type="String" />
+      <Parameter Name="MenuID" Mode="In" Type="String" />
+      <Parameter Name="AwcCode" Mode="In" Type="String" />
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpCheckUserFF" ReturnType="Collection(Int32)">
+      <Parameter Name="LoginUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpCheckUserFieldForce" ReturnType="Collection(Int32)">
+      <Parameter Name="LoginUserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetStaffDetailsFF" ReturnType="Collection(DBModel.SPGetStaffDetailsFF_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateFieldForceStaffForAWC" ReturnType="Collection(DBModel.SpUpdateFieldForceStaffForAWC_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="StaffID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpCreateFieldStaff" ReturnType="Collection(String)">
+      <Parameter Name="StaffCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Surname" Mode="In" Type="String" />
+      <Parameter Name="MiddleName" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="DOJ" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="PhotoImagePath" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="Qualification" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetStaffFF" ReturnType="Collection(DBModel.SPGetStaffFF_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateStatusOfFieldForce" ReturnType="Collection(DBModel.SpUpdateStatusOfFieldForce_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="StaffID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpFieldForceStaffDetails" ReturnType="Collection(DBModel.SpFieldForceStaffDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetDashboardStat_Portal" ReturnType="Collection(DBModel.SpGetDashboardStat_Portal_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMBenes" ReturnType="Collection(DBModel.SpGetEPGMBenes_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="WhoType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetDistLevelDetails" ReturnType="Collection(DBModel.SpGetDistLevelDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetAWC" ReturnType="Collection(DBModel.SpGetAWC_Result)">
+      <Parameter Name="SecCode" Mode="In" Type="String" />
+      <Parameter Name="ProjCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetSector" ReturnType="Collection(DBModel.SpGetSector_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdateSector" ReturnType="Collection(DBModel.SPUpdateSector_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="SectorName" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMSectorDetails" ReturnType="Collection(DBModel.SpGetEPGMSectorDetails_Result)">
+      <Parameter Name="WHOCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="ProjCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdateProject" ReturnType="Collection(DBModel.SPUpdateProject_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectName" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMProjectDetails" ReturnType="Collection(DBModel.SpGetEPGMProjectDetails_Result)">
+      <Parameter Name="WHOCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpInsertLoginUser" ReturnType="Collection(DBModel.SpInsertLoginUser_Result)">
+      <Parameter Name="Username" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="MobileNo" Mode="In" Type="String" />
+      <Parameter Name="UserEmail" Mode="In" Type="String" />
+      <Parameter Name="RoleCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="TblPortalUsers" EntityType="DBModel.TblPortalUser" />
+    <FunctionImport Name="SPGetCentersType" ReturnType="Collection(DBModel.SPGetCentersType_Result)">
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetProjectDetails" ReturnType="Collection(DBModel.SpGetProjectDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetProject" ReturnType="Collection(DBModel.SpGetProject_Result)">
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPUpdateAWC" ReturnType="Collection(DBModel.SPUpdateAWC_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="AWCName" Mode="In" Type="String" />
+      <Parameter Name="AWWName" Mode="In" Type="String" />
+      <Parameter Name="AWWMobile" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetAWCDetails" ReturnType="Collection(DBModel.SpGetAWCDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="SecCode" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPGetPWWomenData" ReturnType="Collection(DBModel.SPGetPWWomenData_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpNewBene" ReturnType="Collection(String)">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneName" Mode="In" Type="String" />
+      <Parameter Name="BeneSurname" Mode="In" Type="String" />
+      <Parameter Name="BeneMiddleName" Mode="In" Type="String" />
+      <Parameter Name="MotherName" Mode="In" Type="String" />
+      <Parameter Name="FatherName" Mode="In" Type="String" />
+      <Parameter Name="FatherRationCardNumber" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="Contact1" Mode="In" Type="String" />
+      <Parameter Name="Contact2" Mode="In" Type="String" />
+      <Parameter Name="BeneCategory" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="Int32" />
+      <Parameter Name="AadhaarNumber" Mode="In" Type="String" />
+      <Parameter Name="AadhaarType" Mode="In" Type="String" />
+      <Parameter Name="ResidentType" Mode="In" Type="String" />
+      <Parameter Name="RegisteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Income" Mode="In" Type="Decimal" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="Langitude" Mode="In" Type="String" />
+      <Parameter Name="Latitude" Mode="In" Type="String" />
+      <Parameter Name="ImagePath" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="IsRegisterd" Mode="In" Type="String" />
+      <Parameter Name="IsEnrolled" Mode="In" Type="String" />
+      <Parameter Name="DeptUID" Mode="In" Type="String" />
+      <Parameter Name="BirthWeight" Mode="In" Type="String" />
+      <Parameter Name="EDD" Mode="In" Type="DateTime" />
+      <Parameter Name="RegType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdatePersonCreated" ReturnType="Collection(String)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="PersonID" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetAllBenesofCenter" ReturnType="Collection(DBModel.SpGetAllBenesofCenter_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpUpdateStatusOfBene" ReturnType="Collection(DBModel.SpUpdateStatusOfBene_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMBeneficiaries" ReturnType="Collection(DBModel.SpGetEPGMBeneficiaries_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="WhoType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMDistrictDetails" ReturnType="Collection(DBModel.SpGetEPGMDistrictDetails_Result)">
+      <Parameter Name="WHOCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetEPGMAWCDetails" ReturnType="Collection(DBModel.SpGetEPGMAWCDetails_Result)">
+      <Parameter Name="WHOCode" Mode="In" Type="String" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="SecCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="Month" Mode="In" Type="String" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SpGetAllBeneficiaryDetails" ReturnType="Collection(DBModel.SpGetAllBeneficiaryDetails_Result)">
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="CenterCode" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_Update_BENEFICIARY" ReturnType="Collection(DBModel.USP_Update_BENEFICIARY_Result)">
+      <Parameter Name="AWCCode" Mode="In" Type="String" />
+      <Parameter Name="BeneCode" Mode="In" Type="String" />
+      <Parameter Name="BeneName" Mode="In" Type="String" />
+      <Parameter Name="BeneSurname" Mode="In" Type="String" />
+      <Parameter Name="MotherName" Mode="In" Type="String" />
+      <Parameter Name="FatherName" Mode="In" Type="String" />
+      <Parameter Name="FatherRationCardNumber" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="BeneCategory" Mode="In" Type="String" />
+      <Parameter Name="BeneType" Mode="In" Type="Int32" />
+      <Parameter Name="AadhaarNumber" Mode="In" Type="String" />
+      <Parameter Name="AadhaarType" Mode="In" Type="String" />
+      <Parameter Name="ResidentType" Mode="In" Type="String" />
+      <Parameter Name="RegisteredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Income" Mode="In" Type="Decimal" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="DistrictCode" Mode="In" Type="String" />
+      <Parameter Name="ProjectCode" Mode="In" Type="String" />
+      <Parameter Name="SectorCode" Mode="In" Type="String" />
+      <Parameter Name="Updatedby" Mode="In" Type="Int32" />
+      <Parameter Name="DeptUID" Mode="In" Type="String" />
+      <Parameter Name="BirthWeight" Mode="In" Type="String" />
+      <Parameter Name="CenterTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SpGetBenes_Result">
+    <Property Type="Int32" Name="BeneID" Nullable="false" />
+    <Property Type="String" Name="BeneCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BeneCategory" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BeneType" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="LatestWeight" Nullable="true" />
+    <Property Type="Double" Name="LatestHeight" Nullable="true" />
+    <Property Type="Double" Name="WeightToAdd" Nullable="true" />
+    <Property Type="Double" Name="LatestBMI" Nullable="true" />
+    <Property Type="Int32" Name="LatestGrade" Nullable="true" />
+    <Property Type="String" Name="Remarks" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetDistDetails_Result">
+    <Property Type="Int64" Name="Sno" Nullable="true" />
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ProjectsCount" Nullable="true" />
+    <Property Type="Int32" Name="SectorsCount" Nullable="true" />
+    <Property Type="Int32" Name="AWCCount" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpGetSectorDetails_Result">
+    <Property Type="Int32" Name="SectorID" Nullable="false" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="AWCCount" Nullable="true" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpGetDistrict_Result">
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="StateCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PDName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PDMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PDAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="PDEmail" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMDistDetails_Result">
+    <Property Type="Int32" Name="Cnt" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+    <Property Type="Int32" Name="LatestGrade" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CheckValidUser_Result">
+    <Property Type="Int32" Name="PortalUserID" Nullable="false" />
+    <Property Type="String" Name="UserCode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="StateCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DistrictCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SectorCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AWCCode" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SpGetUserRoles_Result">
+    <Property Type="Int32" Name="RoleID" Nullable="false" />
+    <Property Type="String" Name="RoleCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SpGetCounts_Result">
+    <Property Type="Int32" Name="Dists" Nullable="true" />
+    <Property Type="Int32" Name="Projs" Nullable="true" />
+    <Property Type="Int32" Name="Sectors" Nullable="true" />
+    <Property Type="Int32" Name="AWCs" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetUpdatedBeneInfo_Result">
+    <Property Type="Int32" Name="BeneID" Nullable="false" />
+    <Property Type="String" Name="BeneCode" Nullable="true" MaxLength="71" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Contact1" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Contact2" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BeneClass" Nullable="true" MaxLength="50" />
+    <Property Type="Binary" Name="Photo" Nullable="true" />
+    <Property Type="Int32" Name="BeneType" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Double" Name="LatestWeight" Nullable="true" />
+    <Property Type="Double" Name="LatestHeight" Nullable="true" />
+    <Property Type="Double" Name="LatestBMI" Nullable="true" />
+    <Property Type="Double" Name="WeightToAdd" Nullable="true" />
+    <Property Type="Int32" Name="LatestGrade" Nullable="true" />
+    <Property Type="String" Name="Remarks" Nullable="true" />
+    <Property Type="String" Name="Createddate" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="USP_S_CATEGORY_Result">
+    <Property Type="String" Name="CategoryCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <EntityType Name="VWGetProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+      <PropertyRef Name="ProjectCode" />
+      <PropertyRef Name="ProjectName" />
+      <PropertyRef Name="DistrictName" />
+    </Key>
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VWGetSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+      <PropertyRef Name="SectorCode" />
+      <PropertyRef Name="SectorName" />
+      <PropertyRef Name="DistrictName" />
+    </Key>
+    <Property Type="Int32" Name="SectorID" Nullable="false" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProjectName" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblDistrict">
+    <Key>
+      <PropertyRef Name="DistrictID" />
+    </Key>
+    <Property Type="Int32" Name="DistrictID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StateCode" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PDName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PDMobile" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PDAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PDEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="UpdatedBy" />
+    <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="TblProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Type="Int32" Name="ProjectID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProjectName" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StateCode" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Type="String" Name="CDPOName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CDPOMobile" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CDPOAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CDPOEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="UpdatedBy" />
+    <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+    <Property Name="CenterTypeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSector">
+    <Key>
+      <PropertyRef Name="SectorID" />
+    </Key>
+    <Property Type="Int32" Name="SectorID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StateCode" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SupName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SupMobile" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SupAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SupEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="UpdatedBy" />
+    <Property Type="DateTime" Name="UpdatedDate" Precision="3" />
+    <Property Name="CenterTypeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="SpGetStates_Result">
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SpGetRoles_Result">
+    <Property Type="String" Name="RoleCode" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SPChangePassword_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SPUpdatePassword_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SPCreateAWC_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="Int64" Name="AWCCode" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateDistrict_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="38" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMDashboardCount_Result">
+    <Property Type="Int64" Name="Sno" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ProjectsCount" Nullable="true" />
+    <Property Type="Int32" Name="SectorsCount" Nullable="true" />
+    <Property Type="Int32" Name="AWCCount" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="MenuMaster">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Type="Int32" Name="MenuId" Nullable="false" />
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MenuUrl" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ParentId" Nullable="false" />
+    <Property Type="Int32" Name="UserType" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+    <Property Type="String" Name="CreatedBy" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+    <Property Type="String" Name="ModifiedBy" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IpAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="OrderBy" />
+    <Property Type="String" Name="ColGlyphicon" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentIcon" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="SPBindMenuByUserType_Result">
+    <Property Type="Int32" Name="MenuId" Nullable="false" />
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="MenuUrl" Nullable="false" />
+    <Property Type="Int32" Name="ParentId" Nullable="false" />
+    <Property Type="String" Name="ParentIcon" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ColGlyphicon" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPGETUserRights_Result">
+    <Property Type="Int32" Name="MenuId" Nullable="false" />
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="150" />
+    <Property Type="Boolean" Name="Enabled" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SPStateSpecificData_Result">
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="StateLogo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MainLogo" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="CMImageURL" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MinisterImageURL" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MainTitle" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="SubTitle" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <EntityType Name="TblAWC">
+    <Key>
+      <PropertyRef Name="AWCID" />
+    </Key>
+    <Property Name="AWCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AWCCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AWCDeptCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AWCName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="AWCType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="AWWCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AWWName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AWWMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AWWType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InchargeAWWCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SectorCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StateCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MandalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GPCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Langitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AWCImageInBytes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AWCImagePath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AWCImageCreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="AWCImageCreatedTime" Type="Time" Precision="7" />
+    <Property Name="IsHierarchyCreated" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="HierarchyCreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsHierarchyActived" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="HierarchyActivatedDate" Type="DateTime" Precision="3" />
+    <Property Name="AttendanceEnable" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="FieldForceStaffID" Type="Int32" />
+    <Property Name="FieldForceStaffCreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CenterTypeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="SPGetBeneType_Result">
+    <Property Type="Int32" Name="BeneTypeID" Nullable="false" />
+    <Property Type="String" Name="BeneTypeCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="BeneType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ChildGrowthCalculator_Result">
+    <Property Type="Int32" Name="AgeInMonths" Nullable="true" />
+    <Property Type="String" Name="HeightAgeGradeName" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="HeightWeightGradeName" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="WeightAgeGradeName" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="SpGetWeightAgeMasterDatabyGender_Result">
+    <Property Type="Int32" Name="AgeInMonths" Nullable="true" />
+    <Property Type="Decimal" Name="NormalFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="NormalTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="ModerateFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="ModerateTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="SevereFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="SevereTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SpGetHeightAgeMasterDatabyGender_Result">
+    <Property Type="Int32" Name="AgeinMonths" Nullable="true" />
+    <Property Type="Decimal" Name="NormalFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="NormalTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MAMFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MAMTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="SpGetHeightWeightMasterDatabyGender_Result">
+    <Property Type="Int32" Name="HeightInCm" Nullable="true" />
+    <Property Type="Decimal" Name="NormalFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="NormalTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MAMFrom" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MAMTo" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="2" />
+  </ComplexType>
+  <ComplexType Name="SpGetDashboardStat_Result">
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="TotalCenters" Nullable="true" />
+    <Property Type="Int32" Name="Absent" Nullable="true" />
+    <Property Type="Int32" Name="Normal" Nullable="true" />
+    <Property Type="Int32" Name="Moderate" Nullable="true" />
+    <Property Type="Int32" Name="Severe" Nullable="true" />
+    <Property Type="Int32" Name="HWNormal" Nullable="true" />
+    <Property Type="Int32" Name="HWModerate" Nullable="true" />
+    <Property Type="Int32" Name="HWSevere" Nullable="true" />
+    <Property Type="Int32" Name="HANormal" Nullable="true" />
+    <Property Type="Int32" Name="HAModerate" Nullable="true" />
+    <Property Type="Int32" Name="HASevere" Nullable="true" />
+    <Property Type="Int32" Name="TotalAttendance" Nullable="true" />
+    <Property Type="Int32" Name="PregnantWomen" Nullable="true" />
+    <Property Type="Int32" Name="LactatingWomen" Nullable="true" />
+    <Property Type="Int32" Name="Child0to3" Nullable="true" />
+    <Property Type="Int32" Name="Child3to6" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMBeneficiaries_Portal_Result">
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="71" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="GradeCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="GradeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AgeIntYears" Nullable="true" MaxLength="63" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActiveStatus" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EnrolledStatus" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="GetParentMenu_Result">
+    <Property Type="String" Name="MenuID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateUserrightMaster_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="23" />
+  </ComplexType>
+  <ComplexType Name="SPADDMENU_Result">
+    <Property Type="String" Name="MenuID" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="23" />
+  </ComplexType>
+  <ComplexType Name="SPGetMessages_Result">
+    <Property Type="Int32" Name="msgId" Nullable="false" />
+    <Property Type="String" Name="MessageDesc" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Usertype" Nullable="true" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="Enabled" Nullable="true" />
+    <Property Type="String" Name="AddedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AddedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ipadd" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPMessagesData_Result">
+    <Property Type="Int32" Name="msgId" Nullable="false" />
+    <Property Type="String" Name="MessageDesc" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Usertype" Nullable="true" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="DeleteMessage_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SPInsertInstructionMsg_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="29" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateInstructionMsg_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SPUpdatePWType_Result">
+    <Property Type="String" Name="code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="GetMenus_Result">
+    <Property Type="String" Name="MenuName" Nullable="false" MaxLength="150" />
+    <Property Type="Int32" Name="MenuId" Nullable="false" />
+    <Property Type="String" Name="MenuUrl" Nullable="false" />
+    <Property Type="Boolean" Name="Enabled" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UpdateMenurole_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="25" />
+  </ComplexType>
+  <ComplexType Name="GetAppMenuData_Result">
+    <Property Type="String" Name="Menu_Name" Nullable="true" />
+    <Property Type="Int32" Name="AppMenuID" Nullable="true" />
+    <Property Type="String" Name="MenuUrl" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="Enabled" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UpdateMenurole_MobileApp_Result">
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="34" />
+  </ComplexType>
+  <ComplexType Name="SPGetStaffDetailsFF_Result">
+    <Property Type="Int32" Name="StaffID" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="C_DOB_" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="C_DOJ_" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="PhotoImagePath" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="DateTime" Name="ActivatedOrInActivatedDateTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SpUpdateFieldForceStaffForAWC_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="47" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SPGetStaffFF_Result">
+    <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="StaffID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpUpdateStatusOfFieldForce_Result">
+    <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="StaffID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="SpFieldForceStaffDetails_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="StaffID" Nullable="false" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="C_DOB_" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="C_DOJ_" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="PhotoImagePath" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="DateTime" Name="ActivatedOrInActivatedDateTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Qualification" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RegisteredDateTime" Nullable="true" MaxLength="61" />
+  </ComplexType>
+  <ComplexType Name="SpGetDashboardStat_Portal_Result">
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="TotalCenters" Nullable="true" />
+    <Property Type="Int32" Name="Absent" Nullable="true" />
+    <Property Type="Int32" Name="Normal" Nullable="true" />
+    <Property Type="Int32" Name="Moderate" Nullable="true" />
+    <Property Type="Int32" Name="Severe" Nullable="true" />
+    <Property Type="Int32" Name="HWNormal" Nullable="true" />
+    <Property Type="Int32" Name="HWModerate" Nullable="true" />
+    <Property Type="Int32" Name="HWSevere" Nullable="true" />
+    <Property Type="Int32" Name="HANormal" Nullable="true" />
+    <Property Type="Int32" Name="HAModerate" Nullable="true" />
+    <Property Type="Int32" Name="HASevere" Nullable="true" />
+    <Property Type="Int32" Name="TotalAttendance" Nullable="true" />
+    <Property Type="Int32" Name="Children" Nullable="true" />
+    <Property Type="Int32" Name="PregnantWomen" Nullable="true" />
+    <Property Type="Int32" Name="LactatingWomen" Nullable="true" />
+    <Property Type="Int32" Name="Child0to3" Nullable="true" />
+    <Property Type="Int32" Name="Child3to6" Nullable="true" />
+    <Property Type="Int32" Name="Others" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMBenes_Result">
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="71" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="Double" Name="LatestWeight" Nullable="true" />
+    <Property Type="String" Name="GradeCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="GradeName" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="WeightToAdd" Nullable="true" />
+    <Property Type="Double" Name="LatestHeight" Nullable="true" />
+    <Property Type="String" Name="AgeIntYears" Nullable="true" MaxLength="63" />
+    <Property Type="Double" Name="LatestBMI" Nullable="true" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="LastWeighedDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="ActiveStatus" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EnrolledStatus" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="AttendanceStatus" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="AttendanceTimeStamp" Nullable="true" MaxLength="61" />
+    <Property Type="String" Name="AttendanceImageURL" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WHTimeStamp" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="WHImageURL" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="WHAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="IsRegisteredAtAttendance" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="RegisteredAtAttendanceDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="IsEnrolledAtAttendance" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EnrolledAtAttendanceDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="EnrolledImageURL" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Langitude" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BenAddress" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="PersonID" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PersistedFaceID" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="AadhaarNumber" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Father_Husband_Name" Nullable="false" MaxLength="250" />
+    <Property Type="Double" Name="HBReading" Nullable="true" />
+    <Property Type="Int32" Name="HBGrade" Nullable="true" />
+    <Property Type="Double" Name="MUReading" Nullable="true" />
+    <Property Type="Int32" Name="MUGrade" Nullable="true" />
+    <Property Type="Double" Name="OXPulseReading" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetDistLevelDetails_Result">
+    <Property Type="Int64" Name="Row" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="AWCCode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="AWCName" Nullable="false" MaxLength="1" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="Absent" Nullable="true" />
+    <Property Type="Int32" Name="Normal" Nullable="true" />
+    <Property Type="Int32" Name="Moderate" Nullable="true" />
+    <Property Type="Int32" Name="Severe" Nullable="true" />
+    <Property Type="Int32" Name="HWNormal" Nullable="true" />
+    <Property Type="Int32" Name="HWModerate" Nullable="true" />
+    <Property Type="Int32" Name="HWSevere" Nullable="true" />
+    <Property Type="Int32" Name="HANormal" Nullable="true" />
+    <Property Type="Int32" Name="HAModerate" Nullable="true" />
+    <Property Type="Int32" Name="HASevere" Nullable="true" />
+    <Property Type="Int32" Name="TotalAttendance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SpGetAWC_Result">
+    <Property Type="Int32" Name="AWCID" Nullable="false" />
+    <Property Type="String" Name="AWCCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AWCName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AWWCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AWWName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AWWMobile" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SpGetSector_Result">
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="SectorID" Nullable="false" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SupName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SupMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SupAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="SupEmail" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateSector_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="36" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMSectorDetails_Result">
+    <Property Type="Int32" Name="Cnt" Nullable="true" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SectorID" Nullable="false" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateProject_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="37" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMProjectDetails_Result">
+    <Property Type="Int32" Name="Cnt" Nullable="true" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SpInsertLoginUser_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="29" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <EntityType Name="TblPortalUser">
+    <Key>
+      <PropertyRef Name="PortalUserID" />
+    </Key>
+    <Property Name="PortalUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="RoleCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="StateCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DistrictCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SectorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AWCCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CenterTypeID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="SPGetCentersType_Result">
+    <Property Type="Int32" Name="CenterTypeID" Nullable="false" />
+    <Property Type="String" Name="CenterTypeCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CenterType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SpGetProjectDetails_Result">
+    <Property Type="Int64" Name="Sno" Nullable="true" />
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpGetProject_Result">
+    <Property Type="Int32" Name="ProjectID" Nullable="false" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="CDPOName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CDPOMobile" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="CDPOAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="CDPOEmail" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPUpdateAWC_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="33" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SpGetAWCDetails_Result">
+    <Property Type="Int64" Name="Sno" Nullable="true" />
+    <Property Type="Int32" Name="AWCID" Nullable="false" />
+    <Property Type="String" Name="AWCCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AWCName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="AWCType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="AWWCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AWWName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="AWWMobile" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="AWWType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="IsHierarchyCreated" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IsHierarchyActived" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AWCImagePath" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="HierarchyCreatedDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="HierarchyActivatedDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="AWCImageCreatedDateTime" Nullable="false" MaxLength="41" />
+    <Property Type="String" Name="FieldForceName" Nullable="false" MaxLength="302" />
+    <Property Type="String" Name="FiledForceStaffCreatedDateTime" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="StaffCode" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="StaffID" Nullable="true" />
+    <Property Type="String" Name="FiledForceStaffMobileNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="DOJ" Nullable="true" Precision="23" />
+    <Property Type="String" Name="FiledForceStaffEmail" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FiledForceStaffAddress" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="PhotoImagePath" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Qualification" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPGetPWWomenData_Result">
+    <Property Type="Int32" Name="BeneID" Nullable="false" />
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="201" />
+    <Property Type="String" Name="HusbandName" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ImagePath" Nullable="false" MaxLength="500" />
+    <Property Type="Int32" Name="BeneType" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpGetAllBenesofCenter_Result">
+    <Property Type="String" Name="AWCCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MotherName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Age" Nullable="true" MaxLength="63" />
+    <Property Type="String" Name="AadhaarNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="RegisteredDateTime" Nullable="true" MaxLength="61" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpUpdateStatusOfBene_Result">
+    <Property Type="String" Name="AWCCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMBeneficiaries_Result">
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="71" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="GradeCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="GradeName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AgeIntYears" Nullable="true" MaxLength="63" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ActiveStatus" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EnrolledStatus" Nullable="false" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMDistrictDetails_Result">
+    <Property Type="Int32" Name="Cnt" Nullable="true" />
+    <Property Type="String" Name="DistrictName" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DistrictID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SpGetEPGMAWCDetails_Result">
+    <Property Type="Int32" Name="Cnt" Nullable="true" />
+    <Property Type="String" Name="DistrictCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ProjectCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SectorCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="AWCID" Nullable="false" />
+    <Property Type="String" Name="AWCCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AWCName" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SpGetAllBeneficiaryDetails_Result">
+    <Property Type="String" Name="AWCCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BeneCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="BeneName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BeneSurname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="MotherName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FatherName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="AadhaarType" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="AadhaarNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FatherRationCardNumber" Nullable="true" MaxLength="20" />
+    <Property Type="Double" Name="Income" Nullable="true" />
+    <Property Type="String" Name="BeneCategory" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RegisteredDateTime" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ResidentType" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IsRegisteredAtAttendance" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="RegisteredAtAttendanceDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="IsEnrolledAtAttendance" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="EnrolledAtAttendanceDate" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="EnrolledImageURL" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Langitude" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Latitude" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="PersonID" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="PersistedFaceID" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="USP_Update_BENEFICIARY_Result">
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="22" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="3" />
+  </ComplexType>
+</Schema>

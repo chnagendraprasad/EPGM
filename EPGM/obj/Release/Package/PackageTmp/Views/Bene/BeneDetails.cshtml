@@ -1,0 +1,97 @@
+﻿@model EPGM.Models.SpGetUpdatedBeneInfo_Result
+@{
+    ViewBag.Title = "Beneficiary Details";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+<script src="~/Scripts/Common/jquery.session.js"></script>
+@*<script src="~/Scripts/Benes/Index.js"></script>*@
+<style type="text/css">
+    #ReportViewer1_ctl05 {
+        background-image: none !important;
+        background-color: #ecf0f5 !important;
+        border-bottom: 0px !important;
+    }
+</style>
+<br />
+<br />
+<br />
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="breadcrumb pull-right">
+            @*<span style="font-size: 14px">
+                    <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i>Dashboard</a>
+                </span>*@
+            @if (Session["UserTypeID"].ToString() == "0")
+            {
+                <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+            @if (Session["UserTypeID"].ToString() == "1")
+            {
+                <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+            @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+            {
+                <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+            @if (Session["UserTypeID"].ToString() == "5")
+            {
+                <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+            @if (Session["UserTypeID"].ToString() == "6")
+            {
+                <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+            @if (Session["UserTypeID"].ToString() == "7")
+            {
+                <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span> &nbsp;<i class="fa fa-angle-right"></i></a>
+                <a id="btnback" href="@Url.Content("~/")Bene/MasterIndex"><i class=""></i><span style="font-size: 14px">List of Beneficiaries</span></a>
+            }
+        </div>
+    </section>
+    <br />
+    <section class="content">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="col-md-12">
+
+                    <iframe name="ifr" id="ifr" style="WIDTH: 100%; position: relative; border: none; align-content: center; max-height: none; height: 76vh; border-radius: 0px;" scrolling="yes"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        var url = "/Report/ChildDetails.aspx?benecode=" + '@ViewBag.BeneCode' + "&distname=" + '@ViewBag.distname' + "&projectname=" + '@ViewBag.projectname' + "&sectorname=" + '@ViewBag.sectorname' + "&awcname=" + '@ViewBag.awcname' + "&Month=" + '@ViewBag.Month' + "&Year=" + '@ViewBag.Year' + "&BeneType=" + '@ViewBag.BeneType' + "&CenterType=" + '@ViewBag.CenterType';
+        $('iframe#ifr').attr('src', url);
+
+        $("#btnback").click(function () {
+            debugger;
+            $.session.set('type', 'back');
+            $.session.set('postback', '1');
+            $.session.set('beneCode', '@ViewBag.BeneCode');
+            $.session.set('StateCode', '@ViewBag.StateCode');
+            $.session.set('distcode', '@ViewBag.distcode');
+            $.session.set('Projectcode', '@ViewBag.Projectcode');
+            $.session.set('Sectorcode', '@ViewBag.Sectorcode');
+            $.session.set('awccode', '@ViewBag.awccode');
+            $.session.set('benetype', '@ViewBag.BeneType');
+            $.session.set('month', '@ViewBag.Month');
+            $.session.set('year', '@ViewBag.Year');
+            $.session.set('CenterType', '@ViewBag.CenterType');
+
+
+
+            window.location = '/Bene/MasterIndex';
+
+        });
+    });
+</script>
