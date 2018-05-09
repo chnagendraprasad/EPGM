@@ -1,0 +1,647 @@
+﻿@{
+    ViewBag.Title = "Beneficiary Details";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/Common/jquery.session.js"></script>
+<link href="~/Content/fonts/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Scripts/Common/jquery.popupwindow.js"></script>
+
+<style type="text/css">
+    .Viewbtn {
+        background-color: #525659 !important;
+        color: white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 25%;
+        border: 0px;
+    }
+
+    span.cellWithoutBackground
+{
+    display:block;
+    background-image:none;
+   
+   
+}
+
+    .min-height {
+        min-height: 0px !important;
+    }
+
+    /*.input-group .input-group-addon {
+        border-radius: 0;
+        border-color: #d2d6de;
+        background-color: #d2d6de !important;
+    }*/
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: 0px solid #ccc !important;
+        background: none !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-left: solid 1px !important;
+        border-right: solid 1px !important;
+        border-top: solid 1px !important;
+        border-color: #ccc !important;
+        background-color: #7b454b !important;
+        color: black !important;
+    }
+
+    .ui-widget-header .ui-state-default {
+        border: 1px solid #cccccc;
+        background: #fff !important;
+    }
+
+    th.ui-th-column div {
+        height: auto !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        height: auto !important;
+        padding-bottom: 8px !important;
+    }
+
+    .content-header {
+        position: relative;
+        padding: 15px 15px 0 15px !important;
+    }
+</style>
+
+<style type="text/css">
+    .modal-header {
+        padding: 5px !important;
+        border-bottom: 0px solid #e5e5e5 !important;
+        background-color: #961d21 !important;
+        color: black !important;
+    }
+
+    .modal-dialog {
+        margin-top: 10% !important;
+    }
+
+    .close {
+        color: #fff !important;
+        text-shadow: 0 0px 0 #fff !important;
+        filter: alpha(opacity=0) !important;
+        opacity: 1 !important;
+    }
+</style>
+
+<style>
+    /*Sure*/
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid .ui-th-div-ie {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-htable {
+        /*letter-spacing: 1px !important;*/
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        line-height: 15px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+    }
+
+    .input-label {
+        min-width: 90px !important;
+        text-align: left;
+    }
+
+    .content-wrapper {
+        min-height: 601px !important;
+        overflow-y: visible !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        color: white !important;
+    }
+
+    #Grid_IsEnrolledAtAttendance, #Grid_AttendanceStatus, #Grid_WHTimeStamp, #Grid_IsRegisteredAtAttendance {
+        background-color: #961d21 !important;
+    }
+
+    #jqgh_Grid_GradeName > .s-ico {
+        display: block !important;
+        bottom: 14px !important;
+        position: relative !important;
+        left: 20px !important;
+    }
+    .wdth{
+        width : 140px !important;
+    }
+    .lft{
+        margin-left : 40px;
+    }
+</style>
+
+<script src="~/Scripts/Benes/MasterIndex.js"></script>
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Beneficiary Details</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        {
+                            <a href="@Url.Content("~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        {
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        {
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        {
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        {
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        {
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+        </div>
+        <section class="content min-height">
+            <div class="row">
+                <div class="col-sm-2 ">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Type</span>
+                        @Html.DropDownList("CenterType", (IEnumerable<SelectListItem>)ViewBag.CenterType, new { @class = "form-control wdth", @onchange = "ChangeCenterType()" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">State</span>
+                        @Html.DropDownList("StateID", (IEnumerable<SelectListItem>)ViewBag.States, new { @class = "form-control wdth", @onchange = "BindDropDownDistrict()" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">District</span>
+                        @Html.DropDownList("DistrictID", new List<SelectListItem>(), new { @class = "form-control wdth", @onchange = "BindDropDownProject()" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Project</span>
+                        @Html.DropDownList("ProjectID", new List<SelectListItem>(), new { @class = "form-control wdth", @onchange = "BindDropDownSector()" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Sector</span>
+                        @Html.DropDownList("SectorID", new List<SelectListItem>(), new { @class = "form-control wdth", @onchange = "BindDropDownCenter()" })
+                    </div>
+                </div>
+            </div>
+            <div class="clears"></div>
+            <div class="row">
+                <div class="col-md-2 ">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Center</span>
+                        @Html.DropDownList("CenterID", new List<SelectListItem>(), new { @class = "form-control wdth" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Bene Type</span>
+                        @Html.DropDownList("BeneType", (IEnumerable<SelectListItem>)ViewBag.BeneType, new { @class = "form-control valid wdth", req = "Req", message = "BeneType" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Month</span>
+                        @Html.DropDownList("ddlMonth", (IEnumerable<SelectListItem>)ViewBag.Months, new { @class = "form-control valid wdth", req = "Req", message = "Month" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div class="input-group">
+                        <span class="input-group-addon input-label" id="sizing-addon2">Year</span>
+                        @Html.TextBox("txtYear", DateTime.Now.Year, new { @class = "form-control valid txtinput wdth", req = "Req", message = "Year", @maxlength = "4", @onkeypress = "return IsNumeric(event);" })
+                    </div>
+                </div>
+                <div class="col-sm-2 lft">
+                    <div>
+                        <button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                        <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="clears"></div>
+            <div class="row">
+                
+                
+                <div class="col-sm-2 pull-right">
+                    <span id="btnExcel" style="position: relative; left: 35%;">
+                        <a href="@Url.Content(" /Bene/BeneDetailsExport/?filetype=EXCEL")">
+                            <img src="~/Content/images/MSExcel.png" alt="Excel" style="width: 25px; height: 24px" title="Excel" />
+                        </a>
+                    </span>  &nbsp;&nbsp;
+                    <span id="btnPdf" style="position: relative; left: 35%;">
+                        <a href="@Url.Content(" /Bene/BeneDetailsExport/?filetype=PDF")">
+                            <img src="~/Content/images/pdf.jpg" alt="pdf" style="width: 25px; height: 24px" title="Pdf" />
+                        </a>
+                    </span>  &nbsp;&nbsp;
+
+                    <span id="btnprint" style="position: relative; left: 35%;">
+                        <img src="~/Content/images/print1.png" alt="print" style="width: 25px; height: 24px" title="Print" />
+                    </span>&nbsp;&nbsp;
+
+                    <span id="" style="position: relative; top: 1%; left: 35%;">
+                        <a href="#" title="Refresh" id="btnRefresh">
+                            <i class="fa fa-refresh" style="margin-top: 5px; font-size: 20px; color: #961d21"></i>
+                        </a>
+                    </span>
+                </div>
+                </div>
+
+                <div class="clears"></div>
+                @*<div class="row">
+                    <div class="col-sm-2">
+                        <div>
+                            <button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                            <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 pull-right">
+                        <span id="btnExcel" style="position: relative; left: 35%;">
+                            <a href="@Url.Content(" /Bene/BeneDetailsExport/?filetype=EXCEL")">
+                                <img src="~/Content/images/MSExcel.png" alt="Excel" style="width: 25px; height: 24px" title="Excel" />
+                            </a>
+                        </span>  &nbsp;&nbsp;
+                        <span id="btnPdf" style="position: relative; left: 35%;">
+                            <a href="@Url.Content(" /Bene/BeneDetailsExport/?filetype=PDF")">
+                                <img src="~/Content/images/pdf.jpg" alt="pdf" style="width: 25px; height: 24px" title="Pdf" />
+                            </a>
+                        </span>  &nbsp;&nbsp;
+
+                        <span id="btnprint" style="position: relative; left: 35%;">
+                            <img src="~/Content/images/print1.png" alt="print" style="width: 25px; height: 24px" title="Print" />
+                        </span>&nbsp;&nbsp;
+
+                        <span id="" style="position: relative; top: 1%; left: 35%;">
+                            <a href="#" title="Refresh" id="btnRefresh">
+                                <i class="fa fa-refresh" style="margin-top: 5px; font-size: 20px; color: #961d21"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>*@
+                <div class="clears"></div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table id="Grid"></table>
+                        <div aria-hidden="true" id="Popup" class="modal fade" role="dialog" aria-labelledby="popuplabel"></div>
+                    </div>
+                </div>
+                <br />
+</section>
+        @*popup for No Records Found*@
+        <div class="modal fade" id="myModal1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p><b>No Data found</b></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='myModal' class='modal text-center'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <h4 class="modal-title" style="text-align: left;font-size: 11px;">
+                                    <label id="headTitletime"></label><br />
+                                    <label id="headTitle"></label>
+                                </h4>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="close" data-dismiss="modal" id="closbtn">&times;</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id='myModalContent' class='text-center'>
+                        <img src="" class='text-center' id="imgpopup" height="300px;" width="100%" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        $("#DistrictID").append(new Option("--Select District--", " "));
+        $("#ProjectID").append(new Option("--Select Project--", " "));
+        $("#SectorID").append(new Option("--Select Sector--", " "));
+        $("#CenterID").append(new Option("--Select AWC--", " "));
+        //on Page Load Crrent Month to be Loaded
+        var today = new Date();
+        var curmon = today.getMonth() + 1;
+        $('#ddlMonth').prop('selectedIndex', curmon);
+        //$("#ddlMonth").prop("disabled", false);
+        //$("#txtYear").attr("disabled", "disabled");
+    });
+
+    if ($.session.get('postback') == '1') {
+        if ('@Session["UserTypeID"]' != "0") {
+            $("#StateID").val($.session.get('StateCode'));
+            $("#StateID").prop("disabled", true);
+        }
+        else {
+            $("#StateID").val($.session.get('StateCode'));
+        }
+        BindDropDownDistrict();
+
+        $('#BeneType').val($.session.get('benetype'));
+        $('#ddlMonth').prop('selectedIndex', $.session.get('month'));
+        $("#txtYear").val($.session.get('year'));
+        BindGridData();
+        //$.session.set('postback', '0');
+    }
+    else if ('@Session["UserTypeID"]' != "0") {
+       // debugger;
+        $("#StateID").val('@Session["UserState"]');
+        $("#StateID").prop("disabled", true);
+        BindDropDownDistrict();
+        $('#Grid').trigger('reloadGrid');
+    }
+    else {
+        BindDropDownDistrict();
+    }
+
+
+    function BindDropDownDistrict() {
+      //  debugger;
+
+        url = '@Url.Action("GetDistricts", "Login")?StateID=' + $("#StateID").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#DistrictID").empty()
+                debugger;
+                var opt = new Option("--Select District--", "0");
+                $("#DistrictID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value);
+                    $("#DistrictID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "2" || '@Session["UserTypeID"]' == "3" || '@Session["UserTypeID"]' == "4" || '@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    if ($.session.get('postback') == '1') {
+                        $('#DistrictID').val($.session.get('distcode'));
+                    }
+                    else {
+                        $("#DistrictID").val('@Session["UserDistrict"]');
+                    }
+                    $("#DistrictID").prop("disabled", true);
+                    BindDropDownProject();
+                }
+                else if ($.session.get('postback') == '1') {
+                    $('#DistrictID').val($.session.get('distcode'));
+                    BindDropDownProject();
+                }
+                else {
+                    BindDropDownProject();
+                }
+            },
+            error: function (Result) {
+
+                alert("Error:Districts");
+
+            }
+
+        });
+
+    }
+
+    function BindDropDownProject() {
+        debugger;
+        $('#Grid').jqGrid('clearGridData');
+        url = '@Url.Action("GetProjects", "Login")?DistCd=' + $("#DistrictID").val() + '&StateCode=' + $("#StateID").val() + '&CenterType=' + $("#CenterType").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#ProjectID").empty()
+
+                var opt = new Option("--Select Project--", "0");
+                $("#ProjectID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#ProjectID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    if ($.session.get('postback') == '1') {
+                        $('#ProjectID').val($.session.get('Projectcode'));
+                    }
+                    else {
+                        $("#ProjectID").val('@Session["UserProject"]');
+                    }
+                    $("#ProjectID").prop("disabled", true);
+                    BindDropDownSector();
+                }
+                else if ($.session.get('postback') == '1') {
+                    $('#ProjectID').val($.session.get('Projectcode'));
+                    BindDropDownSector();
+                }
+                else {
+                    BindDropDownSector();
+                }
+            },
+            error: function (Result) {
+                alert("Error:Project");
+            }
+        });
+    }
+
+    function BindDropDownSector() {
+        debugger;
+        url = '@Url.Action("GetSector", "Login")?Distcode= ' + $('#DistrictID').val() + '&Project=' + $("#ProjectID").val() + '&StateCode=' + $("#StateID").val() + '&CenterType=' + $("#CenterType").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#SectorID").empty()
+                debugger;
+                var opt = new Option("--Select Sector--", "0");
+                $("#SectorID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#SectorID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                    if ($.session.get('postback') == '1') {
+                        $('#SectorID').val($.session.get('Sectorcode'));
+                    }
+                    else {
+                        $("#SectorID").val('@Session["UserSector"]');
+                    }
+                    $("#SectorID").prop("disabled", true);
+                    BindDropDownCenter();
+                }
+                else if ($.session.get('postback') == '1') {
+                    $('#SectorID').val($.session.get('Sectorcode'));
+                    BindDropDownCenter();
+                }
+                else {
+                    BindDropDownCenter();
+                }
+            },
+            error: function (Result) {
+                alert("Error:Sector");
+            }
+        });
+    }
+
+    function BindDropDownCenter() {
+        $('#Grid').jqGrid('clearGridData');
+        url = '@Url.Action("GetCenters", "Login")?Seccode= ' + $('#SectorID').val() + '&Project=' + $('#ProjectID').val() + '&StateCode=' + $("#StateID").val() + '&CenterType=' + $("#CenterType").val()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: url,
+            data: "{}",
+            dataType: "json",
+            success: function (Result) {
+                $("#CenterID").empty()
+
+                var opt = new Option("--Select Center--", "0");
+                $("#CenterID").append(opt)
+                for (var i = 0; i < Result.length; i++) {
+                    opt = new Option(Result[i].Text, Result[i].Value); $("#CenterID").append(opt);
+                }
+                if ('@Session["UserTypeID"]' == "7") {
+                    if ($.session.get('postback') == '1') {
+                        $('#CenterID').val($.session.get('awccode'));
+                        $.session.set('postback', '0');
+                    }
+                    else {
+                        $("#CenterID").val('@Session["UserCenter"]');
+                    }
+                    $("#CenterID").prop("disabled", true);
+                    BindGridData();
+                    $('#Grid').trigger('reloadGrid');
+                }
+                else if ($.session.get('postback') == '1') {
+                    $('#CenterID').val($.session.get('awccode'));
+                    $.session.set('postback', '0');
+                    BindGridData();
+                    $('#Grid').trigger('reloadGrid');
+                }
+
+            },
+            error: function (Result) {
+                alert("Error:AWC");
+            }
+        });
+    }
+
+    function ClearFields() {
+     //   debugger;
+
+        var today = new Date();
+        var curmon = today.getMonth() + 1;
+        $('#ddlMonth').prop('selectedIndex', curmon);
+        $("#txtYear").val(new Date().getFullYear());
+
+        if ('@Session["UserTypeID"]' != "0") {
+          //  debugger;
+            $("#StateID").val('@Session["UserState"]');
+            $("#StateID").prop("disabled", true);
+            BindDropDownDistrict();
+            $('#Grid').jqGrid("clearGridData");
+        }
+        else if ('@Session["UserTypeID"]' == "0") {
+            $('#StateID').prop('selectedIndex', 0);
+            BindDropDownDistrict();
+            $('#Grid').jqGrid('clearGridData');
+        }
+
+        else {
+            BindDropDownDistrict();
+            $('#Grid').jqGrid("clearGridData");
+        }
+    }
+
+    function ChangeCenterType()
+    {
+        $("#StateID").val("0")
+        $("#DistrictID").empty()
+       
+        var opt = new Option("--Select District--", "0");
+        $("#DistrictID").append(opt)
+
+        $("#ProjectID").empty()
+
+        var opt1 = new Option("--Select District--", "0");
+        $("#ProjectID").append(opt1)
+
+        $("#SectorID").empty()
+
+        var opt2 = new Option("--Select District--", "0");
+        $("#SectorID").append(opt2)
+
+        $("#CenterID").empty()
+
+        var opt3 = new Option("--Select District--", "0");
+        $("#CenterID").append(opt3)
+
+        
+    }
+
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57));
+        return ret;
+    }
+</script>

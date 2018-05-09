@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/Home/Test.js"></script>
+
+<div class="content-wrapper">
+    <br />
+    <section class="content-header">
+        <h4><b>Test Table</b></h4>
+    </section>
+    <br />
+    <section class="content">
+        <table class="table table-hover" style="background-color: white !important;">
+            <thead>
+                <tr>
+                    <th style="width: 60px; text-align: center">#</th>
+                    <th style="width: 150px; text-align: center">District Name</th>
+                    <th>Total Beneficiaries</th>
+                    <th>Monitoring Done</th>
+                    <th style="width: 70px; background-color: #00a65a !important; color: white; text-align: center">Normal</th>
+                    <th style="width: 70px; background-color: #f39c12 !important; color: white; text-align: center">Moderate</th>
+                    <th style="width: 70px; background-color: #dd4b39 !important; color: white; text-align: center">Severe</th>
+                    <th style="width: 70px; background-color: #00c0ef !important; color: white; text-align: center">Absent</th>
+                </tr>
+            </thead>
+            <tbody id="distLevData"></tbody>
+        </table>
+    </section>
+</div>
+
+<script type="text/javascript">
+    function ViewReport(DistID) {
+        alert(DistID);
+    }
+</script>

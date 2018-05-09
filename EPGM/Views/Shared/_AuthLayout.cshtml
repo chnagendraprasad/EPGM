@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<meta http-equiv="refresh" content="30">*@
+    <link rel="icon" href="~/Content/images/background/icon-192.png" style="background:#181f53 !important">
+    <title>@ViewBag.Title</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- STYLESHEET -->
+    @* <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">*@
+    <link href="~/Content/css/Dashboard/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/skins/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/Styletag.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/ui.jqgrid.css" rel="stylesheet" />
+    <script src="~/Scripts/Common/i18n/grid.locale-en.js"></script>
+    <link href="~/Content/fonts/font-awesome.min.css" rel="stylesheet" />
+
+    <style>
+        a {
+            text-decoration: none !important;
+        }
+
+        .options-row {
+            background-color: #A3DAFF;
+            border-radius: 0px;
+            color: white;
+            border: 1px groove #fff;
+            /*-webkit-box-shadow: 0 2px 2px rgba(100,0,0,0.5);*/
+            /*box-shadow: 0 2px 2px rgba(100,0,0,0.5);*/
+        }
+
+        /*a,a:hover{color: blue; text-decoration: none;}*/
+
+        .back-white {
+            background: #fff;
+            padding: 10px 0;
+            margin: 10px 0px;
+        }
+
+        .font-sizes {
+            font-size: 3em;
+        }
+
+        .scroll-height1 {
+            height: 150px;
+        }
+
+        .scroll-height2 {
+            height: 242px;
+        }
+
+        .scroll-height {
+            height: 350px !important; /*242px*/
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+            .scroll-height::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .scroll-height::-webkit-scrollbar-track {
+                /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+            }
+
+            .scroll-height::-webkit-scrollbar-thumb {
+                background-color: darkgrey;
+                outline: 1px solid slategrey;
+                width: 6px;
+            }
+
+        .font5 {
+            font-size: 12px !important;
+        }
+
+        .width-small-resp {
+            width: 20%;
+            padding: 10px;
+        }
+
+        .width-resp {
+            width: 365px;
+        }
+
+        .margin-lr {
+            /*margin-left: 20px;*/
+            margin-right: 7.8px;
+        }
+
+        .circle1 {
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            width: 10px;
+            height: 10px;
+        }
+
+        .line-bar {
+            width: 100%;
+            height: 10px;
+            margin: auto;
+        }
+
+        .back1 {
+            background: #00a65a !important;
+        }
+
+        .back2 {
+            background: #f39c12 !important;
+        }
+
+        .back3 {
+            background: #dd4b39 !important;
+        }
+
+        .back4 {
+            background: #00c0ef !important;
+        }
+
+        .border-right {
+            border-right: 1px solid #ccc;
+        }
+
+        .skin-blue .main-header .navbar {
+            background-color: #222d32 !important;
+        }
+        /*.sidebar-toggle {
+        padding-top: 25px !important;
+        }*/
+    </style>
+
+    <style type="text/css">
+        .main-header .logo {
+            font-size: 14px !important;
+            line-height: 76px !important;
+        }
+
+        .skin-blue .sidebar-menu > li > .treeview-menu {
+            margin: 0px 0px !important;
+        }
+    </style>
+
+</head>
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+            @Html.Partial("_Header")
+            @*<a href="#" class="logo">
+                <span class="logo-mini"><b></b></span>
+                <span class="logo-lg"><b>GROWTH MONITORING SYSTEM</b></span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="pull-left sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="navbar-custom-menu navbar-left" style="padding-top: 10px; padding-bottom: 5px;">
+                    <img src="~/Content/images/home-logo.png" style="height: 50px" />
+                    <span style="color: white; font-size: 18px; font-weight: 600">Department of Women Development & Child Welfare</span>
+                </div>
+
+                <div class="navbar-custom-menu" style="padding-top: 10px; padding-bottom: 5px;">
+                    @if (Session["Username"].ToString() != "marsadmin")
+                    {
+                        <div style="margin-right: 50px; display: inline-block">
+                            <img src="~/Content/images/officials/@Session["StateLogo"]" height="60" style="margin-right: 20px" />
+                            <img src="~/Content/images/officials/@Session["CMImage"]" height="50" style="height: 56px;border-radius: 50%; -webkit-border-radius: 50%;" />
+                        </div>
+                    }
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i>
+                                <span class="hidden-xs">@Session["Username"].ToString()</span> <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li class="user-header">
+                                    <p>@Session["Name"].ToString()</p>
+                                </li>
+
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="@Url.Content("~/")Login/ChangePassword" class="btn btn-default btn-flat">Change Password</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="@Url.Content("~/")Login/Logout" class="btn btn-default btn-flat">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>*@
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <!-- Sidebar Menu -->
+                @Html.Partial("_Menu");
+            </section>
+        </aside>
+        <script src="~/Scripts/Common/jquery-1.11.2.js"></script>
+
+        <script src="~/Scripts/Common/grid.locale-en.js"></script>
+        <script src="~/Scripts/Common/jquery.jqGrid.js"></script>
+        <script src="~/Scripts/Common/jquery-ui-1.8.24.js"></script>
+        <script src="~/Scripts/Common/helper.js"></script>
+        <script src="~/Scripts/Common/html5shiv.min.js"></script>
+        <script src="~/Scripts/Common/respond.min.js"></script>
+        @RenderBody()
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <a href="http://www2.raminfo.com/">
+                    <img src="~/Content/images/raminfo-logo.png" style="height: 40px; margin-top: -10px !important" />
+                </a>
+            </div>
+            <strong>Copyright &copy; 2016 <a href="http://www2.raminfo.com/">Raminfo Ltd</a>.</strong> All rights reserved.
+
+        </footer>
+
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <script src="~/Scripts/Common/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/Dashboard/app.js"></script>
+    <script src="~/Scripts/Common/Chart.min.js"></script>
+</body>
+</html>
+
+@*<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 10);
+    window.onunload = function () { null };
+</script>*@

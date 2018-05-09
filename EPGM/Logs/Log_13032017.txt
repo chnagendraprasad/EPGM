@@ -1,0 +1,6 @@
+Upload Data Completed, status {0}226 Transfer complete.
+
+Upload Data Completed, status {0} : ClosingData
+Upload Data Completed, status {0}226 Transfer complete.
+
+Upload Data Completed, status {0} : ClosingData

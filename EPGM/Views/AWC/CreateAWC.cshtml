@@ -1,0 +1,381 @@
+﻿@model  EPGM.Models.NewAWC
+@{
+    ViewBag.Title = "Adding new AWC";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+<style type="text/css">
+    .Panel_box {
+        /*background: #ebedf1;
+          box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);*/
+        width: 55%;
+        min-width: 150px;
+        padding: 10px 0;
+        border-radius: 12px;
+        margin: auto;
+        position: relative;
+    }
+
+    /*#Address {
+        height: 34px !important;
+    }*/
+    textarea.form-control {
+        resize: vertical !important;
+    }
+
+    .input-label {
+        min-width: 130px !important;
+        text-align: left;
+    }
+
+    .breadcrumb {
+        height: 30px !important;
+        vertical-align: middle !important;
+        padding: 3px 15px !important;
+    }
+
+    .content-wrapper {
+        min-height: 615px !important;
+        overflow-y: visible !important;
+    }
+</style>
+
+<script src="~/Scripts/AWC/CreateAWC.js"></script>
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Create New Anganwadi Center</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        { 
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        { 
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        { 
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        { 
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        { 
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+            <section class="panel-body panel-brown-body content">
+                <div class="row  Panel_box">
+                    <fieldset class="custom-border">
+                        <legend class="custom-border"><span style="font-size: 16px"><b>AWC Deatils</b></span></legend>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">AWC Name<span style="color: red"> *</span></span>
+                                @Html.TextBoxFor(m => m.Center, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">AWC Mobile No.<span style="color: red"> *</span></span>
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @onkeypress = "return IsNumeric(event);", @maxlength = "10" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">AWC Email<span style="color: red"> *</span></span>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">Address<span style="color: red"> *</span></span>
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", style = "height: 34px;" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">AWC Type<span style="color: red"> *</span></span>
+                                @Html.DropDownListFor(m => m.AWCType, new List<SelectListItem>
+                                     {
+                                        new SelectListItem{ Text="--Select AWC Type--", Value = "0" },
+                                        new SelectListItem{ Text="Mini", Value = "Mini" },
+                                        new SelectListItem{ Text="Main", Value = "Main" }
+                                     }, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="custom-border">
+                        <legend class="custom-border"><span style="font-size: 16px"><b>Sector Details</b></span></legend>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">State<span style="color: red"> *</span></span>
+                                @Html.DropDownListFor(m => m.StateID, (IEnumerable<SelectListItem>)ViewBag.States, new { @class = "form-control", @onchange = "BindDistricts()" })
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">District<span style="color: red"> *</span></span>
+                                @Html.DropDownListFor(m => m.DistrictID, new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindProjects()" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">Project<span style="color: red"> *</span></span>
+                                @Html.DropDownListFor(m => m.ProjectID, new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindSectors()" })
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group extra-space">
+                                <span class="input-group-addon input-label">Sector<span style="color: red"> *</span></span>
+                                @Html.DropDownListFor(m => m.SectorID, new List<SelectListItem>(), new { @class = "form-control", @onchange = "BindCenters()" })
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-sm-12" style="text-align: center;">
+                    <div style="padding-top: 10px;"></div>
+                    <div style="text-align: left">
+                        <div id="status-area"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                    <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                </div>
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal fade" id="conformMRSId" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Please Verify the Detils before Confirm</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="text-center">
+                                            </div>
+                                            <br />
+                                            <div style="text-align: justify">
+                                                <div class="text-center">
+
+                                                    <table align="center" class="tableborder" style="margin: auto !important; width: 100%" border="1" bordercolor="#ccc">
+                                                        <tr>
+                                                            <td align="left">AWC Name</td>
+                                                            <td align="left"><b id="lblawc"></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">AWC Mobile No.</td>
+                                                            <td align="left"><b id="lblmobile"></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">E-Mail ID</td>
+                                                            <td align="left"><b id="lblmail"></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">Address</td>
+                                                            <td align="left"><b id="lbladdress"></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">AWC Type</td>
+                                                            <td align="left"><b id="lblawctype"></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">State</td>
+                                                            <td align="left"><b id="lblState"></b></td>
+                                                        </tr>
+                                                        <tr id="trdist">
+                                                            <td align="left">District</td>
+                                                            <td align="left"><b id="lblDistrict"></b></td>
+                                                        </tr>
+                                                        <tr id="trproject">
+                                                            <td align="left">Project</td>
+                                                            <td align="left"><b id="lblProject"></b></td>
+                                                        </tr>
+                                                        <tr id="trsector">
+                                                            <td align="left">Sector</td>
+                                                            <td align="left"><b id="lblSector"></b></td>
+                                                        </tr>
+                                                    </table>
+                                                    <br />
+                                                    <br />
+
+                                                    <div><b>Please Click OK To Confirm</b> </div>
+
+
+
+                                                </div>
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="btnProceeds" class="btn btn-primary" data-dismiss="modal" onclick="return Submit()">
+                                                <i class="fa fa-save"></i>
+                                                OK
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                                <i class="fa fa-times"></i>
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ('@Session["UserTypeID"]' != "0") {
+            $("#StateID").val('@Session["UserState"]');
+            $("#StateID").prop("disabled", true);
+            BindDistricts();
+        }
+    });
+
+    function BindDistricts() {
+        debugger;
+
+        url = '@Url.Action("GetDistricts", "Login")?StateID=' + $("#StateID").val()
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: url,
+                        data: "{}",
+                        dataType: "json",
+                        success: function (Result) {
+                            $("#DistrictID").empty()
+                            debugger;
+                            var opt = new Option("--Select District--", "0");
+                            $("#DistrictID").append(opt)
+                            for (var i = 0; i < Result.length; i++) {
+                                opt = new Option(Result[i].Text, Result[i].Value);
+                                $("#DistrictID").append(opt);
+                            }
+                            if ('@Session["UserTypeID"]' == "2" || '@Session["UserTypeID"]' == "3" || '@Session["UserTypeID"]' == "4" || '@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                                $("#DistrictID").val('@Session["UserDistrict"]');
+                                $("#DistrictID").prop("disabled", true);
+                                BindProjects();
+                            }
+                            else {
+                                BindProjects();
+                            }
+                        },
+                        error: function (Result) {
+
+                            alert("Error:Districts");
+
+                        }
+
+                    });
+
+                }
+                function BindProjects() {
+                    debugger;
+
+                    url = '@Url.Action("GetProjects", "Login")?DistCd=' + $("#DistrictID").val() + '&StateCode=' + $("#StateID").val() + '&CenterType=' + "1"
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: url,
+                        data: "{}",
+                        dataType: "json",
+                        success: function (Result) {
+                            $("#ProjectID").empty()
+                            debugger;
+                            var opt = new Option("--Select Project--", "0");
+                            $("#ProjectID").append(opt)
+                            for (var i = 0; i < Result.length; i++) {
+                                opt = new Option(Result[i].Text, Result[i].Value);
+                                $("#ProjectID").append(opt);
+                            }
+
+                            if ('@Session["UserTypeID"]' == "5" || '@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                                $("#ProjectID").val('@Session["UserProject"]');
+                                $("#ProjectID").prop("disabled", true);
+                                BindSectors();
+                            }
+                            else {
+                                BindSectors();
+                            }
+                        },
+                        error: function (Result) {
+
+                            alert("Error:Projects");
+
+                        }
+
+                    });
+                }
+
+                function BindSectors() {
+                    debugger;
+
+                    url = '@Url.Action("GetSector", "Login")?Distcode= ' + $('#DistrictID').val() + '&Project=' + $("#ProjectID").val() + '&StateCode=' + $("#StateID").val() + '&CenterType=' + "1"
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: url,
+                        data: "{}",
+                        dataType: "json",
+                        success: function (Result) {
+                            $("#SectorID").empty();
+                            debugger;
+                            var opt = new Option("--Select Sector--", "0");
+                            $("#SectorID").append(opt)
+                            for (var i = 0; i < Result.length; i++) {
+                                opt = new Option(Result[i].Text, Result[i].Value);
+                                $("#SectorID").append(opt);
+                            }
+                            if ('@Session["UserTypeID"]' == "6" || '@Session["UserTypeID"]' == "7") {
+                                $("#SectorID").val('@Session["UserSector"]');
+                                $("#SectorID").prop("disabled", true);
+                            }
+                        },
+                        error: function (Result) {
+                            alert("Error:Sectors");
+                        }
+
+                    });
+                }
+
+                function ClearFields() {
+                    $("#StateID").prop('selectedIndex', 0);
+                    $("#DistrictID").prop('selectedIndex', 0);
+                    $("#ProjectID").prop('selectedIndex', 0);
+                    $("#SectorID").prop('selectedIndex', 0);
+                    $("#AWCType").prop('selectedIndex', 0);
+                    $("#Center").val("");
+                    $("#MobileNo").val("");
+                    $("#Email").val("");
+                    $("#Address").val("");
+
+                    if ('@Session["UserTypeID"]' != "0") {
+                        $("#StateID").val('@Session["UserState"]');
+                        $("#StateID").prop("disabled", true);
+                        BindDistricts();
+                    }
+                    else {
+                        $("#StateID").prop('selectedIndex', 0);
+                    }
+                }
+
+</script>

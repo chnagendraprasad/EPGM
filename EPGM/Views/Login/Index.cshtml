@@ -1,0 +1,218 @@
+﻿@model EPGM.Models.TblUser
+@using System.Web.Mvc;
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+<style type="text/css">
+    .more a, .more a:hover {
+        color: #961d21 !important;
+        text-decoration: none !important;
+    }
+
+    .morecontent span {
+        display: none;
+    }
+
+    .morelink {
+        display: block;
+    }
+
+
+    .footer a {
+        color: #ea3e2a;
+    }
+
+    .font17 {
+        font-size: 14px !important;
+    }
+
+    .validation-summary-errors {
+        color: #a94442 !important;
+        font-size: 85% !important;
+        margin-top: 5px !important;
+    }
+
+    .has-error {
+        color: #a94442 !important;
+        font-size: 15px !important;
+        margin-top: 5px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+    }
+
+    .form-control {
+        padding: 7px 7px !important;
+    }
+</style>
+<link href="~/Content/css/Login/sty.css" rel="stylesheet" />
+<link href="~/Content/css/Login/login.css" rel="stylesheet" />
+<script src="~/Scripts/Common/jquery-1.10.2.js"></script>
+<link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/Common/bootstrap.min.js"></script>
+<link href="~/Content/css/Dashboard/bootstrapValidator.min.css" rel="stylesheet" />
+<script src="~/Content/css/Dashboard/bootstrapValidator.min.js"></script>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>About</h2>
+                <p class="font17 text-justify">
+                    Government of India offers the most important interventions for addressing the nutrition and health problem among the disadvantaged and deprived section of Society, through the nationwide programme like ICDS. Several research studies have identified MALNUTRITION PROBLEM’s root in the loopholes of growth monitoring activity
+                    “It is estimated that the cost of treating under nutrition is, 27 times more than the investment required for its preventions”
+                    Year after year massive deployment of Govt. resources (supplement diet, manpower & infrastructure) to curb malnutrition, yielded hardly any asset value because of the absence of live digital Database of beneficiary wise nutritional status right from the last mile monitoring centres i.e Anganwadi.
+                </p>
+                <div class="more" style="font-size: 14px; text-align: justify;">
+                    <ul>
+                        <li>Contributing factors which rendered Growth Monitoring ineffective</li>
+                        <li>Conventional methods of Growth Monitoring, which is largely human intervention driven and hence human error prone.</li>
+                        <li>Cumbersome equipments and gadgets make measurement exercise distinctly error prone</li>
+                        <li>Upward data consolidation from Anganwadis does not say anything about beneficiary specific nutritional status, thereby leaves gaps for further manipulation and ultimately the consolidated malnutrition data at the top of administrative hierarchy is bereft of any Child Tracking linkage.</li>
+                        <li>These factors render factual nutritional status invisible in Government domain of data consolidation. Absence of meaningful & timely parent counselling of sustainable nature rendered promotion of improved child care a non starter, among important stakeholders.</li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <!------------------------------------->
+                <!-- Where all the magic happens -->
+                <!-- LOGIN FORM -->
+                <div class="text-center" style="padding: 0px 0 50px 0">
+                    <div class="logo">login</div>
+                    <!-- Main Form -->
+                    <div class="login-form-1">
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "login-form", @class = "text-left" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="login-form-main-message"></div>
+                            <div class="main-login-form">
+                                <div class="login-group">
+                                    <div class="form-group">
+                                        <label for="lg_username" class="sr-only">Username</label>
+                                        @Html.TextBoxFor(m => m.Username, null, new { @class = "form-control", placeholder = "Username", style = "width:110%" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lg_password" class="sr-only">Password</label>
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", style = "width:110%" })
+                                    </div>
+                                    <div class="text-center">
+                                        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+                                        {
+                                            @Html.ValidationSummary("Error")
+                                        }
+                                    </div>
+                                    <div class="row">
+                                        <div id="messages"></div>
+                                    </div>
+                                    <div class="form-group login-group-checkbox">
+                                        <input type="checkbox" id="lg_remember" name="lg_remember">
+                                        <label for="lg_remember">remember</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="login-button" id="loginbtn"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                            </div>
+                            <div class="etc-login-form">
+                                <p>forgot your password? <a href="@Url.Content("~")Login/ForgotPassword">click here</a></p>
+                                <!--<p>new user? <a href="#">create new account</a></p>-->
+                            </div>
+                        }
+                    </div>
+                    <!-- end:Main Form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/Login/range.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Username").focus();
+
+        function disableBack() { window.history.forward() }
+
+        window.onload = disableBack();
+        window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
+
+
+
+        $('#login-form').bootstrapValidator({
+            container: '#messages',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                Username: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter UserName'
+                        }
+                    }
+                },
+                Password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Password'
+                        }
+                    }
+                },
+            }
+        });
+
+        @*    $("#loginbtn").click(function () {
+            debugger;
+            if ($("#Username").val() == "" || $("#Username").val() == "0" || $("#Username").val() == null) {
+                $("#messages").text("Please Enter UserName");
+                $("#Username").focus();
+                return false;
+            }
+            else if ($("#Password").val() == "" || $("#Password").val() == "0" || $("#Password").val() == null) {
+                $("#messages").text("Please Enter Password");
+                $("#Password").focus();
+                return false;
+            }
+            else {
+                $("#messages").text("");
+                url = '@Url.Action("CheckLogin", "Login")?Username=' + $("#Username").val() + '&Password=' + $("#Password").val() + '&StateCode=' + @Session["StateCode"]
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: url,
+                        data: "{}",
+                        dataType: "json",
+                        success: function (Result) {
+                            debugger;
+                            alert("11");
+                            if (Result.StatusCode == "001") {
+                                location.href = "/login/Index";
+                                alert(Result.StatusMessage);
+                                alert("13");
+                                return false;
+                            }
+                        },
+                        error: function (result) {
+                            alert("12");
+                        }
+                    });
+                }
+        });*@
+
+    });
+    $('#Username').keypress(function (e) {
+        if (e.which === 32)
+            return false;
+    });
+    $('#Password').keypress(function (e) {
+        if (e.which === 32)
+            return false;
+    });
+</script>

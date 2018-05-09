@@ -1,0 +1,569 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script>
+    var dtnor = @Html.Raw(Json.Encode(ViewBag.Normal))
+    var dtmod = @Html.Raw(Json.Encode(ViewBag.Moderate))
+    var dtsev = @Html.Raw(Json.Encode(ViewBag.Severe))
+    var dtabs = @Html.Raw(Json.Encode(ViewBag.Absent))
+    var hwnor = @Html.Raw(Json.Encode(ViewBag.HWNor))
+    var hwmod = @Html.Raw(Json.Encode(ViewBag.HWMod))
+    var hwsev = @Html.Raw(Json.Encode(ViewBag.HWSev))
+    var hanor = @Html.Raw(Json.Encode(ViewBag.HANor))
+    var hamod = @Html.Raw(Json.Encode(ViewBag.HAMod))
+    var hasev = @Html.Raw(Json.Encode(ViewBag.HASev))
+</script>
+
+<script src="~/Scripts/Home/Index.js"></script>
+
+<style>
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: 50px !important;
+    }
+
+    tr {
+        background-color: white;
+    }
+
+    .GNor {
+        background-color: #00a65a !important;
+        color: white !important;
+    }
+
+    .GMod {
+        background-color: #f39c12 !important;
+        color: white !important;
+    }
+
+    .GSev {
+        background-color: #dd4b39 !important;
+        color: white !important;
+    }
+
+    .GAbs {
+        background-color: #7f8c8d !important;
+        color: white !important;
+    }
+</style>
+
+<style type="text/css">
+    /*.ui-jqgrid .ui-jqgrid-hdiv {
+        border-bottom: 1px solid !important;
+        border-color: black !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-color: black !important;
+    }
+
+    .ui-widget-content jqgrow ui-row-ltr ui-state-hover {
+        padding: 0px !important;
+    }*/
+
+    .s-ico {
+        display: inline-block !important;
+        top: -12px;
+        position: relative;
+    }
+
+    .ui-jqgrid .ui-grid-ico-sort {
+        overflow: hidden;
+        position: absolute;
+        display: inline;
+        cursor: pointer!important;
+    }
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        background: none !important;
+        border-color: none !important;
+        border: 0px solid #ccc !important;
+    }
+
+    .ui-state-default .ui-icon {
+        background-image: url(/Content/css/Dashboard/images/ui-icons_222222_256x240.png);
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-left: solid 1px !important;
+        border-right: solid 1px !important;
+        border-top: solid 1px !important;
+        border-color: #ccc !important;
+    }
+
+    .ui-widget-header .ui-state-default {
+        border: 1px solid #cccccc;
+        background: #fff !important;
+    }
+
+    th.ui-th-column div {
+        height: auto !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        height: auto !important;
+        padding-bottom: 8px !important;
+    }
+    /*.form-control {
+    width:auto !important;
+    border-radius: 5px;
+    }*/
+
+    /*#Grid_rn {
+        width: 35px !important;
+    }*/
+    .ui-jqgrid .ui-icon-asc {
+        left: 1px !important;
+    }
+    .ui-jqgrid td.jqgrid-rownum {
+        padding: 5px !important;
+    }
+    .ui-th-column-header {
+        text-align: center;
+    }
+    .info-box {
+        /*width:162px;*/
+        float:left;
+        margin:10px;
+    }
+</style>
+
+<style type="text/css">
+    span {
+        color: #ffffff !important;
+    }
+
+        span > a {
+            color: #333333 !important;
+        }
+
+    .info-box-text {
+        text-transform: initial !important;
+        font-size: 11px !important;
+        font-family: segoe ui !important;
+    }
+
+    .skin-blue .sidebar a {
+        color: #b8c7ce !important;
+    }
+
+    .input-label {
+        min-width: 80px !important;
+        text-align: left !important;
+    }
+</style>
+<br />
+<br />
+<br />
+
+<div class="content-wrapper">
+    <br />
+    <section class="content-header">
+        <div class="row">
+            <div class="col-sm-4 text-left">
+                <h4><b>Growth Monitoring Statistics @*: <label id="name1" style="color:#e7328c"></label>*@</b></h4>
+            </div>
+            <div class="col-sm-3 text-right" style="margin-top: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon input-label" id="sizing-addon2">BeneType</span>
+                    @Html.DropDownList("BeneType", (IEnumerable<SelectListItem>)ViewBag.BeneType, new { @class = "form-control", @onchange = "DropDownChange()" })
+                </div>
+            </div>
+            <div class="col-sm-3 text-right" style="margin-top: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon input-label">Month</span>
+                    @Html.DropDownList("ddlMonth", (IEnumerable<SelectListItem>)ViewBag.Months, new { @class = "form-control valid", req = "Req", message = "Month", @Onchange = "BindDashBoard()" })
+                </div>
+            </div>
+            <div class="col-sm-2 text-right" style="margin-top: 10px;">
+                <div class="input-group">
+                    <span class="input-group-addon input-label">Year</span>
+                    @Html.TextBox("txtYear", DateTime.Now.Year, new { @class = "form-control valid txtinput", req = "Req", message = "Year", @maxlength = "4", @onkeypress = "return IsNumeric(event);", @onchange = "Checkyear()" })
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="info-box bg-lightpink">
+                    <span class="info-box-icon bg-lightpink">
+                        <img src="~/Content/images/total-benefeciaries.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Beneficiaries</span>
+                        <span class="info-box-number" id="totben"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darkgreen">
+                    <span class="info-box-icon bg-darkgreen">
+                        <img src="~/Content/images/DashBoard/hp-preg-icon.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">
+                            Pregnant Women
+                        </span>
+                        @*<span class="info-box-number"><a class="subBut" href="#" id="PW" style="text-decoration: none !important"></a></span>*@
+                        <span class="info-box-number" id="PW"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darkyellow">
+                    <span class="info-box-icon bg-darkyellow">
+                        <img src="~/Content/images/DashBoard/hp-lw-icon.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Lactating Women</span>
+                        @*<span class="info-box-number"><a class="subBut" href="#" id="LW" style="text-decoration: none !important"></a></span>*@
+                        <span class="info-box-number" id="LW"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darkcolor">
+                    <span class="info-box-icon bg-darkcolor">
+                        <img src="~/Content/images/DashBoard/hp-child-icon.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Children</span>
+                        <span class="info-box-number" id="child"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darknavy">
+                    <span class="info-box-icon bg-darknavy">
+                        <img src="~/Content/images/DashBoard/hp-child-icon.png" height="40" />
+                    </span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Children 0-3 Years</span>
+                        @*<span class="info-box-number"><a class="subBut" href="#" id="Child0-3" style="text-decoration: none !important"></a></span>*@
+                        <span class="info-box-number" id="Child0-3"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darkblue">
+                    <span class="info-box-icon bg-darkblue">
+                        <img src="~/Content/images/DashBoard/hp-child-icon.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Children 3-6 Yeras</span>
+                        @*<span class="info-box-number"><a class="subBut" href="#" style="text-decoration: none !important" id="Child3-6"></a></span>*@
+                        <span class="info-box-number" id="Child3-6"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="info-box  bg-aqua">
+                    <span class="info-box-icon bg-aqua">
+                        <img src="~/Content/images/total-weighted.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">
+                            Children Weighed
+                        </span>
+                        <span class="info-box-number"><a class="subBut" href="#" id="Total" style="text-decoration: none !important">@ViewBag.Total</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-green">
+                    <span class="info-box-icon bg-green">
+                        <img src="~/Content/images/normal2.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Normal</span>
+                        <span class="info-box-number"><a class="subBut" href="#" id="NOR" style="text-decoration: none !important">@ViewBag.Normal</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-yellow">
+                    <span class="info-box-icon bg-yellow">
+                        <img src="~/Content/images/moderate2.png" height="40" />
+                    </span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Moderate</span>
+                        <span class="info-box-number"><a class="subBut" href="#" id="MUW" style="text-decoration: none !important">@ViewBag.Moderate</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-red">
+                    <span class="info-box-icon bg-red">
+                        <img src="~/Content/images/severe2.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Severe</span>
+                        <span class="info-box-number"><a class="subBut" href="#" style="text-decoration: none !important" id="SUW">@ViewBag.Severe</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="info-box bg-darkgreey">
+                    <span class="info-box-icon bg-darkgreey">
+                        <img src="~/Content/images/absence2.png" height="40" />
+                    </span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Not Weighed (Absent)</span>
+                        <span class="info-box-number" id="Absben">@ViewBag.Absent</span>@*<a class="subBut" href="#" style="text-decoration: none !important" id="ABS"></a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="margin-top: 0px !important">
+    </div>
+    <div style="margin-top: 0px !important">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12" id="gd">
+                    <table id="Grid"></table>
+                </div>
+            </div>
+            <br />
+            <div class="row"  id="chartdata">
+                <div class="col-md-4">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Weight/Age Criteria</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="chart-responsive">
+                                        <canvas id="pieChartWA" height="155" width="205" style="width: 205px; height: 155px;"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <ul class="chart-legend clearfix">
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-green"></i>Normal</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-yellow"></i>Moderate</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-red"></i>Severe</li>
+                                        @*<li></li>
+                                            <li><i class="fa fa-circle text-greey"></i>Absent</li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Normal <span class="pull-right text-green" id="WANorPer"><b>@ViewBag.WANorPer %</b></span></a></li>
+                                <li><a href="#">Moderately Under Weight <span class="pull-right text-yellow" id="WAModPer"><b>@ViewBag.WAModPer %</b></span></a></li>
+                                <li><a href="#">Severely Under Weight <span class="pull-right text-red" id="WASevPer"><b>@ViewBag.WASevPer %</b></span></a></li>
+                                @*<li><a href="#">Absent <span class="pull-right text-greey" id="abspe"><b>@ViewBag.AbsPer %</b></span></a></li>*@
+                            </ul>
+                        </div>
+                        <!-- /.footer -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Height/Weight Wasted</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="chart-responsive">
+                                        <canvas id="pieChartHW" height="155" width="205" style="width: 205px; height: 155px;"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <ul class="chart-legend clearfix">
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-green"></i>Normal</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-yellow"></i>MAM</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-red"></i>SAM</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Normal <span class="pull-right text-green" id="HWNorPer"><b>@ViewBag.HWNorPer %</b></span></a></li>
+                                <li><a href="#">Moderate Acute Malnutrition <span class="pull-right text-yellow" id="HWModPer"><b>@ViewBag.HWModPer %</b></span></a></li>
+                                <li><a href="#">Severe Acute Malnutrition <span class="pull-right text-red" id="HWSevPer"><b>@ViewBag.HWSevPer %</b></span></a></li>
+                            </ul>
+                        </div>
+                        <!-- /.footer -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Height/Age Stunted</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="chart-responsive">
+                                        <canvas id="pieChartHA" height="155" width="205" style="width: 205px; height: 155px;"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <ul class="chart-legend clearfix">
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-green"></i>Normal</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-yellow"></i>Moderate</li>
+                                        <li></li>
+                                        <li><i class="fa fa-circle text-red"></i>Severe</li>
+                                        @*<li></li>
+                                            <li><i class="fa fa-circle text-greey"></i>Absent</li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Normal <span class="pull-right text-green" id="HANorPer"><b>@ViewBag.HANorPer %</b></span></a></li>
+                                <li><a href="#">Moderately Under Weight <span class="pull-right text-yellow" id="HAModPer"><b>@ViewBag.HAModPer %</b></span></a></li>
+                                <li><a href="#">Severely Under Weight <span class="pull-right text-red" id="HASevPer"><b>@ViewBag.HASevPer %</b></span></a></li>
+                                @*<li><a href="#">Absent <span class="pull-right text-greey" id="abspe"><b>@ViewBag.AbsPer %</b></span></a></li>*@
+                            </ul>
+                        </div>
+                        <!-- /.footer -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div style="margin-top: 0px !important; display: none">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Recap Report</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-wrench"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-center">
+                                        <strong>Growth Monitoring: 1 Jun 2016 - @DateTime.Now.Day Sep @DateTime.Now.Year</strong>
+                                    </p>
+
+                                    <div class="chart">
+                                        <!-- Sales Chart Canvas -->
+                                        <canvas id="salesChart" style="height: 210px; width: 823px;" height="210" width="823"></canvas>
+                                    </div>
+                                    <!-- /.chart-responsive -->
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- ./box-body -->
+                        <div class="box-footer" style="display: none">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i>17%</span>
+                                        <h5 class="description-header">$35,210.43</h5>
+                                        <span class="description-text">TOTAL REVENUE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i>0%</span>
+                                        <h5 class="description-header">$10,390.90</h5>
+                                        <span class="description-text">TOTAL COST</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i>20%</span>
+                                        <h5 class="description-header">$24,813.53</h5>
+                                        <span class="description-text">TOTAL PROFIT</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block">
+                                        <span class="description-percentage text-red"><i class="fa fa-caret-down"></i>18%</span>
+                                        <h5 class="description-header">1200</h5>
+                                        <span class="description-text">GOAL COMPLETIONS</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

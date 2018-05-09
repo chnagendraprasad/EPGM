@@ -1,0 +1,336 @@
+﻿@model EPGM.Models.AddMenu
+@using System.Web.Mvc;
+@{
+    ViewBag.Title = "AddMenu";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<style type="text/css">
+    .open {
+        display: block !important;
+    }
+
+    .form-control .SlectBox {
+        height: 34px !important;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .SumoSelect .select-all {
+        height: 30px !important;
+    }
+
+    .SumoSelect > .CaptionCont {
+        height: 34px !important;
+    }
+
+    .SumoSelect {
+        width: 100% !important;
+    }
+
+        .SumoSelect > .optWrapper.multiple > .options li.opt {
+            height: 30px !important;
+        }
+</style>
+
+<style type="text/css">
+    .clears {
+        padding-top: 10px !important;
+    }
+
+    .Panel_box {
+        background: #ffffff;
+        box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+        width: 600px;
+        padding: 10px 0;
+        border-radius: 12px;
+        margin: auto;
+        position: relative;
+    }
+
+    .font17 {
+        font-size: 14px !important;
+    }
+
+    .validation-summary-errors {
+        color: #a94442 !important;
+        font-size: 85% !important;
+        margin-top: 5px !important;
+    }
+
+    .has-error {
+        color: #a94442 !important;
+        font-size: 15px !important;
+        margin-top: 5px !important;
+        text-align: left !important;
+        font-weight: bold !important;
+    }
+
+    .row {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+</style>
+
+<style type="text/css">
+    .alert-info {
+        color: #ffffff !important;
+        background-color: #007dbc !important;
+        border-color: #007dbc !important;
+        height: 34px !important;
+        padding: 5px !important;
+        font-size: 12px !important;
+    }
+
+    .close {
+        position: relative;
+        top: auto;
+        right: 0px !important;
+        color: #ce4242;
+    }
+</style>
+
+<script src="~/Scripts/Common/Common.js"></script>
+<script src="~/Scripts/Common/jquery-1.10.2.js"></script>
+<link href="~/Content/css/Dashboard/bootstrapValidator.min.css" rel="stylesheet" />
+<script src="~/Content/css/Dashboard/bootstrapValidator.min.js"></script>
+
+<script src="~/Scripts/Dropdown/jquery.sumoselect.js"></script>
+<script src="~/Scripts/Dropdown/jquery.sumoselect.min.js"></script>
+<link href="~/Scripts/Dropdown/dropdownliststyle.css" rel="stylesheet" />
+
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Add Menu</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        {
+                            <a href="@Url.Content(" ~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        {
+                            <a href="@Url.Content(" ~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        {
+                            <a href="@Url.Content(" ~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        {
+                            <a href="@Url.Content(" ~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        {
+                            <a href="@Url.Content(" ~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        {
+                            <a href="@Url.Content(" ~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+
+            <section class="panel-body panel-brown-body content">
+                <div class="login-form-1">
+                    @*@using (Html.BeginForm("AddMenu", "Users", FormMethod.Post, new { id = "menu-form", @class = "text-left" }))
+                        {
+                        @Html.AntiForgeryToken()*@
+                    <div class="row  Panel_box">
+                        <div class="row">
+                                <div class="row">
+                                    <label style="text-align:left" class="col-sm-3">Menu Name :</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(m => m.MenuName, null, new { @class = "form-control", placeholder = "MenuName" })
+                                    </div>
+                                </div>
+                                <div class="clears"></div>
+                                <div class="row">
+                                    <label style="text-align:left" class="col-sm-3">URL :</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(m => m.URL, new { @class = "form-control", placeholder = "URL" })
+                                    </div>
+                                </div>
+                                <div class="clears"></div>
+                                <div class="row">
+                                    <label style="text-align:left" class="col-sm-3">Menu Type :</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownListFor(m => m.MenuType, new List<System.Web.Mvc.SelectListItem>
+                                            {
+                                            new System.Web.Mvc.SelectListItem{ Text="--Select MenuType--", Value = "0" },
+                                            new System.Web.Mvc.SelectListItem{ Text="Parent", Value = "P" },
+                                            new System.Web.Mvc.SelectListItem{ Text="Child", Value = "C" }
+                                            }, new { @class = "form-control", @onchange = "MenuTypechnage()" })
+
+
+                                    </div>
+                                </div>
+                                <div class="row" id="Parentmenu" style="display:none">
+                                    <div class="clears"></div>
+                                    <label style="text-align:left" class="col-sm-3">Parent Menu :</label>
+                                    <div class="col-sm-9">
+                                        @Html.DropDownListFor(m => m.Parent, (IEnumerable<SelectListItem>)ViewBag.Menus, new { @placeholder = "Select Parent", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="clears"></div>
+                                <div class="row">
+                                    <label style="text-align:left" class="col-sm-3">Role Type :</label>
+                                    <div class="col-sm-9">
+                                        @Html.ListBoxFor(m => m.Role, (IEnumerable<SelectListItem>)ViewBag.Roles, new { @multiple = "multiple", @placeholder = "Select Role", @class = "SlectBox form-control" })
+                                    </div>
+                                </div>
+                                <div class="clears"></div>
+                                <center>
+                                    <button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                                </center>
+
+                                <div class="text-center">
+                                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+                                    {
+                                    @Html.ValidationSummary("Error")
+                                    }
+                                </div>
+                                <div class="clears"></div>
+                                <div class="row">
+                                    <div id="myalert" class="alert alert-info alert-dismissable" hidden="hidden">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>Info! </strong><label id="msg"></label>
+                                    </div>
+                                    <div id="messages"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @*}*@
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('.SlectBox').SumoSelect({
+            selectAll: true
+        });
+
+
+
+        $("#btnSubmit").click(function () {
+            debugger;
+            if ($("#MenuName").val() == "" || $("#MenuName").val() == "0" || $("#MenuName").val() == null) {
+                alert("Please Enter MenuName");
+                $("#MenuName").focus();
+                return false;
+            }
+            else if ($("#URL").val() == "" || $("#URL").val() == "0" || $("#URL").val() == null) {
+                alert("Please Enter URL");
+                $("#URL").focus();
+                return false;
+            }
+            else if ($("#URL").val() == "" || $("#URL").val() == "0" || $("#URL").val() == null) {
+                alert("Please Enter URL");
+                $("#URL").focus();
+                return false;
+            }
+            else if ($("#MenuType").val() == "" || $("#MenuType").val() == "0" || $("#MenuType").val() == null) {
+                alert("Please Select MenuType");
+                $("#MenuType").focus();
+                return false;
+            }
+            else if ($("#MenuType").val() == "C" && $("#Parentmenu").css('display') == "block" && $("#Parent").val() == "0") {
+                alert("Please Select Parent Menu");
+                $("#Parent").focus();
+                return false;
+            }
+            else if ($("#Role").val() == "" || $("#Role").val() == null) {
+                alert("Please Select Role");
+                $("#Role").focus();
+                return false;
+            }
+            else {
+
+                var obj = []
+                var items = '';
+                $('.SlectBox option:selected').each(function (i) {
+                    obj.push($(this).val());
+                    $('.SlectBox')[0].sumo.unSelectItem(i);
+                });
+                for (var i = 0; i < obj.length; i++) {
+                    items += ',' + obj[i]
+                };
+                //alert(items);
+
+                var PostedData = {
+                    MenuName: $("#MenuName").val(),
+                    URL: $("#URL").val(),
+                    MenuType: $("#MenuType option:selected").val(),
+                    Parent: $("#Parent option:selected").val(),
+                    Role: items
+                }
+
+                showPleaseWait();
+                $.ajax({
+                    type: "POST",
+                    url: '/Users/AddMenu',
+                    data: JSON.stringify(PostedData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: true,
+                    success: function (result) {
+                        if (result.code = "000") {
+                            hidePleaseWait();
+                            alert(result.message);
+                            location.href = "/Users/AddMenu";
+                            //$("#msg").text(result.message);
+                            //$("#myalert").show();
+                        }
+                        else {
+                            alert(result.message);
+                            //$("#msg").text(result.message);
+                            //$("#myalert").show();
+                            hidePleaseWait();
+                        }
+                    },
+                    error: function (result) {
+                        //$("#msg").text(result.message);
+                        alert(result.message);
+                        hidePleaseWait();
+                    }
+
+
+                });
+            }
+
+        });
+
+    });
+
+    function MenuTypechnage() {
+        if ($("#MenuType").val() == "P") {
+            $("#Parentmenu").css("display", "none");
+        }
+        else {
+            $("#Parentmenu").css("display", "block");
+            alert("Please Select Parent Menu");
+            $("#Parent").focus();
+        }
+    }
+
+
+</script>

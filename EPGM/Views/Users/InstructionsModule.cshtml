@@ -1,0 +1,286 @@
+﻿
+@{
+    ViewBag.Title = "Instructions Module";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<script src="~/Scripts/Common/Common.js"></script>
+
+<script src="~/Scripts/Dropdown/jquery.sumoselect.js"></script>
+<script src="~/Scripts/Dropdown/jquery.sumoselect.min.js"></script>
+<link href="~/Scripts/Dropdown/dropdownliststyle.css" rel="stylesheet" />
+
+@*<script src="~/Content/bootstrap/datePicker/bootstrap-datepicker.js"></script>
+<script src="~/Content/bootstrap/datePicker/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap/datePicker/bootstrap.min.css" rel="stylesheet" />*@
+<link href="~/Content/bootstrap/datePicker/datepicker.css" rel="stylesheet" />
+<link href="~/Content/css/JqgridStyle.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+<style type="text/css">
+    .btn-primary {
+    color: #fff !important;
+    background-color: #428bca !important;
+    border-color: #357ebd !important;
+}
+    .Viewbtn {
+        /*background-color: #525659 !important;*/
+        color: white;
+        font-weight: bold;
+        border-radius: 4px;
+        width: 25%;
+        border: 0px;
+    }
+
+    .clears {
+        padding-top: 10px !important;
+    }
+
+    .Panel_box {
+        background: #ffffff;
+        box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+        width: 40%;
+        min-width: 150px;
+        padding: 10px 0;
+        border-radius: 12px;
+        margin: auto;
+        position: relative;
+    }
+
+    .input-group {
+        padding: 0 10px 0 10px !important;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .placeholder {
+        top: 7px;
+        position: relative;
+    }
+
+    .input-label {
+        min-width: 100px !important;
+        text-align: left !important;
+    }
+
+    #gbox_Grid {
+        width: 722px !important;
+    }
+</style>
+
+<style type="text/css">
+    .open {
+        display: block !important;
+    }
+
+    .form-control .SlectBox {
+        height: 34px !important;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .SumoSelect .select-all {
+        height: 30px !important;
+    }
+
+    .SumoSelect > .CaptionCont {
+        height: 34px !important;
+    }
+
+    .SumoSelect {
+        width: 100% !important;
+    }
+
+        .SumoSelect > .optWrapper.multiple > .options li.opt {
+            height: 30px !important;
+        }
+
+        .SumoSelect > .CaptionCont {
+            border-radius: 0px !important;
+        }
+</style>
+<style>
+    /*Sure*/
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid .ui-th-div-ie {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-htable {
+        /*letter-spacing: 1px !important;*/
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        line-height: 15px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+    }
+
+    .input-label {
+        min-width: 90px !important;
+        text-align: left;
+    }
+
+    .content-wrapper {
+        min-height: 601px !important;
+        overflow-y: visible !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        color: white !important;
+    }
+
+    #Grid_IsEnrolledAtAttendance, #Grid_AttendanceStatus, #Grid_WHTimeStamp, #Grid_IsRegisteredAtAttendance {
+        background-color: #961d21 !important;
+    }
+
+    #jqgh_Grid_GradeName > .s-ico {
+        display: block !important;
+        bottom: 14px !important;
+        position: relative !important;
+        left: 20px !important;
+    }
+    .ui-jqgrid tr.jqgrow td {
+        white-space: inherit !important;
+    }
+</style>
+
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Instructions Module</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        {
+                            <a href="@Url.Content("~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        {
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        {
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        {
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        {
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        {
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+            <section class="content min-height">
+                <div class="row  Panel_box">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="hidden" id="msgid" value="" />
+                            <div class="input-group">
+                                <span class="input-group-addon input-label" id="sizing-addon2">Message :</span>
+                                @Html.TextArea("txtMessage", "", new { @class = "form-control" })
+                            </div>
+                            <div class="clears"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon input-label" id="sizing-addon2">User Type :</span>
+                                @Html.ListBox("ddlUser", (IEnumerable<SelectListItem>)ViewBag.Roles, new { @multiple = "multiple", @placeholder = "Select Role", @class = "SlectBox form-control" })
+                            </div>
+                            <div class="clears"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon input-label" id="sizing-addon2">Start Date :</span>
+                                @Html.TextBox("txtStart", "", new { @class = "form-control datepicker", @readonly = "readonly" })
+                            </div>
+                            <div class="clears"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon input-label" id="sizing-addon2">End Date :</span>
+                                @Html.TextBox("txtEnd", "", new { @class = "form-control datepicker", @readonly = "readonly" })
+                            </div>
+                            <div class="clears"></div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <center>
+                                        <input type="button" value="Submit"id="btnSubmit" class="btn btn-primary"/>
+                                        @*<button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>*@
+                                        <button type="button" class="btn btn-danger" id="btnClear" value="">Clear</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clears"></div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <center>
+                            <table id="Grid"></table>
+                        </center>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.SlectBox').SumoSelect({
+            selectAll: true
+        });
+
+        //$('.datepicker').datepicker({ dateFormat: 'dd/mm/yy' });
+        $('.datepicker').datetimepicker({
+            language: 'es',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'dd/mm/yyyy'
+            //format: 'DD-MM-YYYY HH:mm:ss'
+        });
+    });
+</script>
+
+<script src="~/Content/jquery/moment.min.js"></script>
+<script src="~/Content/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="~/Content/bootstrap/locales/bootstrap-datetimepicker.uk.js"></script>
+<script src="~/Scripts/Users/InstructionsModule.js"></script>

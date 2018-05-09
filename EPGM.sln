@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGM", "EPGM\EPGM.csproj", "{3ACB90B0-0B2E-4B4B-B00A-0A44FA326F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGM.Business", "EPGM.Business\EPGM.Business.csproj", "{558D8137-68EA-4B47-A631-CF19A63E7351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGM.Data", "EPGM.Data\EPGM.Data.csproj", "{E97D2448-69E9-407F-81E2-AF44C4D724F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGM.Framework", "EPGM.Framework\EPGM.Framework.csproj", "{0DB1411A-82B6-45A1-830E-2634C4E1F196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPGM.Models", "EPGM.Models\EPGM.Models.csproj", "{E51E2EDF-D570-44BB-A346-C58633C11402}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://110.173.184.73:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EPGM.Business\\EPGM.Business.csproj
+		SccProjectName1 = EPGM.Business
+		SccLocalPath1 = EPGM.Business
+		SccProjectUniqueName2 = EPGM.Data\\EPGM.Data.csproj
+		SccProjectName2 = EPGM.Data
+		SccLocalPath2 = EPGM.Data
+		SccProjectUniqueName3 = EPGM.Framework\\EPGM.Framework.csproj
+		SccProjectName3 = EPGM.Framework
+		SccLocalPath3 = EPGM.Framework
+		SccProjectUniqueName4 = EPGM.Models\\EPGM.Models.csproj
+		SccProjectName4 = EPGM.Models
+		SccLocalPath4 = EPGM.Models
+		SccProjectUniqueName5 = EPGM\\EPGM.csproj
+		SccProjectName5 = EPGM
+		SccLocalPath5 = EPGM
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ACB90B0-0B2E-4B4B-B00A-0A44FA326F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACB90B0-0B2E-4B4B-B00A-0A44FA326F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACB90B0-0B2E-4B4B-B00A-0A44FA326F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACB90B0-0B2E-4B4B-B00A-0A44FA326F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558D8137-68EA-4B47-A631-CF19A63E7351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558D8137-68EA-4B47-A631-CF19A63E7351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558D8137-68EA-4B47-A631-CF19A63E7351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558D8137-68EA-4B47-A631-CF19A63E7351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97D2448-69E9-407F-81E2-AF44C4D724F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97D2448-69E9-407F-81E2-AF44C4D724F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97D2448-69E9-407F-81E2-AF44C4D724F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97D2448-69E9-407F-81E2-AF44C4D724F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB1411A-82B6-45A1-830E-2634C4E1F196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB1411A-82B6-45A1-830E-2634C4E1F196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB1411A-82B6-45A1-830E-2634C4E1F196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB1411A-82B6-45A1-830E-2634C4E1F196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E51E2EDF-D570-44BB-A346-C58633C11402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51E2EDF-D570-44BB-A346-C58633C11402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51E2EDF-D570-44BB-A346-C58633C11402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51E2EDF-D570-44BB-A346-C58633C11402}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

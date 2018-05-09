@@ -1,0 +1,145 @@
+﻿@model EPGM.Models.TblAWCMst
+
+@{
+    ViewBag.Title = "ActiveInActiveFFStaff";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+<script src="~/Scripts/FiledForce/ActiveInactiveFFStaff.js"></script>
+<style type="text/css">
+    /*Sure*/
+    .content-wrapper {
+        min-height: 580px !important;
+    }
+
+    /*.input-group .input-group-addon {
+        border-radius: 0;
+        border-color: #d2d6de;
+        background-color: #d2d6de !important;
+    }*/
+
+    .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+        border: 0px solid #ccc !important;
+        background: none !important;
+    }
+
+    .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
+        border-left: solid 1px !important;
+        border-right: solid 1px !important;
+        border-top: solid 1px !important;
+        border-color: #ccc !important;
+        background-color: #7b454b !important;
+        color: white !important;
+    }
+
+    .ui-widget-header .ui-state-default {
+        border: 1px solid #cccccc;
+        background: #fff !important;
+    }
+
+    th.ui-th-column div {
+        height: auto !important;
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        height: auto !important;
+        padding-bottom: 8px !important;
+    }
+
+    th.ui-th-column div {
+        white-space: normal !important;
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+
+    .ui-jqgrid .ui-jqgrid-htable th div {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid .ui-th-div-ie {
+        white-space: normal !important;
+    }
+
+    .ui-jqgrid-htable {
+        /*letter-spacing: 1px !important;*/
+    }
+
+    .ui-jqgrid .ui-jqgrid-htable {
+        line-height: 15px !important;
+    }
+
+    .ui-jqgrid td input {
+        margin-left: -4px !important;
+    }
+
+    .input-label {
+        text-align: left !important;
+        min-width: 90px !important;
+    }
+
+    .ui-jqgrid tr.jqgrow td {
+        padding: 0px 7px 0 4px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        font-family: 'Segoe UI' !important;
+    }
+</style>
+
+<br/>
+<br/>
+<br />
+<br />
+
+<div class="content-wrapper">
+    <section class="content min-height">
+
+        <div class="row">
+
+
+            <div class="col-sm-3">
+                <div class="input-group extra-space">
+                    <span class="input-group-addon input-label">State<span style="color: red"> *</span></span>
+                    @Html.DropDownListFor(m => m.StateID, (IEnumerable<SelectListItem>)ViewBag.States, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-sm-3" style="margin-top:4px;">
+                <div>
+                    <button type="button" class="btn btn-primary" id="btnSubmit"><i class="fa fa-save"></i>Submit</button>
+                    <button type="button" class="btn btn-danger" id="btnClear"><i class="fa fa-times"></i>Clear</button>
+                </div>
+            </div>
+            <div class="col-sm-3 text-right">
+                <button class="btn btn-primary" data-toggle="modal" id="EDScreen" style="width: 120px; display: none">Enable/Disable</button>
+            </div>
+
+
+        </div>
+        </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12" id="gd">
+                <table id="Grid"></table>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+
+    function ClearFields() {
+
+
+       
+        $("#EDScreen").hide();
+        $("#StateID").val("0");
+        $('#Grid').jqGrid("clearGridData");
+    }
+</script>
+

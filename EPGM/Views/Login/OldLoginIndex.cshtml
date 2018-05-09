@@ -1,0 +1,344 @@
+﻿@model EPGM.Models.TblUser
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>EPGM | @ViewBag.Title</title>
+	<!-- Bootstrap -->
+    <link href="~/Content/css/Login/bootstrap.min.css" rel="stylesheet" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="~/Content/css/login_style.css" rel="stylesheet" />
+</head>
+<!--
+<body>-->
+<div class="top"></div>
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-md-3 col-sm-5 col-xs-12">
+				<div class="logo"><img src="~/Content/images/logo1.png"  alt="Growth Monitoring"/></div>
+			</div>
+			<!--<div class="col-md-4 col-md-4 col-sm-7 col-xs-12">
+				<div class="search">
+					<input type="search" placeholder="Search by ID" autofocus>
+					<a href=""><img src="images/search-icon.png" class="search-img"></a>
+					<div id="imaginary_container">
+						<div class="input-group stylish-input-group input-append">
+							<input type="text" class="form-control" placeholder="Search"> <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span> </button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<div class="col-md-9 col-xs-12">
+				<nav>
+					<ul>
+						<li class="active"><a href="@Url.Content("~/")Login/Index">Home</a></li>
+						<li><a href="@Url.Content("~/")Login/OurMission">Our Mission</a></li>
+						<li><a href="@Url.Content("~/")Login/UsefulLinks">Useful links</a></li>
+						<li><a href="@Url.Content("~/")Login/Gallery">Gallery</a></li>
+						<li><a href="@Url.Content("~/")Login/Feedback">Feedback</a></li>
+						<li><a href="@Url.Content("~/")Login/ContactUs">Contact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="banner ">
+				<div id="slider">
+					<figure> 
+                        <img src="~/Content/images/banner01.jpg" alt="growth monitoring" class="img-resp" />
+                        <img src="~/Content/images/banner02.jpg" alt="growth monitoring" class="img-resp" />
+                        <img src="~/Content/images/banner03.jpg" alt="growth monitoring" class="img-resp" />
+                        <img src="~/Content/images/banner04.jpg" alt="growth monitoring" class="img-resp" />
+                        <img src="~/Content/images/banner05.jpg" alt="growth monitoring" class="img-resp" />
+					</figure>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 margin-top" id="fullwidth">
+			<a href="growth.html">
+				<div class="block1">About Growth Monitoring</div>
+			</a>
+			<a href="">
+				<div class="block2">Govt.Guidelines on Nutrition</div>
+			</a>
+			<a href="">
+				<div class="block3">Country / State Level Summary</div>
+			</a>
+			<a href="">
+				<div class="block4">Case Studies / Success Stories</div>
+			</a>
+			<a href="">
+				<div class="block2">Govt.Guidelines on Nutrition</div>
+			</a>
+			<a href="">
+				<div class="block3">Country / State Level Summary</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9 margin-top">
+			<h2>About</h2>
+			<p>Anganwadi is a government sponsored child-care and mother-care center in India. It caters to children in the 0-6 age group. The word means "courtyard shelter" in Hindi. They were started by the Indian government in 1975 as part of the Integrated Child Development Services program to combat child hunger and malnutrition. </p>
+			<p>The Anganwadi system is mainly managed by the Anganwadi worker. She is a health worker chosen from the community and given 4 months training in health, nutrition and child-care. She is incharge of an Anganwadi which covers a population of 1000. 20 to 25 Anganwadi workers are supervised by a Supervisor called Mukhyasevika. 4 Mukhyasevikas are headed by a Child Development Projects Officer (CDPO). </p>
+		</div>
+		<div class="col-md-3">
+			<div class="aside">
+			    <br />
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "Login", @class = "form-horizontal" }))
+                {
+                    <div class="login-head">Login</div>
+                    @Html.AntiForgeryToken()
+                    @Html.TextBoxFor(m => m.Username, null, new { @class = "input input-style", placeholder = "Username" })
+                    <br /><br />
+                    @Html.PasswordFor(m => m.Password, new { @class = "input input-style", placeholder = "Password" })
+                    <br /><br />
+                        <input type="submit" class="btn btn-success btn-sm" value="Sign in">
+                    <div class="text-center">
+                        @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+                        {
+                            @Html.ValidationSummary("Error")
+                        }
+                    </div>
+                }
+			    <br />
+
+                @*<div class="login-head">Login</div>
+				<input type="text" class="input input-style" autofocus placeholder="Username">
+				<input type="password" class="input input-style" autofocus placeholder="Password">
+				<input type="submit" class="input input-style" autofocus value="Login">*@
+				<!--<ul>
+				<marquee direction="up" behavior="scroll" onmouseover="stop();" onmouseout="start();" onemptied="" scrolldelay="0.8s" spellcheck="true">
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+					<li><a href="">Latest News/Announcements</a></li>
+				</marquee>
+			</ul>
+			<div class="aside-footer">Latest News</div>
+-->
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<p style="float:left;">&copy; Copyright Reserved By</p>
+        <img src="~/Content/images/raminfo-logo-1.png" width="100" style="float:right;" /></div>
+</footer>
+<!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed-->
+    <script src="~/Scripts/Common/bootstrap.min.js"></script>
+@*</body>*@
+</html>
+
+
+
+
+@*@model EPGM.Models.TblUser
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="~/Content/css/Dashboard/geo-final.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="overlay"></div>
+    <div id="container">
+        <header>
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-6 col-xs-10">
+                        <img src="~/Content/images/ap_logo.png" class="img-responsive img-height" />
+                    </div>
+                    <div class="col-md-6 col-xs-2">
+                        <img src="~/Content/images/ap_emblem.png" class="img-responsive img-width pull-right" />
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="wrapper">
+                <div class="row margin">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6 col-xs-12">
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "Login", @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="login">
+                                <h3>LOGIN</h3>
+                                <div class="input-style">
+                                    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span><span>| </span>
+                                    @Html.TextBoxFor(m => m.Username, null, new { @class = "new-style", placeholder = "Username" })*@
+                                    @*<input type="text" placeholder="Mobile Number" class="new-style" checked required>*@
+@*                                </div>
+                                <div class="input-style">
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span><span>| </span>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "new-style", placeholder = "Password" })*@
+@*<input type="password" placeholder="Password" class="" checked required>*@
+@*                                </div>
+                                <div class="text-center">
+                                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+                                    {
+                                        @Html.ValidationSummary("Error")
+                                    }
+                                </div>
+                                <div class="input-style-foot">
+                                    <!--<span class="font-color">Forgot Password</span>-->
+                                    <button type="submit" class="btn btn-success pull-right btn-sm">Sign in</button>*@
+@*<a href="launch.html"><span class="font-color btn btn-primary pull-right">Sign In</span>
+                                </a>*@
+@*                                </div>
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
+        </section>
+        <footer style="height: 60px">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-10 col-xs-12" style="margin-top: -10px">
+                        <div>Designed, Developed and Maintained by </div>
+                        <div>&copy; Copyrights @DateTime.Now.Year. All rights reserved. </div>
+                    </div>
+                    <div class="col-md-2 col-xs-12 pull-right" style="margin-top: -13px">
+                        <img src="~/Content/images/raminfo-logo.png" class="img-responsive" alt="raminfo footer logo" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!---------------------------------------------------------------------------------------->
+    </div>
+</body>
+</html>
+*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="hilip technologies">
+    <meta name="description" content="TTD online store">
+    <meta name="viewport" content="width=device-width">
+    <title>EPGM | Login</title>
+    <link href="~/Content/css/Dashboard/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Dashboard/font-awesome.min.css" rel="stylesheet" />
+    <script>
+        var appRoot = "@Url.Content("~")";
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" style="height: 70px !important">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" style="padding-top: 25px"><b>EPGM Portal</b></a>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper" style="margin-top: 72px">
+        <div class="col-md-4 col-sm-2 xol-xs-1"></div>
+        <div class="col-md-4 col-sm-8 xol-xs-10">
+            <br /><br /><br />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock"></span> Login
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { id = "Login", @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">
+                                Username
+                            </label>
+                            <div class="col-sm-9">
+                                @Html.TextBoxFor(m => m.Username, null, new { @class = "form-control", placeholder = "Username" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label">
+                                Password
+                            </label>
+                            <div class="col-sm-9">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-success pull-right btn-sm">
+                                    Sign in
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-2 xol-xs-1"></div>
+    </div>
+
+</body>
+</html>
+
+*@

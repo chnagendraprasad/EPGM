@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Notifications";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<style type="text/css">
+    .clears {
+        padding-top: 10px !important;
+    }
+
+    .Panel_box {
+        background: #ffffff;
+        box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+        width: 600px;
+        /*padding: 5px;*/
+        border-radius: 12px;
+        margin: auto;
+        position: relative;
+    }
+
+    #divdata {
+        padding: 5px;
+    }
+
+    panel {
+        font-family: 'Segoe UI' !important;
+    }
+
+    .badge {
+        position: relative;
+        bottom: 10px;
+        right: 10px;
+    }
+</style>
+<div class="panel panel-brown">
+    <div class="content-wrapper">
+        <div class="bodycontent">
+            <section class="panel-heading panel-brown">
+                <ol class="breadcrumb">
+                    <li class="panel-title pull-left"><span href="#" style="font-weight: bold;">Notifications</span></li>
+                    <li class="pull-right active">
+                        @if (Session["UserTypeID"].ToString() == "0")
+                        {
+                            <a href="@Url.Content("~/")Home/EPGMIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "1")
+                        {
+                            <a href="@Url.Content("~/")Home/Index"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "2" || Session["UserTypeID"].ToString() == "3" || Session["UserTypeID"].ToString() == "4")
+                        {
+                            <a href="@Url.Content("~/")Home/DistrictIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "5")
+                        {
+                            <a href="@Url.Content("~/")Home/ProjectIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "6")
+                        {
+                            <a href="@Url.Content("~/")Home/SectorIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                        @if (Session["UserTypeID"].ToString() == "7")
+                        {
+                            <a href="@Url.Content("~/")Home/AWCIndex"><i class="fa fa-dashboard"></i><span style="font-size: 14px">Dashboard</span></a>
+                        }
+                    </li>
+                </ol>
+            </section>
+
+            <section class="content min-height">
+                <div class="row  Panel_box">
+                    <div class="panel-heading" style="background-color:#134479;color:white;border-radius: 12px 12px 0px 0px;">
+                        <label style="font-family:'Segoe UI'">Notifications</label>
+                    </div>
+                    <div id="divdata" style="font-family:'Segoe UI'">
+                        <div class="col-sm-12">
+                            @{
+                                List<EPGM.Models.SPGetMessages_Result> messages = (List<EPGM.Models.SPGetMessages_Result>)ViewBag.Notifications;
+
+                                foreach (var item in messages)
+                                {
+                                    <ul>
+                                        @if(item.EndDate > DateTime.Now)
+                                        {
+                                        <li>@item.MessageDesc</li>
+                                        }
+                                    </ul>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+</div>
